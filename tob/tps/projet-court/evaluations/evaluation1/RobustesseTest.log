@@ -1,0 +1,541 @@
+SCORE: 10
+JUnit version 4.12
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "x", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "yyy@rapide", "xxx@rapide@naif")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("x", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "yyy@rapide", "xxx@xyz")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("yyy@rapide", "xxx@ville@naif")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("@humain", "ordi@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("xxx@xyz", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : Erreur dans la saisie
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "xxx@rapide@naif", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+..
+================================================================================
+> java allumettes.Jouer.main("-confiant", "yyy@rapide", "xxx@ville@naif")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("yyy@rapide", "xxx@xyz")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "@humain", "ordi@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("xxx@rapide@naif", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant")
+--------------------------------------------------------------------------------
+
+Erreur : Trop peu d'arguments : 1
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "xxx@ville@naif", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("xxx@ville@naif", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("yyy@rapide", "x")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "-confiant")
+--------------------------------------------------------------------------------
+
+Erreur : mauvaise config
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main()
+--------------------------------------------------------------------------------
+
+Erreur : Trop peu d'arguments : 0
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "yyy@rapide", "x")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "xxx@xyz", "yyy@rapide")
+--------------------------------------------------------------------------------
+
+Erreur : Erreur dans la saisie
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("-confiant", "ordi@rapide", "@humain")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("yyy@rapide", "xxx@rapide@naif")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E.
+================================================================================
+> java allumettes.Jouer.main("-confiant")
+--------------------------------------------------------------------------------
+
+Erreur : Trop peu d'arguments : 1
+
+Usage :
+	java allumettes.Jouer joueur1 joueur2
+		joueur est de la forme nom@stratégie
+		strategie = naif | rapide | expert | humain | tricheur
+
+	Exemple :
+		java allumettes.Jouer Xavier@humain Ordinateur@naif
+
+--------------------------------------------------------------------------------
+
+
+.
+================================================================================
+> java allumettes.Jouer.main("ordi@rapide", "@humain")
+--------------------------------------------------------------------------------
+wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww
+*** Exception non récupérée : java.lang.AssertionError
+--------------------------------------------------------------------------------
+
+
+E
+
+There were 10 failures:
+1) testerStrategieDoubleAtSymetrieConfiant(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerStrategieDoubleAtSymetrieConfiant(RobustesseTest.java:232)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+2) testerStrategieInconnueSymetrieConfiant(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerStrategieInconnueSymetrieConfiant(RobustesseTest.java:208)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+3) testerStrategieDoubleAtStrategieALaFinSymetrie(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerStrategieDoubleAtStrategieALaFinSymetrie(RobustesseTest.java:262)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+4) testerStrategieDoubleAtStrategieALaFinSymetrieConfiant(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerStrategieDoubleAtStrategieALaFinSymetrieConfiant(RobustesseTest.java:256)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+5) testerStrategieInconnueSymetrie(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerStrategieInconnueSymetrie(RobustesseTest.java:214)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+6) testerSansStrategieSymetrie(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerSansStrategieSymetrie(RobustesseTest.java:190)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+7) testerSansStrategieSymetrieConfiant(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerSansStrategieSymetrieConfiant(RobustesseTest.java:184)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+8) testerNomNonDefiniSymetrieConfiant(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerNomNonDefiniSymetrieConfiant(RobustesseTest.java:160)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+9) testerStrategieDoubleAtSymetrie(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerStrategieDoubleAtSymetrie(RobustesseTest.java:238)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+10) testerNomNonDefiniSymetrie(RobustesseTest)
+java.lang.AssertionError
+	at allumettes.Joueur.<init>(Joueur.java:16)
+	at allumettes.Jouer.creerJoueur(Jouer.java:116)
+	at allumettes.Jouer.main(Jouer.java:34)
+	at RobustesseTest.runJouer(RobustesseTest.java:97)
+	at RobustesseTest.testerNomNonDefiniSymetrie(RobustesseTest.java:166)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+
+FAILURES!!!
+Tests run: 25,  Failures: 10
+

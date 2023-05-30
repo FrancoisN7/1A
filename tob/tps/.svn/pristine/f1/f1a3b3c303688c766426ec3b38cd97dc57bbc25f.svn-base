@@ -1,0 +1,9 @@
+public class Expert implements Strategie {
+
+	/** Obtenir le nombre d'allumettes que le joueur veut prendre.
+	 * @return le nombre d'allumettes que le joueur veut prendre */
+    public int getPrise() {
+        //définir un mode expert
+    }
+
+}

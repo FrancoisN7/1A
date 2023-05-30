@@ -1,0 +1,109 @@
+package IU;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.util.Objects;
+
+import javax.swing.*;
+
+import Joueur.Joueur;
+import net.miginfocom.swing.MigLayout;
+import Barre_Outils.Inventaire;
+import Carte.VC.CarteFenetre;
+
+public class BarreUtilisateur extends JPanel implements PropertyChangeListener {
+
+	static final int width = 1280;
+	static final int height = 200;
+
+	Joueur joueur;
+
+	JLabel messageJoueurLabel;
+
+	/**
+	 * 
+	 */
+	public BarreUtilisateur(Joueur joueur) {
+		super();
+		this.joueur = joueur;
+
+		// Paramètres de la barre
+		this.setPreferredSize(new Dimension(width, height));
+		this.setBackground(Color.BLACK);
+		this.setLayout(new MigLayout("", "[1100::]", "[100::]"));
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Affichage du message pour le joueur
+		messageJoueurLabel = new JLabel();
+		messageJoueurLabel.setFont(new Font("Verdana", Font.PLAIN, 30));
+		messageJoueurLabel.setForeground(Color.WHITE);
+		messageJoueurLabel.setHorizontalAlignment(JLabel.CENTER);
+		messageJoueurLabel.setVerticalAlignment(JLabel.CENTER);
+		this.add(messageJoueurLabel, "span");
+		joueur.addPropertyChangeListener(this);
+	}
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (evt.getPropertyName().equals("message")) {
+			messageJoueurLabel.setText((String) evt.getNewValue());
+		}
+	}
+
+	public void initialiser() {
+		this.removeAll();
+		this.repaint();
+		joueur.setMessage("");
+		this.add(messageJoueurLabel, "dock center");
+		
+		
+        
+		
+		// Bouton inventaire
+		JButton backpackButton = new JButton(new ImageIcon(Objects.requireNonNull(this.getClass().getResource("res/backpack.png"))));
+		backpackButton.setBorderPainted(false);
+		backpackButton.setBackground(Color.BLACK);
+		backpackButton.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				new Inventaire(joueur.getInventaire());
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		this.add(backpackButton, "dock east");
+		
+		// Bouton carte
+		JButton buttoncarte = new JButton("Carte");
+		buttoncarte.addActionListener(ev -> new CarteFenetre(joueur));
+		this.add(buttoncarte, "dock west");
+		
+		
+
+	}
+}

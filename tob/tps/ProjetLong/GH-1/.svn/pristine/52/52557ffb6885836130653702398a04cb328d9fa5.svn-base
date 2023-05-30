@@ -1,0 +1,35 @@
+package GestionnaireJeu;
+
+import Joueur.JoueurSimple;
+import Zone.Modele.Fleche;
+import Zone.Modele.ZoneSimple;
+
+import java.util.HashMap;
+
+public class GestionnaireDeJeu {
+	private final HashMap<String, ZoneSimple> zones;
+	private final JoueurSimple joueur;
+
+	public GestionnaireDeJeu(){
+		zones = new HashMap<>();
+		zones.put("Foret", new ZoneSimple("foret.jpg", "Foret"));
+		zones.put("Village", new ZoneSimple("village.jpg", "Village"));
+		zones.put("Crash", new ZoneSimple("avion.jpg", "Crash"));
+		zones.put("Plage", new ZoneSimple("plage.jpg", "Plage"));
+		zones.put("Falaise", new ZoneSimple("falaise.jpg", "Falaise"));
+		joueur = new JoueurSimple(zones.get("Crash"));
+		zones.get("Plage").ajouterElementInteractif(new Fleche(this));
+	}
+
+	public ZoneSimple getZone(String nomZone) {
+		return zones.get(nomZone);
+	}
+
+	public HashMap<String, ZoneSimple> getZones(){
+		return zones;
+	}
+
+	public JoueurSimple getJoueur() {
+		return joueur;
+	}
+}

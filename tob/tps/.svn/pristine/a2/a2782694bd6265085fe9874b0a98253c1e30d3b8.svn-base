@@ -1,0 +1,17 @@
+Allumettes restantes : 13
+Xavier, combien d'allumettes ? Xavier prend 1 allumette.
+
+Allumettes restantes : 12
+Ordinateur prend 3 allumettes.
+
+Allumettes restantes : 9
+Xavier, combien d'allumettes ? Exception in thread "main" java.util.NoSuchElementException
+	at java.base/java.util.Scanner.throwFor(Scanner.java:937)
+	at java.base/java.util.Scanner.next(Scanner.java:1594)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2258)
+	at java.base/java.util.Scanner.nextInt(Scanner.java:2212)
+	at allumettes.Humain.getPrise(Humain.java:18)
+	at allumettes.Arbitre.FaireJouerInterne(Arbitre.java:70)
+	at allumettes.Arbitre.FaireJouer(Arbitre.java:41)
+	at allumettes.Arbitre.Jouons(Arbitre.java:143)
+	at allumettes.Jouer.main(Jouer.java:46)

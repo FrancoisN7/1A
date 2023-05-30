@@ -1,0 +1,9 @@
+package allumettes;
+
+public interface Strategie {
+    private String Strategie;
+	/** Obtenir le nombre d'allumettes que le joueur veut prendre.
+	 * @return le nombre d'allumettes que le joueur veut prendre */
+	/*@ pure helper @*/ getPrise();
+
+}

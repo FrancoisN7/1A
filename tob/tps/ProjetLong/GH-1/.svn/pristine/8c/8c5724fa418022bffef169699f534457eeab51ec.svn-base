@@ -1,0 +1,83 @@
+import javax.swing.ImageIcon;
+
+public class ModeleInteractionSimple implements ModeleInteraction {
+
+	
+	// les images à utiliser en fonction de l'état du jeu.
+	private ImageIcon perso;// = new ImageIcon("luffy.jpeg");
+	private String reponse1;// = "Tu veux rejoindre mon equipage ?";
+	private String reponse2;// = "VIAAAAAAAAAANDE";
+	private String reponse3;// = "Promis mange pas poulpi";
+	private String reponse4;// = "zzzzzzz";
+	private String texteperso;// = "JE SERAI LE ROI DES PIRATES";
+	
+	
+	public ModeleInteractionSimple(ImageIcon perso,String reponse1, String reponse2,
+			String reponse3, String reponse4, String texteperso) {
+		this.perso = perso;
+		this.reponse1 = reponse1;
+		this.reponse2 = reponse2;
+		this.reponse3 = reponse3;
+		this.reponse4 = reponse4;
+		this.texteperso = texteperso;
+
+	}
+	
+	
+	
+	@Override
+	public void quitterInteraction() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void agir1() {
+		System.out.println("1");
+		
+	}
+
+	@Override
+	public void agir2() {
+		System.out.println("2");
+		
+	}
+
+	@Override
+	public void agir3() {
+		System.out.println("3");
+		
+	}
+
+	@Override
+	public void agir4() {
+		System.out.println("4");
+		
+	}
+	
+	public ImageIcon getPerso() {
+		return perso;
+	}
+	
+	public String getTexteperso() {
+		return texteperso;
+	}
+	
+	public String getReponse1() {
+		return reponse1;
+	}
+	
+	public String getReponse2() {
+		return reponse2;
+	}
+	
+	public String getReponse3() {
+		return reponse3;
+	}
+	
+	public String getReponse4() {
+		return reponse4;
+	}
+	
+
+}

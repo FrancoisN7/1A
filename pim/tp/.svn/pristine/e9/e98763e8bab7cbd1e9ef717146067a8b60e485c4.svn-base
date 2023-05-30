@@ -1,0 +1,11 @@
+generic
+	type T_Cle is private;
+   type T_Donnee is private;
+
+package T_TH is
+   type TH is limited private;
+
+
+private
+   CAPACITE:=11;
+   type T_Tab is array(1..CAPACITE) of T_LCA;

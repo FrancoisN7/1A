@@ -1,0 +1,284 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/octet.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 21" line=" 108" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 55" line=" 6" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 32" line=" 15" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 51" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 51" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 18" line=" 51" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/mfranot/annee_1/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/mfranot/annee_1/pim/tp/GH10/Gnat/src/sda_exceptions.ads</vfs_file>
+    </file_marker>
+  </Project>
+  <Project >
+    <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/octet.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/sda_exceptions.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/tableau.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/tableau.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/sda_exceptions.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/octet.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/tableau.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/octet.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 5">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 19" line=" 27">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 2">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 30">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 11">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_octet.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 4" line=" 25">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 72">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 9" line=" 38">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 84">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 80">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 3" line=" 84">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 15" line=" 89">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 40">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 40">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 40">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 59" line=" 17">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 32" line=" 70">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 40">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 40">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 81" line=" 15">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 42">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 32" line=" 50">
+      <vfs_project >/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file >/home/ftestu/1A/pim/tp/GH10/Gnat/src/test_arbre.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

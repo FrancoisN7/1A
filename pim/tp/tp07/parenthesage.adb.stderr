@@ -1,0 +1,14 @@
+parenthesage.adb:1:06: warning: unit "Piles" is never instantiated [-gnatwu]
+parenthesage.adb:14:13: error: "Sommet" is not visible (more references follow)
+parenthesage.adb:14:13: error: non-visible declaration at piles.ads:27
+parenthesage.adb:19:10: error: "Depiler" is not visible (more references follow)
+parenthesage.adb:19:10: error: non-visible declaration at piles.ads:38
+parenthesage.adb:56:07: error: "indice_erreur" conflicts with declaration at line 52
+parenthesage.adb:57:19: error: unconstrained subtype not allowed (need initialization)
+parenthesage.adb:57:19: error: provide initial value or explicit array bounds
+parenthesage.adb:58:23: error: "T_Piles" is undefined
+parenthesage.adb:64:21: error: expected type "Standard.String"
+parenthesage.adb:64:21: error: found type "Standard.Character"
+parenthesage.adb:66:16: error: "empiler" is not visible
+parenthesage.adb:66:16: error: non-visible declaration at piles.ads:32
+parenthesage.adb:85:07: error: procedure cannot return value (use function)

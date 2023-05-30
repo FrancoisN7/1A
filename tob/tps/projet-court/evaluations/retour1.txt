@@ -1,0 +1,30 @@
+
++ C3 : Qualité du source de l'application
+    + non respect des règles (convention de nommage pour les variables)
+    + redondance (constructeurs de Arbitre, création des joueurs)
+    + choix des identifiants (Proxy)
++ C13 : L'arbitre ne doit ni utiliser directement la stratégie d'un joueur
++ C14 : Impossible de changer dynamiquement de stratégie (cf Q3)
++ C16 : Tests unitaires de la stratégie rapide
+	+ pas de classe de test sur le svn
+
++ L3 : Fichier LISEZ-MOI.txt
+    + non rempli
+
++ Autres remarques :
+    + il ne faut pas modifier ConfigurationException.java ni
+      CoupInvalideException.java
+    + inutile d'instancier JeuProxy à chaque tour (Arbitre.java:75)
+    + l'arbitre ne devrait pas accéder aux stratégies des joueurs
+    + la detection de triche ne doit pas se faire sur le nom de la stratégie
+      (la stratégie Humain permet de tricher !) (Arbitre.arbitrer)
+    + la classe jeu pourrait lever une exception prête à être affichée plutôt
+      que de devoir ensuite reconstruire le message
+    + Strategie:9 : getPrise n'est ni pure ni un 'helper'
+    + la classe Random n'a pas besoin d'être instanciée à chaque appel à la
+      méthode getPrise (Naif.java:16)
+    + à quoi sert la classe HumainTest ?
+    + merci pour la documentation
+
++ Correction sur les pénalités automatiques : 0
+

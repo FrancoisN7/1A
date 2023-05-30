@@ -1,0 +1,117 @@
+-- with Ada.Text_IO;            use Ada.Text_IO;
+with SDA_Exceptions;         use SDA_Exceptions;
+with Ada.Unchecked_Deallocation;
+
+package body TH is
+
+	procedure Initialiser(Th: out T_TH) is
+   begin
+      for i in 1..CAPACITE loop
+         LCA_2.Initialiser(Th(i));
+      end loop;
+	end Initialiser;
+
+
+   function Est_Vide (Th : in T_TH) return Boolean is
+      test : Boolean;
+      indice : Integer;
+   begin
+      indice:=0;
+      test:=True;
+      While indice<=CAPACITE and test loop
+         if LCA_2.Est_vide(Th(indice)) then
+            null;
+         else
+            test:=False;
+         end if;
+         indice:=indice+1;
+      end loop;
+      return test;
+	end Est_vide;
+
+
+   function Taille (Th : in T_TH) return Integer is
+      Taille_th : Integer;
+   begin
+      Taille_th:=0;
+      for i in 1..CAPACITE loop
+         Taille_th:=Taille_th+LCA_2.Taille(Th(i));
+         end loop;
+         return(Taille_th);
+	end Taille;
+
+
+   procedure Enregistrer (Th : in out T_TH ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+	begin
+
+	end Enregistrer;
+
+
+   function Cle_Presente (Th : in T_TH ; Cle : in T_Cle) return Boolean is
+      begin
+      if Th=null then
+         return False ;
+      elsif Th.cle=Cle then
+         return True;
+      else
+         return Cle_Presente(Th.all.suivant, Cle);
+      end if;
+	end;
+
+
+   function La_Donnee (Th : in T_TH ; Cle : in T_Cle) return T_Donnee is
+   begin
+      if Th=null then
+         raise Cle_Absente_Exception;
+      elsif Th.cle=Cle then
+         return(Th.all.donnee);
+      else
+         return(La_Donnee(Th.all.suivant,Cle));
+      end if;
+	end La_Donnee;
+
+
+   procedure Supprimer (Th : in out T_TH ; Cle : in T_Cle) is
+      A_supp : T_TH;
+   begin
+      if Th=null then
+         raise Cle_Absente_Exception;
+      else
+         if Th.cle=Cle then
+            A_supp:=Th;
+            Th:=Th.all.suivant;
+            Free(A_supp);
+         else
+            Supprimer(Th.all.suivant,Cle);
+         end if;
+      end if;
+	end Supprimer;
+
+
+   procedure Vider (Th : in out T_TH) is
+	begin
+      While Th/=null loop
+         Supprimer(Th,Th.all.cle);
+      end loop;
+	end Vider;
+
+
+   procedure Pour_Chaque (Th : in T_TH) is
+      Cle : T_cle;
+      Donnee : T_Donnee;
+   begin
+      if not Est_Vide(Th) then
+         begin
+            Cle:=Th.cle;
+            Donnee:=Th.donnee;
+            Traiter(Cle,Donnee);
+            Pour_chaque(Th.all.suivant);
+         exception
+            When others => Pour_chaque(Th.all.suivant);
+         end;
+      end if;
+
+   end Pour_Chaque;
+
+
+end TH;

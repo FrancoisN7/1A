@@ -1,0 +1,28 @@
+Cercle.java:36: error: ';' expected
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                     ^
+Cercle.java:36: error: ';' expected
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                           ^
+Cercle.java:36: error: not a statement
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                                   ^
+Cercle.java:52: error: ';' expected
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                     ^
+Cercle.java:52: error: ';' expected
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                           ^
+Cercle.java:52: error: not a statement
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                                   ^
+Cercle.java:68: error: ';' expected
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                     ^
+Cercle.java:68: error: ';' expected
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                           ^
+Cercle.java:68: error: not a statement
+        assert p1.getX() != p2.getX() or p1.getY() != p2.getY();
+                                                   ^
+9 errors

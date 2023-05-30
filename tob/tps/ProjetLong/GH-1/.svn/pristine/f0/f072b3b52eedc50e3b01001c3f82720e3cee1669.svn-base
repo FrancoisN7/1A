@@ -1,0 +1,71 @@
+package Joueur;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+import Carte.Modele.Carte;
+import Carte.Modele.CarteSimple;
+import Carte.Modele.LieuCarte;
+import Zone.Zone;
+import Zone.Zones;
+
+public class JoueurSimple implements Joueur {
+
+	private Zone zoneCourante;
+	private final PropertyChangeSupport support;
+	private String message;
+	private final Inventaire inventaire;
+	private final Carte carte;
+
+	/**
+	 * Créer un joueur dans une zone de départ choisie.
+	 * @param zoneDepart la zone de départ
+	 */
+	public JoueurSimple(Zone zoneDepart) {
+		this.zoneCourante = zoneDepart;
+		this.message = null;
+
+		LieuCarte foretmap = new LieuCarte(Zones.foret, "foret", "croix.png", 100, 100, this);
+		this.carte = new CarteSimple(null, null);
+		this.carte.ajouterLieuAccessible(foretmap);
+		this.inventaire = new Inventaire();
+		support = new PropertyChangeSupport(this);
+	}
+
+	@Override
+	public Inventaire getInventaire() {
+		return inventaire;
+	}
+
+	@Override
+	public Zone getZoneCourante() {
+		return this.zoneCourante;
+	}
+
+	@Override
+	public void setZoneCourante(Zone nouvelleZone) {
+		support.firePropertyChange("zone", this.zoneCourante, nouvelleZone);
+		this.zoneCourante = nouvelleZone;
+	}
+
+	@Override
+	public Carte getCarte(){
+		return carte;
+	}
+	@Override
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void setMessage(String message) {
+		support.firePropertyChange("message", this.message, message);
+		this.message = message;
+	}
+
+}

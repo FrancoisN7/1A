@@ -1,0 +1,22 @@
+[GENERATED OBJECT FILE]
+b__compresser.o
+[PROJECT FILES]
+/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr
+20220106121921 b6b84f2b037aca082d9c5369280c4df4
+[BOUND OBJECT FILES]
+/home/ftestu/1A/pim/tp/GH10/Gnat/obj/lca.o
+/home/ftestu/1A/pim/tp/GH10/Gnat/obj/tableau.o
+/home/ftestu/1A/pim/tp/GH10/Gnat/obj/arbre.o
+/home/ftestu/1A/pim/tp/GH10/Gnat/obj/compresser.o
+[GENERATED SOURCE FILES]
+b__compresser.ads
+b__compresser.adb
+b__compresser.ali
+[RESULTING OPTIONS]
+-L/home/ftestu/1A/pim/tp/GH10/Gnat/obj/
+-L/home/ftestu/1A/pim/tp/GH10/Gnat/obj/
+-L/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/
+-static
+-static-libgcc
+/mnt/n7fs/ens/tp_cregut/GNAT/2021/lib/gcc/x86_64-pc-linux-gnu/10.3.1/adalib/libgnat.a
+-ldl

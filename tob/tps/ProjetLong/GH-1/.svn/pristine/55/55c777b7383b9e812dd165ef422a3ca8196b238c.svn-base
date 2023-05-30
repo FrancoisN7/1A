@@ -1,0 +1,85 @@
+package Barre_Outils;
+
+public class ModeleInventaireSimple implements ModeleInventaire {
+
+    /** La zone de l'inventaire */
+	private Contenu[][] cases;
+
+    public ModeleInventaireSimple(){
+
+        // Créer les cases de l'inventaire
+        this.cases = new Contenu[ModeleInventaire.COLONNES][ModeleInventaire.LIGNES];
+
+        initialiser();
+
+    }
+
+    /** Initialiser l'inventaire */
+	private void initialiser() {
+        
+		for (int i = 0; i < this.cases.length; i++) {
+			for (int j = 0; j < this.cases[i].length; j++) {
+				this.cases[i][j] = Contenu.VIDE;
+			}
+		}
+    }
+
+    /** Est-ce que la case de l'inventaire est vide.
+     * @param x colonne de la case
+	 * @param y ligne de la case
+     * @return
+     */
+    private boolean estVide(int x, int y){
+        return getValeur(x,y) == Contenu.VIDE;
+    }
+
+    public void ajouter(Contenu objet) throws InventairePleinException{
+        
+        int i =0;
+        int j = 0;
+
+        while ( this.cases[i][j] != Contenu.VIDE ) {
+            i++;
+            j++;
+
+            if ( i == this.cases.length  && j== this.cases[i].length ){
+                throw new InventairePleinException("Impossible, l'inventaire est plein !");
+            }
+
+            if ( i == this.cases.length ){
+                i = 0;
+            }
+            if ( j == this.cases[i].length ){
+                j = 0;
+            }
+             
+
+        }
+
+        this.cases[i][j] = objet;
+
+    }
+
+
+    public ModeleInventaire.Contenu prendre(int x, int y) throws CaseVideException {
+
+        if ( estVide(x,y)){
+
+            throw new CaseVideException("La case est vide");
+        }
+
+        return this.cases[x][y] = Contenu.VIDE;
+
+        
+    }
+
+    public void fermer(){
+
+    }
+
+    public ModeleInventaire.Contenu getValeur(int x, int y){
+        return this.cases[x][y];
+    }
+
+
+}

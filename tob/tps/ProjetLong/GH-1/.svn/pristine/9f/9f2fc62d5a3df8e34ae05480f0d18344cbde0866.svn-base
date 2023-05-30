@@ -1,0 +1,82 @@
+package Zone.Modele;
+
+import Affichable.Interactif;
+import Dialogue.*;
+import GestionnaireJeu.GestionnaireDeJeu;
+import Joueur.Joueur;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.Objects;
+
+public class Naufrage implements Interactif {
+
+    private final ImageIcon image;
+    private final Joueur joueur;
+    private final GestionnaireDeJeu gestionnaireDeJeu;
+
+    public Naufrage(GestionnaireDeJeu gestionnaireDeJeu){
+        this.image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("res/" + "naufrage.png")));
+        this.gestionnaireDeJeu = gestionnaireDeJeu;
+        this.joueur = gestionnaireDeJeu.getJoueur();
+    }
+
+    @Override
+    public ImageIcon getImage() {
+        return image;
+    }
+
+    @Override
+    public int getX() {
+        return 900;
+    }
+
+    @Override
+    public int getY() {
+        return 350;
+    }
+
+    @Override
+    public int getLargeur() {
+        return 100;
+    }
+
+    @Override
+    public int getHauteur() {
+        return 153;
+    }
+
+    @Override
+    public String getNom() {
+        return "Naufragé";
+    }
+
+    @Override
+    public String[] getOptions() {
+        return new String[]{"Parler", "Annuler"};
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        switch (actionEvent.getActionCommand()){
+            case "Parler": new DialogueIU(new DialogueSimple("Naufragé", "naufrage.png", genererArbreDialogueNaufrage())); break;
+            case "Annuler": break;
+        }
+    }
+
+    public ArbreDialogue genererArbreDialogueNaufrage(){
+        ArbreDialogue arbreDialogue = new ArbreDialogue(null,"Naufragé: ...", "1.Où suis-je?");
+        arbreDialogue.ajouterEnfant(null,"Naufragé: Tu viens d'échouer sur une ile!", "1.Que dois-je faire?");
+        arbreDialogue.descendreSurEnfant(1);
+        arbreDialogue.ajouterEnfant(null,"Naufragé: T'enfuir au plus vite, car un volcan va bientôt exploser!", "1.Et vous...?");
+        arbreDialogue.descendreSurEnfant(1);
+        arbreDialogue.ajouterEnfant(new Executable() {
+            @Override
+            public void executer() {
+                gestionnaireDeJeu.getJoueur().setZoneCourante(gestionnaireDeJeu.getZone("Falaise"));
+            }
+        },"Naufragé: Ne t'inquiète pas pour moi! Passe par la falaise.", "1.Aller à la Falaise");
+        arbreDialogue.retourARacine();
+        return arbreDialogue;
+    }
+}

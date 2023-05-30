@@ -1,0 +1,37 @@
+package Affichable;
+
+import javax.swing.ImageIcon;
+
+/* Interface pour les éléments affichables */
+public interface Affichable {
+
+	/**
+	 * Obtenir l'image d'un élément affichable.
+	 * @return String désignant l'image
+	 */
+	ImageIcon getImage();
+
+	/**
+	 * Obtenir l'abscisse de la position de l'image.
+	 * @return entier correspondant à l'abscisse sur la fenetre
+	 */
+	int getX();
+
+	/**
+	 * Obtenir l'ordonnee de la position de l'image.
+	 * @return entier correspondant à l'ordonnée sur la fenetre
+	 */
+	int getY();
+
+	/**
+	 * Obtenir la longueur de l'image.
+	 * @return entier correspondant à la longeur de l'image.
+	 */
+	int getWidth();
+	
+	/**
+	 * Obtenir la largeur de l'image.
+	 * @return entier correspondant à la largeur de l'image.
+	 */
+	int getHeight();
+}

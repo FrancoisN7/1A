@@ -1,0 +1,179 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Command_line; use Ada.Command_line;
+with arbre; use arbre;
+with LCA; use LCA;
+
+
+procedure decompresser is
+
+    function byte2int(octet : T_octet) return integer is
+        val : integer;
+        bit : T_octet;
+        courant : T_octet;
+    begin
+        val := 0;
+        courant := octet;
+        for i in 1..8 loop
+            bit := courant / 128;
+            if bit = 1 then
+                val := (val *2) + 1;
+            else
+                val := (val*2) + 0;
+            end if;
+            courant := courant*2;
+        end loop;
+        return val;
+    end byte2int;
+
+    procedure recuperer_tab_infixe(file_hff : in out Byte_file.file_type; tab_infixe : out tab_entier.T_Tableau; taille : out integer) is
+        octet : T_octet;
+        donnee : Integer;
+        indice : integer;
+    begin
+        taille := 0;
+        loop--construire le tableau infixe
+            taille := taille + 1;
+            byte_file.read(file_hff, octet);
+            donnee := byte2int(octet);
+            tab_entier.Enregistrer(tab_infixe, taille, donnee);
+            exit when taille>1 and then donnee = tab_entier.la_donnee(tab_infixe, taille - 1);
+        end loop;
+        taille := taille - 1;
+        --traiter la position du symbole de fin de fichier
+        indice := tab_entier.la_donnee(tab_infixe, 1);
+        donnee := tab_entier.la_donnee(tab_infixe, indice);
+        tab_entier.Enregistrer(tab_infixe, 1, donnee);
+        tab_entier.Enregistrer(tab_infixe, indice, -1);
+    end recuperer_tab_infixe;
+
+    --transferer le premier bit du fichier binaire
+    procedure transferer_bit(file_hff : in out Byte_file.file_type; octet : in out T_octet; compteur : in out integer; bit : out T_octet) is
+    begin
+        if compteur = 8 then
+            compteur := 1;
+            byte_file.read(file_hff, octet);
+        else
+            compteur := compteur + 1;
+            octet := octet * 2;
+        end if;
+        bit := octet/128;
+    end transferer_bit;
+
+    --recuperer la structure de l'arbre de huffman
+    procedure recuperer_structure_arbre(file_hff : in out Byte_file.file_type; structure_arbre : out T_LCA; Taille : in Integer; compteur : out integer; octet : out T_octet) is
+        nb_de_1 : Integer;
+        bit : T_octet;
+    begin
+        Initialiser(structure_arbre);
+        nb_de_1 := 0;
+        compteur := 8;
+        octet := 0;
+        while nb_de_1 < taille loop--détecter chaque feuille
+            transferer_bit(file_hff, octet, compteur, bit);
+            ajouter(structure_arbre, bit);
+            if bit = 1 then
+                nb_de_1 := nb_de_1 + 1;
+            end if;
+        end loop;
+    end recuperer_structure_arbre;
+
+
+
+    procedure decoder_fichier(file_hff : in out Byte_file.file_type; octet : in out T_octet; compteur : in out integer;
+                              tab_huffman : in out tab_lca.T_Tableau; position_fichier : integer) is
+        function indice_donnee is new tab_lca.position(sont_egales);
+        courant : T_LCA;
+        bit : T_octet;
+        file_byte : byte_file.file_type;
+        pos : integer;
+    begin
+        Initialiser(courant);
+        byte_file.create(file_byte, byte_file.Out_File, Argument (position_fichier) & ".txt"); -- Création / écriture
+        loop--récupérer et décoder les caractères du fichier compressé
+            transferer_bit(file_hff, octet, compteur, bit);
+            ajouter(courant, bit);
+            pos := indice_donnee(courant, tab_huffman);
+            --encoder le caractere si il existe
+            if pos /= -1 and pos /= tab_lca.longueur(tab_huffman) then
+                byte_file.write(file_byte, int2byte(pos));
+                vider(courant);
+            end if;
+            exit when pos = tab_lca.longueur(tab_huffman);
+        end loop;
+        vider(courant);
+        byte_file.close(file_byte);
+    end decoder_fichier;
+
+
+    file_hff : Byte_file.file_type;
+    tab_infixe : tab_entier.T_Tableau;
+    taille : integer;
+    octet : T_octet;
+    structure_arbre : T_LCA;
+    arbre : T_Arbre;
+    indice : Integer;
+    compteur : integer;
+    sda_binaire : T_LCA;
+    tab_huffman : tab_lca.T_Tableau;
+    position_fichier : Integer;
+
+    pos : Integer;
+    code : tab_entier.T_Tableau;
+begin
+    if Argument_Count = 1 or Argument_Count = 2 then
+        position_fichier := Argument_Count;
+    end if;
+
+    byte_file.open(file_hff, byte_file.In_File, Argument(position_fichier));
+
+    --recuperer le tableau infixe
+    recuperer_tab_infixe(file_hff, tab_infixe, taille);
+
+    --recuperer la structure de l'arbre
+    recuperer_structure_arbre(file_hff, structure_arbre, taille, compteur, octet);
+
+
+    if position_fichier = 2 then
+        Put("structure de l'arbre : ");
+        afficher(structure_arbre);
+        new_line;
+    end if;
+
+    --construire l'arbre de huffman
+    Initialiser(arbre);
+    indice := 0;
+    reconstituer_arbre(arbre, structure_arbre, tab_infixe, indice);
+
+
+    if position_fichier = 2 then
+        put_line("arbre : ");
+        tab_entier.Initialiser(code, 0);
+        pos := 0;
+        afficher_arbre(arbre, pos, code);
+    end if;
+
+    --creeer le tableau de huffman
+    Initialiser(sda_binaire);
+    creer_tab_huffman(arbre, tab_huffman, sda_binaire);
+    vider(sda_binaire);
+
+    --decompresser le fichier
+    decoder_fichier(file_hff, octet, compteur, tab_huffman, position_fichier);
+    Byte_file.Close(file_hff);
+
+
+    --vider les structures de données dynamiques
+    vider(structure_arbre);
+    vider(arbre);
+    for i in 1..tab_lca.longueur(tab_huffman) loop
+        sda_binaire := tab_lca.la_donnee(tab_huffman, i);
+        vider(sda_binaire);
+    end loop;
+
+
+exception
+        when End_Error =>
+        put_line("le fichier à décompresser  est faux");
+
+end decompresser;

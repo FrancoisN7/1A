@@ -1,0 +1,15 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with SDA_Exceptions; 		use SDA_Exceptions;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+
+with LCA;                   use LCA;
+
+-- Insérer dans une LCA les premières données 1 et 2
+procedure inserer_donnees(Sda : out T_LCA) is
+begin
+   Initialiser(Sda);
+   Enregistrer(Sda,"un",1);
+   Enregistrer(Sda,"deux",2);
+
+end inserer_donnees;

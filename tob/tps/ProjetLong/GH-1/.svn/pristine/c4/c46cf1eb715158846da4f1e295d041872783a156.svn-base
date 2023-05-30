@@ -1,0 +1,39 @@
+package IU;
+
+import javax.swing.*;
+
+import Joueur.Joueur;
+import Zone.VC.ZoneVue;
+
+import java.awt.BorderLayout;
+
+public class IU extends JFrame {
+
+	BarreUtilisateur barreUtilisateur;
+	public IU(Joueur joueur) {
+
+		// Affichage de la barre utilisateur
+		barreUtilisateur = new BarreUtilisateur(joueur);
+		//BarreUtilisateurControleur barreUtilisateurControleur = new BarreUtilisateurControleur(joueur);
+		this.add(barreUtilisateur, BorderLayout.SOUTH);
+		//barreUtilisateurVue.add(barreUtilisateurControleur, BorderLayout.EAST);
+
+		// Affichage de la Zone
+		ZoneVue zoneVue = new ZoneVue(joueur);
+		this.add(zoneVue, BorderLayout.NORTH);
+
+		// Paramètres de la fenetre
+		this.pack();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		this.setVisible(true);
+	}
+
+	public BarreUtilisateur getBarreUtilisateur(){
+		return barreUtilisateur;
+	}
+
+	public void initialiser() {
+		barreUtilisateur.initialiser();
+	}
+}

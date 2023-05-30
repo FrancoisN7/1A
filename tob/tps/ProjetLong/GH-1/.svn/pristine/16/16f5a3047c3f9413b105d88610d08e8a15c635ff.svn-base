@@ -1,0 +1,23 @@
+package deplacement;
+
+import java.awt.event.*;
+
+@SuppressWarnings("serial")
+public class Village extends EcranAffiche{
+	
+	public Village(){
+		super();
+	}
+
+
+	
+	@Override
+    public void mouseClicked(MouseEvent e) {
+		ecran.dispose();
+		ecran = new Carte();
+        ecran.Afficher("carte.jpg");
+    }
+
+
+	
+}

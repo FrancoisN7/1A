@@ -1,0 +1,231 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Command_line; use Ada.Command_line;
+with Ada.Sequential_IO ;	-- pour l'accès typé aux fichiers
+with SDA_Exceptions; 		use SDA_Exceptions;
+with LCA;
+with arbre;
+with Tableau;
+
+
+procedure Compresser is
+    type T_octet is mod 2**8;
+
+    package arbre_test is new arbre (T_Donnee => Integer);
+    use arbre_test;
+
+    package LCA_Integer_Integer is
+            new LCA (T_Cle => integer, T_Donnee => Integer);
+    use LCA_Integer_Integer;
+
+
+    package tab_entier is new tableau (T_Donnee => Integer, capacite => 257);
+    use tab_entier;
+
+    package tab_arbre is new tableau (T_Donnee => T_arbre, capacite => 257);
+    use tab_arbre;
+
+    package tab_lca is new tableau (T_Donnee => T_LCA, capacite => 257);
+    use tab_lca;
+
+
+
+    procedure construire_tab_noeuds(tab_noeuds : out tab_arbre.T_Tableau; Taille : out Integer) is
+        file_txt : Ada.Text_IO.file_type;			-- pour l'accès par caractère
+        un_char : Character;
+        tab_freq : tab_entier.T_Tableau;
+        val : Integer;
+        feuille : T_Arbre;
+    begin
+        Initialiser(tab_freq, 0);
+        open (file_txt, In_File, Argument(1)); 	-- Ouverture du fichier en lecture
+        while not end_of_file(file_txt) loop
+            Get_immediate (file_txt, un_char);
+            val := Character'pos(un_char);
+            Enregistrer(tab_freq, val, la_donnee(tab_freq, val) + 1);
+        end loop;
+        close (file_txt);
+        taille := 0;
+        for i in 1..longueur(tab_freq) loop
+            val := la_donnee(tab_freq, i);
+            if val > 0 then
+                creer(feuille, val, i);
+                enregistrer(tab_noeuds, i, feuille);
+                taille := taille + val;
+            end if;
+        end loop;
+    end construire_tab_noeuds;
+
+
+    --construire l'arbre de Huffman
+    procedure construire_arbre(arbre : out T_Arbre) is
+        function indice_min(tab : in tab_arbre.T_Tableau) return Integer is
+            indice : Integer;
+            min : integer;
+        begin
+            indice := 1;
+            while est_vide(la_donnee(tab, indice)) loop
+                indice := indice + 1;
+            end loop;
+            min := la_cle(la_donnee(tab, indice));
+            for i in indice..longueur(Tab) loop
+                if not(est_vide(la_donnee(tab, i))) and then min > la_cle(la_donnee(tab, i)) then
+                    indice := i;
+                    min := la_cle(la_donnee(tab, i));
+                end if;
+            end loop;
+            return indice;
+        end indice_min;
+
+        taille : integer;
+        tab_noeuds : tab_arbre.T_Tableau;
+        indice : Integer;
+        courant : T_Arbre;
+        arbre_vide : T_Arbre;
+    begin
+        construire_tab_noeuds(tab_noeuds, taille);
+        indice := indice_min(tab_noeuds);
+        while la_cle(la_donnee(tab_noeuds, indice)) < taille loop
+            courant := la_donnee(tab_noeuds, indice);
+            Initialiser(arbre_vide);
+            Enregistrer(tab_noeuds, indice, arbre_vide);
+            indice := indice_min(tab_noeuds);
+            Fusionner(arbre, courant, la_donnee(tab_noeuds, indice));
+            Enregistrer(tab_noeuds, indice, arbre);
+            indice := indice_min(tab_noeuds);
+        end loop;
+    end construire_arbre;
+
+
+    --afficher un arbre en commençant a la colonne  pos
+    --on suppose que l'arbre est parfait
+    procedure afficher_arbre (arbre : in T_Arbre; pos : in out Integer; code : in out tab_entier.T_Tableau) is
+
+        procedure afficher_branches(pos : in integer) is
+            i : integer;
+            taille : Integer;
+        begin
+            i:= 1;
+            taille := 1;
+            while taille < pos loop
+
+                taille := taille + 1;
+                if la_donnee(code, i) = 0 then
+                    put(" |    ");
+                else
+                    put("      ");
+                end if;
+                i := i+1;
+            end loop;
+            put(" \--");
+            put(la_donnee(code, i), 1);
+            put("--");
+        end afficher_branches;
+
+    begin
+        put("(");
+        put(la_cle(arbre), 1);
+        put(") ");
+        if Est_Vide (fils_droit(arbre)) then
+            put(character'val (la_donnee(arbre)));
+            new_line;
+        else
+            new_line;
+            pos := pos + 1;
+            Enregistrer(code, pos, 0);
+            afficher_branches(pos);
+            afficher_arbre(fils_gauche(arbre), pos, code);
+
+            Enregistrer(code, pos, 1);
+            afficher_branches(pos);
+            afficher_arbre(fils_droit(arbre), pos, code);
+            pos := pos - 1;
+        end if;
+    end afficher_arbre;
+
+
+
+    --creer la table de huffman
+    procedure creer_tab_huffman(arbre : in T_arbre; tab_huffman : in out tab_lca.T_Tableau; code : in out T_LCA; compteur : in out Integer) is
+        indice : integer;
+        code0 : T_LCA;
+        code1 : T_LCA;
+    begin
+        if est_feuille(arbre) then
+            indice := la_donnee(arbre);
+            Enregistrer(tab_huffman, indice, code);
+        else
+            compteur := compteur + 1;
+            copier(code, code0);
+            Enregistrer(code0, compteur, 0);
+            creer_tab_huffman(fils_gauche(arbre), tab_huffman, code0, compteur);
+            copier(code, code1);
+            Enregistrer(code1, compteur, 1);
+            creer_tab_huffman(fils_droit(arbre), tab_huffman, code1, compteur);
+            compteur := compteur - 1;
+            vider(code);
+        end if;
+    end creer_tab_huffman;
+
+
+
+    procedure afficher_tab_huffman is
+        procedure afficher(cle : in Integer; donnee : in Integer) is
+        begin
+            put(donnee, 1);
+        end afficher;
+        procedure afficher is new Pour_Chaque(afficher);
+
+        arbre : T_Arbre;
+        tab_huffman : tab_lca.T_Tableau;
+        code : T_LCA;
+        sda : T_LCA;
+        compteur : Integer;
+    begin
+        construire_arbre(arbre);
+        Initialiser(code);
+        compteur := 0;
+        creer_tab_huffman(arbre, tab_huffman, code, compteur);
+        vider(code);
+        for i in 1..longueur(tab_huffman) loop
+            sda := la_donnee(tab_huffman, i);
+            if not(Est_Vide(sda)) then
+                put("'");
+                put(Character'val(i));
+                put("' --> ");
+                afficher(sda);
+                new_line;
+            end if;
+            vider(sda);
+        end loop;
+        vider(arbre);
+    end afficher_tab_huffman;
+
+    procedure encoder_arbre(arbre : in T_Arbre; structure_arbre : in out T_LCA) is
+    begin
+        if est_feuille(arbre) then
+            ajouter(structure_arbre, 1);
+        else
+            ajouter(structure_arbre, 0);
+            encoder_arbre(fils_gauche(arbre), structure_arbre);
+            encoder_arbre(fils_droit(arbre), structure_arbre);
+        end if;
+    end encoder_arbre;
+
+
+
+    arbre : T_Arbre;
+    pos : Integer;
+    code : tab_entier.T_Tableau;
+
+begin
+    construire_arbre(arbre);
+
+    Initialiser(code, 0);
+    pos := 0;
+    afficher_arbre(arbre, pos, code);
+
+    afficher_tab_huffman;
+
+    vider(arbre);
+end Compresser;

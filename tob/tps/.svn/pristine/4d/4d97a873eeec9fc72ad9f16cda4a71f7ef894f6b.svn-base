@@ -1,0 +1,20 @@
+=====[ Relecture du code ]======================================================
+
+Remarque : n points de pénalité ==> n points perdus sur la note.
+
+Fichier LISEZ-MOI.txt (total = -0.5) :
+    question 2 : réponse peu claire :                            -0.5
+
+Forme (total = -0.75) :
+    * choix des identifiants                                     -0.25
+    * utiliser des variables locales pour gagner en lisibilité : -0.5
+
+Autres erreurs (total = -0.5) :
+    * documentation de la classe manquante                       -0.25
+    * duplication de code                                        -0.25
+      - chaîner les constructeurs (this(...))
+      - utiliser les méthodes dans les assertions (point1.distance(point2) > 0)
+
+Total pénalités : 1.75
+
+--------------------------------------------------------------------------------

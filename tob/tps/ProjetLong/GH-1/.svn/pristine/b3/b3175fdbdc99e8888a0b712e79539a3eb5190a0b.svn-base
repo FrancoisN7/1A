@@ -1,0 +1,79 @@
+package Menu;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+
+import java.awt.event.*;
+import java.util.*;
+
+import javax.swing.JTextArea;
+
+public class MenuReprendre {
+
+    // Fenetre du menu
+    private JFrame fenetre;
+
+    // Fond du menu 
+    private final JLabel fondReprendre = new JLabel(new ImageIcon("Menu/ile_deserte2.jpeg"));
+
+    // Bouton pour lancer le premier profil
+    private final JButton profil1 = new JButton("Profil du joueur 1");
+
+    // Bouton pour lancer le deuxième profil
+    private final JButton profil2 = new JButton("Profil du joueur 2");
+
+    // Bouton pour lancer le troisème profil
+    private final JButton profil3 = new JButton("Profil du joueur 3");
+
+
+    //** Constructeur du menu reprendre. */
+    public MenuReprendre(){
+
+        // Construire la fenêtre de jeu
+        this.fenetre = new JFrame("Jeu d'aventure");
+        fenetre.setPreferredSize(new Dimension(1450, 900));
+        this.fenetre.setLocation(200, 3000);
+
+        // Construire le contrôleur (gestion des événements)
+		this.fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Contenu pour les boutons 
+        Container contenu  = this.fenetre.getContentPane();
+        contenu.setLayout(null);
+
+        //Profil 1
+        profil1.setIcon(new ImageIcon("Menu/pacarte_bois.jpeg"));
+        profil1.setVerticalTextPosition(SwingConstants.CENTER); 
+        profil1.setHorizontalTextPosition(SwingConstants.CENTER);
+        profil1.setBounds(575, 200, 300, 125);
+
+        //Profil 2
+        profil2.setIcon(new ImageIcon("Menu/pacarte_bois.jpeg"));
+        profil2.setVerticalTextPosition(SwingConstants.CENTER); 
+        profil2.setHorizontalTextPosition(SwingConstants.CENTER);
+        profil2.setBounds(575, 400, 300, 125);
+
+
+        //Profil 3
+        profil3.setIcon(new ImageIcon("Menu/pacarte_bois.jpeg"));
+        profil3.setVerticalTextPosition(SwingConstants.CENTER); 
+        profil3.setHorizontalTextPosition(SwingConstants.CENTER);
+        profil3.setBounds(575, 600, 300, 125);
+
+        //Fond
+        fondReprendre.setBounds(-100, -100, 1600, 1000);
+        //fond.add(titre);
+
+        contenu.add(fondReprendre);
+		contenu.add(profil1);
+		contenu.add(profil2);
+		contenu.add(profil3);
+
+        // Afficher la fenêtre
+		this.fenetre.pack();			// redimmensionner la fenêtre
+		this.fenetre.setVisible(true);	// l'afficher
+
+
+    }
+}

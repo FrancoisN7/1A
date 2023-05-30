@@ -1,0 +1,68 @@
+File allumettes/Arbitre.java: 433 tokens, 121 lines
+File allumettes/CoupInvalideException.java: 68 tokens, 39 lines
+File allumettes/Joueur.java: 78 tokens, 39 lines
+File allumettes/ConfigurationException.java: 21 tokens, 16 lines
+File allumettes/Proxy.java: 7 tokens, 5 lines
+File allumettes/ClassJeu.java: 92 tokens, 28 lines
+File allumettes/Jouer.java: 174 tokens, 54 lines
+File allumettes/Jeu.java: 23 tokens, 22 lines
+File allumettes/Tricheur.java: 24 tokens, 9 lines
+File allumettes/Expert.java: 98 tokens, 42 lines
+File allumettes/Rapide.java: 46 tokens, 19 lines
+File allumettes/Humain.java: 40 tokens, 14 lines
+File allumettes/Strategie.java: 13 tokens, 7 lines (not NL-terminated)
+File allumettes/Naif.java: 67 tokens, 24 lines
+Total input: 14 files (14 new, 0 old), 1184 tokens
+
+allumettes/Arbitre.java: line 1-18 [33]
+allumettes/Joueur.java: line 1-16
+< package allumettes;
+< import allumettes.Strategie;
+< import allumettes.Joueur;
+< import allumettes.CoupInvalideException;
+< 
+< public class Arbitre {
+< 	
+< 	private Joueur j1 ; //Joueur1	
+< 	private Joueur j2 ; //Joueur2
+< 
+< 	/** Construire un arbitre à partir de son nom.
+< 	 * @param Joueur1 le joueur 1
+< 	 * @param Joueur2 le joueur 2
+< 	 */
+< 	public Arbitre(Joueur Joueur1, Joueur Joueur2) {
+< 		this.j1 = Joueur1;
+< 		this.j2 = Joueur2;
+< 	}
+---
+> package allumettes;
+> import allumettes.Strategie;
+> import allumettes.Rapide;
+> 
+> public class Joueur {		
+> 	private String Nom;	//Nom du joueur	
+> 
+>     private Strategie Strategie; //Stratégie du joueur
+> 
+> 	/** Construire un joueur à partir de son nom.
+> 	 * @param NomDonne le nom du joueur
+> 	 */
+> 	public Joueur(String NomDonne, Strategie StrategieDonnee) {
+> 		this.Nom = NomDonne;
+> 		this.Strategie = StrategieDonnee;
+> 	}
+
+allumettes/Arbitre.java: line 61-65 [31]
+allumettes/Arbitre.java: line 73-77
+< 			if (prob == "(< 1)") {
+< 				System.out.println("Impossible ! Nombre invalide : " + prise 
+< 						+ " " + prob +"\n");
+< 				FaireJouer(joueur, jeu);
+< 			}
+---
+> 			if (prob == "NbAl") {
+> 				System.out.println("Impossible ! Nombre invalide : " + coup 
+> 						+ " (> " + NombreAllu +")\n");
+> 				FaireJouer(joueur, jeu);
+> 			}
+

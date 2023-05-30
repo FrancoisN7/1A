@@ -1,0 +1,114 @@
+File allumettes/Arbitre.java: 752 tokens, 171 lines
+File allumettes/CoupInvalideException.java: 68 tokens, 48 lines
+File allumettes/Joueur.java: 88 tokens, 49 lines
+File allumettes/OperationInterditeException.java: 19 tokens, 7 lines
+File allumettes/ConfigurationException.java: 21 tokens, 20 lines
+File allumettes/Proxy.java: 66 tokens, 23 lines
+File allumettes/ClassJeu.java: 110 tokens, 32 lines
+File allumettes/Jouer.java: 539 tokens, 119 lines
+File allumettes/Jeu.java: 23 tokens, 25 lines
+File allumettes/Tricheur.java: 50 tokens, 16 lines
+File allumettes/Expert.java: 102 tokens, 42 lines
+File allumettes/Rapide.java: 54 tokens, 22 lines
+File allumettes/Humain.java: 61 tokens, 24 lines
+File allumettes/Strategie.java: 13 tokens, 10 lines (not NL-terminated)
+File allumettes/Naif.java: 75 tokens, 25 lines
+Total input: 15 files (15 new, 0 old), 2041 tokens
+
+allumettes/Jouer.java: line 28-37 [60]
+allumettes/Jouer.java: line 37-46
+< 			String argj1 = args[indice_infosj];
+< 
+< 			String[] arg1 = SeparerChar(argj1);
+< 			if (argj1.length() != 2 || arg1[0].isEmpty() || arg1[1].isEmpty()) {
+< 				throw new ConfigurationException("mauvaise config");
+< 			}
+< 			Joueur j1 = creerJoueur(arg1);
+< 
+< 			// création du joueur 2
+< 			String argj2 = args[indice_infosj + 1];
+---
+> 			String argj2 = args[indice_infosj + 1];
+> 
+> 			String[] arg2 = SeparerChar(argj2);
+> 			if (argj2.length() != 2 || arg2[0].isEmpty() || arg2[1].isEmpty()) {
+> 				throw new ConfigurationException("mauvaise config");
+> 			}
+> 			Joueur j2 = creerJoueur(arg2);
+> 
+> 			// Démarrage de la partie
+> 			Arbitre arbitre = new Arbitre(j1, j2, confiant);
+
+allumettes/Jouer.java: line 86-90 [33]
+allumettes/Jouer.java: line 92-98
+< 		if (chaine.contains("humain")) {
+< 			return new Humain();
+< 		} else if (chaine.contains("naif")) {
+< 			return new Naif();
+< 		}
+---
+> 		else if (chaine.contains("rapide")) {
+> 			return new Rapide();
+> 		}
+> 
+> 		else if (chaine.contains("expert")) {
+> 			return new Expert();
+> 		}
+
+allumettes/Arbitre.java: line 98-101 [31]
+allumettes/Arbitre.java: line 108-111
+< 				if (prob == "(< 1)") {
+< 					System.out.println(str_imp + prise + " " + prob + "\n");
+< 					FaireJouer(joueur, jeu);
+< 				}
+---
+> 				if (prob == "NbAl") {
+> 					System.out.println(str_imp + coup + " (> " + NombreAllu + ")\n");
+> 					FaireJouer(joueur, jeu);
+> 				}
+
+allumettes/Rapide.java: line 1-12 [26]
+allumettes/Naif.java: line 1-14
+< package allumettes;
+< 
+< public class Rapide implements Strategie {
+< 
+< 	/**
+< 	 * Obtenir le nombre d'allumettes que le joueur veut prendre.
+< 	 * 
+< 	 * @return le nombre d'allumettes que le joueur veut prendre
+< 	 */
+< 	@Override
+< 	public int getPrise(Jeu jeu) {
+< 		int AlRestantes = jeu.getNombreAllumettes();
+---
+> package allumettes;
+> 
+> import java.util.Random;
+> 
+> public class Naif implements Strategie {
+> 
+> 	/**
+> 	 * Obtenir le nombre d'allumettes que le joueur veut prendre.
+> 	 * 
+> 	 * @return le nombre d'allumettes que le joueur veut prendre
+> 	 */
+> 	@Override
+> 	public int getPrise(Jeu jeu) {
+> 		int alRestantes = jeu.getNombreAllumettes();
+
+allumettes/Arbitre.java: line 38-40 [24]
+allumettes/Arbitre.java: line 59-66
+< 			Strategie Strategie = joueur.getStrategie();
+< 			String StrStrat = Strategie.toString();
+< 			if (StrStrat.contains("Tricheur") && confiant) {
+---
+> 		String NomJ = joueur.getNom();
+> 		String StrStrat = Strategie.toString();
+> //		if (StrStrat.contains("Tricheur") && !confiant)  {
+> //			throw new OperationImpossibleException();
+> //		}
+> 
+> 		// Affichage dans le cas d'un humain et d'un tricheur
+> 		if (StrStrat.contains("Humain")) {
+

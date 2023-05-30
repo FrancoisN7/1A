@@ -1,0 +1,29 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with arbre; use arbre;
+
+
+procedure test_arbre is
+
+    arbre : T_arbre;
+    fils_g : T_Arbre;
+    fils_d : T_Arbre;
+    pos : integer;
+    code : tab_entier.T_Tableau;
+begin
+    Initialiser(fils_g);
+    creer(fils_g, 0, 100);
+    Initialiser(fils_d);
+    creer(fils_d, 1, 101);
+
+    Fusionner(arbre, fils_g, fils_d);
+
+    pragma assert (la_cle(arbre) = 1);
+
+    tab_entier.Initialiser(code, 0);
+    pos := 0;
+    afficher_arbre(arbre, pos, code);
+
+    vider(arbre);
+    put_line("fin des tests OK");
+end test_arbre;

@@ -1,0 +1,67 @@
+package Zone.Modele;
+
+import java.util.*;
+
+import javax.swing.ImageIcon;
+
+import Affichable.*;
+import Zone.VC.ZoneVue;
+
+public class ZoneSimple implements Zone {
+	private final List<Interactif> elements;
+	private final ImageIcon image;
+	private final  String nom;
+
+	public ZoneSimple(String image, String nom, Interactif... elements) {
+		this.elements = new ArrayList<>(Arrays.asList(elements));
+		this.image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("res/" + image)));
+		this.nom = nom;
+	}
+
+	@Override
+	public void ajouterElementInteractif(Interactif element){
+		elements.add(element);
+	}
+
+	@Override
+	public void supprimerElementInteractif(Interactif element){
+		elements.remove(element);
+	}
+
+	@Override
+	public Iterator<Interactif> iterator() {
+		return elements.iterator();
+	}
+
+	@Override
+	public ImageIcon getImage() {
+		return image;
+	}
+
+	@Override
+	public int getX() {
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		return 0;
+	}
+
+	@Override
+	public int getLargeur() {
+		return ZoneVue.LARGEUR;
+	}
+
+	@Override
+	public int getHauteur() {
+		return ZoneVue.LONGUEUR;
+	}
+
+	@Override
+	public String getNom() {
+		return nom;
+	}
+
+
+}

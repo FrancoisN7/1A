@@ -1,0 +1,28 @@
+package Carte.VC;
+
+import Joueur.Joueur;
+import Joueur.JoueurSimple;
+import Zone.Zones;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class CarteFenetre extends JDialog {
+
+    public CarteFenetre(Joueur joueur){
+        super();
+        CarteVue carteVue = new CarteVue(joueur);
+        CarteControleur carteControleur = new CarteControleur(carteVue);
+        this.add(carteControleur);
+        this.add(carteVue);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
+        this.setResizable(false);
+    }
+
+    public static void main(String[] args){
+        Joueur joueur = new JoueurSimple(Zones.foret);
+        EventQueue.invokeLater(() -> new CarteFenetre(joueur));
+    }
+}

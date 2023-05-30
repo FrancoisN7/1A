@@ -1,0 +1,67 @@
+package Zone;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+/**
+ * Une zone est un affichable qui contient une liste d'éléments intéractifs.
+ */
+public class Zone implements Affichable, Iterable<Interactif> {
+
+	private List<Interactif> elements;
+	private String image;
+	private int Width;
+	private int Height;
+
+	/**
+	 * @param elements
+	 */
+	public Zone(String image, int Width, int Height, Interactif... elements) {
+		this.elements = new ArrayList<>(Arrays.asList(elements));
+		this.image = image;
+		this.Width = Width;
+		this.Height = Height;
+	}
+
+	public void ajouterElementInteractif(Interactif element){
+		elements.add(element);
+	}
+
+	@Override
+	public Iterator<Interactif> iterator() {
+		return elements.iterator();
+	}
+
+	@Override
+	public String getImage() {
+		return image;
+	}
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return Width;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return Height;
+	}
+
+	
+}

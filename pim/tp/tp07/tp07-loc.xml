@@ -1,0 +1,234 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/piles.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/afficher_un_entier.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/afficher_un_entier.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/exemple_integer_io.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/test_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/integer_io.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/integer_io.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 14" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 12" line=" 14" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 44" line=" 12" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 15" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 15" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 15" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 15" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 62" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 16" line=" 79" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 15" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 23" line=" 15" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 44" line=" 72" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 20" line=" 76" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 67" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 28" line=" 68" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 57" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 31" line=" 58" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 7" line=" 56" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 22" line=" 58" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 30" line=" 58" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/utiliser_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 26" line=" 14" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 6" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/utiliser_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/parenthesage.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/utiliser_piles.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp07/tp07.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp07/test_piles.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

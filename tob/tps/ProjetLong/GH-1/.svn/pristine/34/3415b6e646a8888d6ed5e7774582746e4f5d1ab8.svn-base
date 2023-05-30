@@ -1,0 +1,30 @@
+package Zone.VC;
+
+import Affichable.Interactif;
+import Zone.Modele.ZoneSimple;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.HashSet;
+
+public class PanelZone extends JPanel {
+
+    protected final HashSet<LabelElementInteractif> labelsElementsInteractifs;
+
+    public PanelZone(ZoneSimple zone){
+        super();
+        labelsElementsInteractifs = new HashSet<>();
+        this.setLayout(null);
+        this.setPreferredSize(new Dimension(ZoneVue.LARGEUR, ZoneVue.LONGUEUR));
+        JLabel labelZone = new JLabel(zone.getImage());
+
+        for (Interactif element: zone) {
+            LabelElementInteractif labelElementInteractif = new LabelElementInteractif(element);
+            labelsElementsInteractifs.add(labelElementInteractif);
+            labelZone.add(labelElementInteractif);
+        }
+        labelZone.setSize(new Dimension(ZoneVue.LARGEUR, ZoneVue.LONGUEUR));
+        this.add(labelZone);
+    }
+
+}

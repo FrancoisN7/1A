@@ -1,0 +1,85 @@
+package Dialogue;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.util.List;
+
+import javax.swing.ImageIcon;
+
+public class DialogueSimple implements Dialogue {
+
+	private ArbreDialogue arbreDialogue;
+	private PropertyChangeSupport support;
+	private String nom;
+
+	public DialogueSimple(String nomPersonnage, ArbreDialogue arbreDialogue){
+		this.nom = nomPersonnage;
+		support = new PropertyChangeSupport(this);
+		this.arbreDialogue = arbreDialogue;
+	}
+
+	@Override
+	public void setChoix(int choix){
+		List<String> ancienneValeur = this.getOptions();
+		arbreDialogue.descendreSurEnfant(choix);
+		support.firePropertyChange("options", ancienneValeur, this.getOptions());
+		support.firePropertyChange("phrase", true, this.getPhrase());
+	}
+
+	@Override
+	public List<String> getOptions() {
+		return arbreDialogue.getOptions();
+	}
+
+	@Override
+	public String getPhrase() {
+		return arbreDialogue.getPhrase();
+	}
+
+	@Override
+	public ImageIcon getImage() {
+		return new ImageIcon(this.getClass().getResource("res/luffy.jpg"));
+	}
+
+	@Override
+	public int getX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getWidth() {
+		// TODO Auto-generated method stub
+		return 640;
+	}
+
+	@Override
+	public int getHeight() {
+		// TODO Auto-generated method stub
+		return 480;
+	}
+	
+	@Override
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
+
+	@Override
+	public String getNomPersonnage() {
+		return nom;
+	}
+
+	
+	
+}

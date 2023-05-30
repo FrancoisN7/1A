@@ -1,0 +1,19 @@
+package deplacement;
+
+import java.awt.event.*;
+
+@SuppressWarnings("serial")
+public class Plage extends EcranAffiche{  
+
+	public Plage(){
+		super();
+	}
+	
+	@Override 
+    public void mouseClicked(MouseEvent e) {
+		ecran.dispose();
+		ecran = new Carte();
+        ecran.Afficher("carte.jpg");
+    }  
+	
+}

@@ -1,0 +1,42 @@
+package IU;
+
+import javax.swing.*;
+
+import Joueur.Joueur;
+import Joueur.JoueurSimple;
+import Zone.ZoneVue;
+import Zone.Zones;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+public class IU extends JFrame {
+
+	public IU(Joueur joueur) {
+
+		// Affichage de la barre utilisateur
+		BarreUtilisateurVue barreUtilisateurVue = new BarreUtilisateurVue(joueur);
+		BarreUtilisateurControleur barreUtilisateurControleur = new BarreUtilisateurControleur(joueur);
+		this.add(barreUtilisateurVue, BorderLayout.SOUTH);
+		barreUtilisateurVue.add(barreUtilisateurControleur, BorderLayout.EAST);
+
+		// Affichage de la Zone
+		ZoneVue zoneVue = new ZoneVue(joueur);
+		this.add(zoneVue, BorderLayout.NORTH);
+
+		// Parametres de la fenetre
+		this.pack();
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setResizable(false);
+		this.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		Joueur joueur = new JoueurSimple(Zones.foret);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new IU(joueur);
+			}
+		});
+	}
+}

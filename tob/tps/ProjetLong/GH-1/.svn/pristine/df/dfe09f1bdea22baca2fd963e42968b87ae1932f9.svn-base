@@ -1,0 +1,42 @@
+package Bataille_Navale;
+
+import java.awt.EventQueue;
+
+import Bataille_Navale.PlacerSwing.figure;
+
+public void FaireJouerOrdi(ModeleGrillePerso grilleJoueur) {
+	boolean caseCorrecte;
+	int random1;
+	int random2;
+	caseCorrecte = false;
+	while (!caseCorrecte){
+		random1 = (int) Math.floor(Math.random()*(ModeleBataille.TAILLE));
+		random2 = (int) Math.floor(Math.random()*(ModeleBataille.TAILLE));
+			if (grilleJoueur.estVide(random1,random2)){
+				try {							grilleJoueur.cocherRandom(random1, random2);
+					System.out.println(random1+","+random2);
+					} catch (CaseOccupeeException e) {
+				}
+				caseCorrecte = true;
+			}	
+	}
+
+
+public class BatailleNavaleMain {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				PlacerSwing placer = new PlacerSwing();
+				ModeleGrillePerso grilleJoueur = placer.getGrille();
+				new BatailleSwing(grilleJoueur);	
+				boolean termine =false;
+				while (!termine) {
+					//si les bateaux sont deja place, recupere les randoms de cocherRandom et on ajoute l'icon
+					placer.ajouterIcone(1, 2,  figure.ROND);
+					termine = true;
+					//sinon on fait rien
+				}
+		}
+	});
+}
+}	

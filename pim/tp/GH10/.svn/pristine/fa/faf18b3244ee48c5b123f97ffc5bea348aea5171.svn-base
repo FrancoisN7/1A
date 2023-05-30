@@ -1,0 +1,48 @@
+
+
+package body tableau is
+
+
+    procedure Initialiser(Tableau : out T_Tableau; donnee : in T_Donnee) is
+    begin
+        for i in 1..capacite loop
+            Tableau(i) := donnee;
+        end loop;
+    end Initialiser;
+
+
+    procedure Enregistrer(tableau : in out T_Tableau; pos : in Integer; donnee : in T_Donnee) is
+    begin
+        Tableau(pos) := donnee;
+    end Enregistrer;
+
+
+    function la_donnee(Tableau : in T_Tableau; pos : in Integer) return T_donnee is
+    begin
+        return Tableau(pos);
+    end la_donnee;
+
+
+    function longueur(Tableau : in T_Tableau) return integer is
+    begin
+        return capacite;
+    end longueur;
+
+
+    function est_presente(donnee : in T_Donnee; Tableau : in T_Tableau) return Boolean is
+        compteur : Integer;
+        Present : Boolean;
+    begin
+        compteur := 1;
+        Present := False;
+        while compteur<capacite and not Present loop
+            if egal(Tableau(compteur), donnee) then
+                Present := True;
+            end if;
+            compteur := compteur + 1;
+        end loop;
+        return present;
+    end est_presente;
+
+
+end Tableau;

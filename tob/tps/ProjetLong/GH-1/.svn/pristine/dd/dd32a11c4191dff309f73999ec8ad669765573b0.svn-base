@@ -1,0 +1,58 @@
+package minijeux.minijeu_falaise;
+
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+
+public class Touches implements KeyListener{
+	
+	public boolean toucheHaut, toucheBas, toucheGauche, toucheDroite;
+	 
+	
+	@Override
+	public void keyTyped(KeyEvent e) {}
+	
+	@Override
+	public void keyPressed(KeyEvent e) {
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_Z :
+			toucheHaut = true;
+			break;
+		case KeyEvent.VK_S :
+			toucheBas = true;
+			break;
+		case KeyEvent.VK_Q :
+			toucheGauche = true;
+			break;
+		case KeyEvent.VK_D :
+			toucheDroite = true;
+			break;
+		
+		}
+		
+			
+		
+	}
+	
+
+	@Override
+	public void keyReleased(KeyEvent e) {
+		switch (e.getKeyCode()) {
+		case KeyEvent.VK_Z :
+			toucheHaut = false;
+			break;
+		case KeyEvent.VK_S :
+			toucheBas = false;
+			break;
+		case KeyEvent.VK_Q :
+			toucheGauche = false;
+			break;
+		case KeyEvent.VK_D :
+			toucheDroite = false;
+			break;
+		
+		}
+		
+	}
+	
+}

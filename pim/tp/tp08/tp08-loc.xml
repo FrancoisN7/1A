@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<Locations>
+  <Project>
+    <vfs_file>/home/ftestu/1A/pim/tp/tp08/tp08.gpr</vfs_file>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp08/exemples_memoire_dynamique.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 14" >
+      <vfs_project>/home/ftestu/1A/pim/tp/tp08/tp08.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/tp08/illustrer_affectation_pile.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

@@ -1,0 +1,132 @@
+Date de l'évaluation : jeu. 10 mars 2022 18:48:14 CET
+
+!!! Il est interdit de changer ConfigurationException.java (voir evaluations/evaluation1/ConfigurationException.java.diff)
+!!! Il est interdit de changer CoupInvalideException.java (voir evaluations/evaluation1/CoupInvalideException.java.diff)
+
+Nombre de similitudes (voir evaluations/evaluation1/sim_java.txt) : 4
+Les similitudes indiquent généralement du code à restructurer.
+
+Erreurs checkstyle (différentes/types) : 44/12	(voir evaluations/evaluation1//checkstyle.log)
+
+Classe OperationInterditeException : OperationInterditeException (ok)
+
+Procuration sur le jeu réel : allumettes/Proxy.java (ok)
+
+OperationInterditeException, levée dans : allumettes/Proxy.java (ok)
+OperationInterditeException, récupérée dans : allumettes/Arbitre.java (ok)
+
+Throwable, Exception et RuntimeException ne devraient pas être récupérées car trop générales... ok
+
+AssertionError ne doit pas être récupérée... ok
+
+Autres exceptions récupérées :
+  | allumettes/Arbitre.java:90:         } catch (CoupInvalideException e) {
+  | allumettes/Arbitre.java:110:        } catch (
+  | allumettes/Jouer.java:21:       } catch (ConfigurationException e) {
+  | allumettes/Tricheur.java:10:            } catch (CoupInvalideException e) {
+  | allumettes/Humain.java:19:      } catch (InputMismatchException e) {
+
+Utilisation de 'Scanner' : ok
+  | allumettes/Humain.java:16:      Scanner saisieUtilisateur = new Scanner(System.in);
+
+Utilisation de 'split' : ok
+  | allumettes/Jouer.java:106:      return(args.split("@"));
+
+Utilisation de 'Random' : ok
+  | allumettes/Naif.java:3:import java.util.Random;
+  | allumettes/Naif.java:16:        Random aleatoire = new Random();
+
+Utilisation de '3' : Ne pas utiliser de constante littérale hors -1, 0 ou 1 (peut-être PRISE_MAX ?)
+  |     allumettes/Arbitre.java:79:         } else if (prise == 2 || prise == 3 && prise <= NombreAllu) {
+  |     allumettes/Jouer.java:69:       if (args.length == 3) {
+  |     allumettes/Expert.java:16:      // ex pour PRISE_MAX = 3 ,
+  |     allumettes/Naif.java:18:            prise = aleatoire.nextInt(Jeu.PRISE_MAX) + 1; // Générer un nombre entre 1 et 3
+
+Affichage de 'Impossible !' : ok
+
+Utilisation de 'System.exit' : ok
+
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+Compilation de HumainTest.java : OK.
+Compilation de ExpertTest.java : OK.
+Compilation de NaifTest.java : OK.
+Test exemplePresqueSujet : NON CONFORME (voir evaluations/evaluation1/exemplePresqueSujet.diff)
+Test exempleTricheurSujet : NON CONFORME (voir evaluations/evaluation1/exempleTricheurSujet.diff)
+Test exempleConfiantTricheurSujet : ok
+Test exempleRobustesse : NON CONFORME (voir evaluations/evaluation1/exempleRobustesse.diff)
+Test exempleHumainTricheurExpert : NON CONFORME (voir evaluations/evaluation1/exempleHumainTricheurExpert.diff)
+Test exempleMaxLou : NON CONFORME (voir evaluations/evaluation1/exempleMaxLou.diff)
+Test exempleRapideRapide : ok
+Test exempleTricheurExpert : ok
+
+Test RobustesseTest : Tests run: 25,  Failures: 21	(voir evaluations/evaluation1/RobustesseTest.log)
+    1) testerSansStrategieConfiant(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    2) testerStrategieDoubleAtSymetrieConfiant(RobustesseTest)
+        AssertionError
+    3) testerSansStrategie(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    4) testerStrategieInconnueSymetrieConfiant(RobustesseTest)
+        AssertionError
+    5) testerStrategieDoubleAtStrategieALaFinSymetrie(RobustesseTest)
+        AssertionError
+    6) testerNomNonDefini(RobustesseTest)
+        AssertionError
+    7) testerStrategieInconnue(RobustesseTest)
+        allumettes.ConfigurationException: Erreur dans la saisie
+    8) testerStrategieDoubleAtConfiant(RobustesseTest)
+        AssertionError
+    9) testerStrategieDoubleAtStrategieALaFinSymetrieConfiant(RobustesseTest)
+        AssertionError
+    10) testerStrategieInconnueSymetrie(RobustesseTest)
+        AssertionError
+    11) testerNomNonDefiniConfiant(RobustesseTest)
+        AssertionError
+    12) testerStrategieDoubleAt(RobustesseTest)
+        AssertionError
+    13) testerStrategieDoubleAtStrategieALaFinConfiant(RobustesseTest)
+        allumettes.ConfigurationException: Erreur dans la saisie
+    14) testerStrategieDoubleAtStrategieALaFin(RobustesseTest)
+        allumettes.ConfigurationException: Erreur dans la saisie
+    15) testerSansStrategieSymetrie(RobustesseTest)
+        AssertionError
+    16) testerDoubleConfiantConfiant(RobustesseTest)
+        ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+    17) testerSansStrategieSymetrieConfiant(RobustesseTest)
+        AssertionError
+    18) testerStrategieInconnueConfiant(RobustesseTest)
+        allumettes.ConfigurationException: Erreur dans la saisie
+    19) testerNomNonDefiniSymetrieConfiant(RobustesseTest)
+        AssertionError
+    20) testerStrategieDoubleAtSymetrie(RobustesseTest)
+        AssertionError
+    21) testerNomNonDefiniSymetrie(RobustesseTest)
+        AssertionError
+
+
+On recommence avec les classes/interfaces fournies : Jeu ConfigurationException CoupInvalideException
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+
+Vérification du respect du diagramme de classe...
+Test FormeTest : Tests run: 2,  Failures: 1	(voir evaluations/evaluation1/FormeTest.log)
+    1) testerRespectArchitecture(FormeTest)
+        AssertionError: Constructeur manquant dans la classe allumettes.Arbitre : allumettes.Arbitre(allumettes.Joueur, allumettes.Joueur)
+
+
+Compilation de HumainTest.java : OK.
+Test allumettes.HumainTest : Tests run: 1,  Failures: 1	(voir evaluations/evaluation1/allumettes.HumainTest.log)
+    1) initializationError(allumettes.HumainTest)
+        Exception: No runnable methods
+
+Compilation de ExpertTest.java : OK.
+Test allumettes.ExpertTest : Tests run: 1,  Failures: 1	(voir evaluations/evaluation1/allumettes.ExpertTest.log)
+    1) initializationError(allumettes.ExpertTest)
+        Exception: No runnable methods
+
+Compilation de NaifTest.java : OK.
+Test allumettes.NaifTest : Tests run: 1,  Failures: 1	(voir evaluations/evaluation1/allumettes.NaifTest.log)
+    1) initializationError(allumettes.NaifTest)
+        Exception: No runnable methods
+

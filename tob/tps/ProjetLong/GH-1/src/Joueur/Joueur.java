@@ -1,0 +1,64 @@
+package Joueur;
+
+import java.beans.PropertyChangeListener;
+
+import Barre_Outils.ModeleInventaire;
+import Carte.Modele.Carte;
+import Zone.Modele.Zone;
+import Barre_Outils.ModeleInventaireSimple;
+public interface Joueur {
+
+	/**
+	 * Obtenir la zone dans laquelle se trouve le joueur.
+	 * @return la zone dans laquelle se trouve le joueur
+	 */
+	Zone getZoneCourante();
+
+	/**
+	 * Obtenir l'inventaire du joueur.
+	 * @return l'inventaire du joueur
+	 */
+	ModeleInventaireSimple getInventaire();
+
+	/**
+	 * Obtenir la carte du joueur.
+	 * @return la carte du joueur
+	 */
+	Carte getCarte();
+
+	/**
+	 * Changer la zone dans laquelle se trouve le joueur.
+	 * @param nouvelleZone la nouvelle zone voulue
+	 */
+	void setZoneCourante(Zone nouvelleZone);
+
+	/**
+	 * Changer le message à afficher pour notifier le joueur.
+	 * @param message le message pour notifier le joueur
+	 */
+	void setMessage(String message);
+
+	/**
+	 * Ajouter un Listener sur joueur.
+	 * @param pcl le listener à ajouter
+	 */
+	void addPropertyChangeListener(PropertyChangeListener pcl);
+
+	/**
+	 * Enlever un Listener sur joueur.
+	 * @param pcl le listener à enlever
+	 */
+	void removePropertyChangeListener(PropertyChangeListener pcl);
+
+	/**
+	 * Obtenir la carte.
+	 */
+	void obtenirCarte();
+	ModeleInventaire.Contenu objetTenu();
+
+	void tenirObjet(ModeleInventaire.Contenu objet);
+
+	void donnerCartePourModification();
+
+
+}

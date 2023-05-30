@@ -1,0 +1,19 @@
+package deplacement;
+
+import java.awt.event.MouseEvent;
+
+@SuppressWarnings("serial")
+public class Dragon extends EcranAffiche{  
+
+	public Dragon(){
+		super();
+	}
+	
+	@Override 
+    public void mouseClicked(MouseEvent e) {
+		ecran.dispose();
+		ecran = new Carte();
+        ecran.Afficher("carte.jpg");
+    }  
+	
+}

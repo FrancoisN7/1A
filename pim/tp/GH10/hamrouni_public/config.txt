@@ -1,0 +1,4 @@
+Offset pour l'indice du caractère de fin de fichier encodé
+=1 (0 ou 1, pas d'espace après =)
+Séparation entre le code de l'arbre et les caractères encodés
+=1 (0 ou 1, pas d'espace après =)

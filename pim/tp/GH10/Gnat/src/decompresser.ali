@@ -1,0 +1,203 @@
+V "GNAT Lib v2021"
+M P W=b
+A -gnatwa
+A -gnata
+A -g
+P SS ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_LOCAL_ALLOCATORS
+RV NO_SECONDARY_STACK
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_DEFAULT_INITIALIZATION
+RV NO_DYNAMIC_SIZED_OBJECTS
+
+U decompresser%b	decompresser.adb	85fd1225 NE OO SU IL
+W ada%s			ada.ads			ada.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W arbre%s		arbre.adb		arbre.ali
+W lca%s			lca.adb			lca.ali
+Z system.concat_2%s	s-conca2.adb		s-conca2.ali
+Z system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-comlin.ads		20210520051127 4aa66568 ada.command_line%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051127 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-sequio.ads		20210520051128 3573d8ce ada.sequential_io%s
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051129 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D arbre.ads		20220112120704 7d93db2d arbre%s
+D decompresser.adb	20220113142431 79d4746e decompresser%b
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D lca.ads		20220113142431 93a384c7 lca%s
+D system.ads		20210520051134 a2da961d system%s
+D s-conca2.ads		20210520051131 02a0d7d0 system.concat_2%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-sequio.ads		20210520051133 fc7560a7 system.sequential_io%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D tableau.ads		20220112120704 4115d4f6 tableau%s
+D tableau.adb		20220112120704 f32f8d4e tableau%b
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z b b [decompresser standard 8 11 none]
+G r s Tt_tableauB [decompresser standard 8 11 none] [Tt_tableauBIP arbre__tab_lca 31 4 14_5]
+G r c none [decompresser standard 8 11 none] [enregistrer arbre__tab_entier 14 15 8_5]
+G r c none [decompresser standard 8 11 none] [la_donnee arbre__tab_entier 18 14 8_5]
+G r c none [decompresser standard 8 11 none] [initialiser lca 14 19 none]
+G r c none [decompresser standard 8 11 none] [ajouter lca 41 15 none]
+G r c none [decompresser standard 8 11 none] [afficher lca 54 15 none]
+G r c none [decompresser standard 8 11 none] [initialiser arbre 18 15 none]
+G r c none [decompresser standard 8 11 none] [reconstituer_arbre arbre 58 15 none]
+G r c none [decompresser standard 8 11 none] [initialiser arbre__tab_entier 10 15 8_5]
+G r c none [decompresser standard 8 11 none] [afficher_arbre arbre 53 15 none]
+G r c none [decompresser standard 8 11 none] [creer_tab_huffman arbre 55 15 none]
+G r c none [decompresser standard 8 11 none] [vider lca 67 19 none]
+G r i none [decompresser standard 8 11 none] [position arbre__tab_lca 27 14 14_5]
+G r c none [decompresser standard 8 11 none] [sont_egales lca 50 14 none]
+G r c none [decompresser standard 8 11 none] [longueur arbre__tab_lca 21 14 14_5]
+G r c none [decompresser standard 8 11 none] [int2byte lca 59 14 none]
+G r c none [decompresser standard 8 11 none] [vider arbre 61 14 none]
+G r c none [decompresser standard 8 11 none] [la_donnee arbre__tab_lca 18 14 14_5]
+X 1 ada.ads
+16K9*Ada 20e8 16|1r6 1r33 2r6 2r33 3r6 3r28
+X 2 a-comlin.ads
+36K13*Command_Line 144e21 16|3w10 3r32
+39V13*Argument_Count{natural} 16|124s8 124s30 125s29
+52V13*Argument{string} 16|92s57 128s49
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[13|46] 16|2w10 2r37
+X 6 a-sequio.ads
+53P9*File_Type<28|63P9> 16|29r64[19|10] 51r58[19|10] 64r69[19|10] 83r59[19|10]
+. 88r31[19|10] 109r26[19|10]
+55E9*File_Mode
+55n23*In_File{55E9[19|10]} 16|128r40[19|10]
+55n32*Out_File{55E9[19|10]} 16|92r47[19|10]
+70U14*Create 16|92s19[19|10]
+76U14*Open 16|128s15[19|10]
+82U14*Close 16|105s19[19|10] 163s15[19|10]
+99U14*Read 16|37s23[19|10] 55s23[19|10]
+100U14*Write 16|99s27[19|10]
+X 12 a-textio.ads
+58K13*Text_IO 725e16 16|1w10 1r37
+262U14*New_Line 16|140s9
+463U14*Put 16|138s9
+506U14*Put_Line 16|150s9
+X 15 arbre.ads
+4K9*Arbre 76e10 16|4w6 4r17
+6P10*T_Arbre 16|114r13
+8K13*tab_entier[37|5] 16|29r92 39r13 40r50 44r19 45r19 46r9 47r9 110r18 122r12
+. 151r9
+14K13*tab_lca[37|5] 16|84r52 85r39 98r37 118r19 168r17 169r24
+18U15*Initialiser 16|144s5
+53U15*afficher_arbre 16|153s9
+55U15*creer_tab_huffman 16|158s5
+58U15*reconstituer_arbre 16|146s5
+61U14*Vider 16|167s5
+X 16 decompresser.adb
+8U11*decompresser 8b11 173l5 173t17
+10V14 byte2int{integer} 10b14 10>23 27l9 27t17 38s23
+10m23 octet{19|8M10} 16r20
+11i9 val{integer} 15m9 20m17 20r25 22m17 22r25 26r16
+12m9 bit{19|8M10} 18m13 19r16
+13m9 courant{19|8M10} 16m9 18r20 24m13 24r24
+17i13 i{integer}
+29U15 recuperer_tab_infixe 29b15 29=36 29<75 29<114 48l9 48t29 131s5
+29p36 file_hff{6|53P9[19|10]} 37r28
+29a75 tab_infixe{37|7A10[15|8]} 39m36 40r71 44r40 45r40 46m32 47m32
+29i114 taille{integer} 34m9 36m13 36r23 39r48 40r23 40r83 42m9 42r19
+30m9 octet{19|8M10} 37m38 38r32
+31i9 donnee{integer} 38m13 39r56 40r41 45m9 46r47
+32i9 indice{integer} 44m9 45r52 47r44
+51U15 transferer_bit 51b15 51=30 51=69 51=93 51<120 61l9 61t23 73s13 94s13
+51p30 file_hff{6|53P9[19|10]} 55r28
+51m69 octet{19|8M10} 55m38 58m13 58r22 60r16
+51i93 compteur{integer} 53r12 54m13 57m13 57r25
+51m120 bit{19|8M10} 60m9
+64U15 recuperer_structure_arbre 64b15 64=41 64<80 64>109 64<130 64<154 79l9
+. 79t34 134s5
+64p41 file_hff{6|53P9[19|10]} 73m28
+64p80 structure_arbre{19|6P10} 68m21 74m21
+64i109 Taille{integer} 72r25
+64i130 compteur{integer} 70m9 73m45
+64m154 octet{19|8M10} 71m9 73m38
+65i9 nb_de_1{integer} 69m9 72r15 76m17 76r28
+66m9 bit{19|8M10} 73m55 74r38 75r16
+83U15 decoder_fichier 83b15 83=31 83=70 83=94 84=31 84>71 106l9 106t24 162s5
+83p31 file_hff{6|53P9[19|10]} 94m28
+83m70 octet{19|8M10} 94m38
+83i94 compteur{integer} 94m45
+84a31 tab_huffman{37|7A10[15|14]} 96r43 98r54
+84i71 position_fichier{integer} 92r67
+85V18 indice_donnee[37|27]{integer} 96s20
+86p9 courant{19|6P10} 91m21 91r21 95m21 95r21 96r34 100m23 100r23 104m15
+. 104r15
+87m9 bit{19|8M10} 94m55 95r30
+88p9 file_byte{6|53P9[19|10]} 92m26 92r26 99r33 105m25 105r25
+89i9 pos{integer} 96m13 98r16 98r30 99r53 102r23
+109p5 file_hff{6|53P9[19|10]} 128m20 128r20 131m26 131r26 134m31 134r31 162m21
+. 162r21 163m21 163r21
+110a5 tab_infixe{37|7A10[15|8]} 131m36 146r48
+111i5 taille{integer} 131m48 134r58
+112m5 octet{19|8M10} 134m76 162m31 162r31
+113p5 structure_arbre{19|6P10} 134m41 134r41 139r18 146m31 146r31 166m11
+. 166r11
+114p5 arbre{15|6P10} 144m17 144r17 146m24 146r24 153r24 158r23 167m11 167r11
+115i5 indice{integer} 145m5 146m60 146r60
+116i5 compteur{integer} 134m66 162m38 162r38
+117p5 sda_binaire{19|6P10} 157m17 157r17 158m43 158r43 159m11 159r11 169m9
+. 170m15 170r15
+118a5 tab_huffman{37|7A10[15|14]} 158m30 158r30 162m48 162r48 168r34 169r42
+119i5 position_fichier{integer} 125m9 128r58 137r8 149r8 162r61
+121i5 pos{integer} 152m9 153m31 153r31
+122a5 code{37|7A10[15|8]} 151m32 153m36 153r36
+168i9 i{integer} 169r55
+X 19 lca.ads
+4K9*LCA 16|5w6 5r15 19|80e8
+6P10*T_LCA 16|64r102 86r19 113r23 117r19
+8M10*T_octet 16|10r31 12r15 13r19 30r17 51r84 51r130 64r166 66r15 83r85 87r15
+. 112r13
+10K13*Byte_file[6|43] 16|29r54 37r13 51r48 55r13 64r59 83r49 88r21 92r9 92r37
+. 99r17 105r9 109r16 128r5 128r30 163r5
+14U19*Initialiser 16|68s9 91s9 157s5
+41U15*ajouter 16|74s13 95s13
+50V14*sont_egales{boolean} 16|85r56
+54U15*afficher 16|139s9
+59V14*int2byte{8M10} 16|99s44
+67U19*Vider 16|100s17 104s9 159s5 166s5 170s9
+X 28 s-sequio.ads
+63P9*File_Type(43R9)
+X 37 tableau.ads
+7A10*T_Tableau(integer) 16|29r103[15|8] 84r60[15|14] 110r29[15|8] 118r27[15|14]
+. 122r23[15|8]
+10U15*Initialiser 16|151s20[15|8]
+14U15*Enregistrer 16|39s24[15|8] 46s20[15|8] 47s20[15|8]
+18V14*la_donnee{integer} 16|40s61[15|8] 44s30[15|8] 45s30[15|8] 169s32[15|14]
+21V14*longueur{integer} 16|98s45[15|14] 168s25[15|14]
+27v14*position 16|85r47[15|14]
+

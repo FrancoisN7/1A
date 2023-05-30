@@ -1,0 +1,10 @@
+package Zone;
+
+/**
+ * Ensemble des zones possibles, à compléter
+ */
+public class ZONES {
+
+	static Zone forest = new Zone("foret.jpg", 1920, 1080);
+	static Zone village = new Zone("village.jpg", 1700, 951);
+}

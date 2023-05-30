@@ -1,0 +1,61 @@
+package IU;
+
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+import Joueur.Joueur;
+
+public class BarreUtilisateurControleur extends JPanel {
+
+	public BarreUtilisateurControleur(Joueur joueur) {
+		super();
+
+		// Parametres du controleur
+		this.setBackground(new Color(0, 0, 0, 0));
+
+
+		// Affichage du bouton inventaire
+		JButton backpackButton = new JButton(new ImageIcon(this.getClass().getResource("res/backpack.png")));
+		backpackButton.setBorderPainted(false);
+		// backpackButton.setBorder(null);
+		backpackButton.setBackground(Color.BLACK);
+		backpackButton.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				joueur.setMessage("Votre sac est vide!");
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		this.add(backpackButton);
+	}
+
+}

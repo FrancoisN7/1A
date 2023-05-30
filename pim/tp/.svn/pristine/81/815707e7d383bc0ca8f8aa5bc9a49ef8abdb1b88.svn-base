@@ -1,0 +1,68 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with SDA_Exceptions; 		use SDA_Exceptions;
+with Ada.Strings.Unbounded; use Ada.Strings.Unbounded;
+	--! Les Unbounded_String ont une capacité variable, contrairement au String
+	--! pour lesquelles une capacité doit être fixée.
+with LCA;
+
+
+procedure test_hachage is
+
+package TH_11 is
+		new TH (T_Cle => Unbounded_String, T_Donnee => Integer, CAPACITE=>11);
+use TH_11;
+T_ex : TH_11;
+Cle : Unbounded_String;
+Donnee : integer;
+Indice : integer;
+Sda : T_LCA
+   begin
+   Cle:="un";
+   Donnee:=1;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+   Cle:="deux";
+   Donnee:=2;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+   Cle:="trois";
+   Donnee:=3;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+   Cle:="quatre";
+   Donnee:=1;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+   Cle:="cinq";
+   Donnee:=5;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+   Cle:="quatre-vingt-dix-neuf";
+   Donnee:=99;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+   Cle:="vingt-et-un";
+   Donnee:=21;
+   Indice:=Cle'Size mod 11 +1;
+   Sda:=T_ex[Indice];
+   Enregistrer(Sda,Cle,Donnee);
+
+
+      -- Afficher T_ex ici !
+
+
+
+end test_hachage;

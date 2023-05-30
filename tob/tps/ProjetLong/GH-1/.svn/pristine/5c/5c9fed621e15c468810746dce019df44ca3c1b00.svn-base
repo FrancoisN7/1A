@@ -1,0 +1,34 @@
+package interaction;
+
+import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
+
+public class Exempleutilisation {
+
+	static ImageIcon perso = new ImageIcon("interaction/luffy.jpeg");
+	static String reponse1 = "A) Je chevauche le dragon";
+	static String reponse2 = "B) Je gravis la montagne";
+	static String reponse3 = "C) Je récupère des objets pour m'aider";
+	static String reponse4 = "D) Je ne souhaite pas sauver poulpi";
+	static String texteperso = "Comment comptes-tu faire pour aller sauver poulpi ?";
+	
+	
+	// La méthode principale
+	// ---------------------
+
+		public static void main(String[] args) {
+			
+			ModeleInteractionSimple alo = new ModeleInteractionSimple(perso, reponse1, reponse2,
+					 reponse3, reponse4, texteperso);
+			
+			
+			
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					new InteractionSwing(alo);
+				}
+			});
+		}
+
+}

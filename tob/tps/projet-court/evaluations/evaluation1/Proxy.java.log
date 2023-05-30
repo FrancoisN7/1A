@@ -1,0 +1,6 @@
+allumettes/Proxy.java:19: error: cannot find symbol
+			throw new OperationImpossibleException();
+			          ^
+  symbol:   class OperationImpossibleException
+  location: class Proxy
+1 error

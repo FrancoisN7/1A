@@ -1,0 +1,48 @@
+package Zone;
+
+import javax.swing.JPanel;
+
+import Joueur.Joueur;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import javax.swing.JLabel;
+
+public class ZoneVue extends JPanel implements PropertyChangeListener {
+	
+
+	static final int width = 1280;
+	static final int height = 720;
+	
+	private JLabel imageZoneLabel;
+
+
+	public ZoneVue(Joueur joueur){
+		super();
+		this.setLayout(null);
+
+		// Parametres de la vue sur la zone
+		this.setPreferredSize(new Dimension(width, height));
+		this.setBackground(Color.BLUE);
+
+		// Afficher la zone
+		imageZoneLabel = new JLabel(joueur.getZoneCourante().getImage());
+		imageZoneLabel.setSize(new Dimension(width, height));
+		this.add(imageZoneLabel);
+		joueur.addPropertyChangeListener(this);
+	}
+
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (evt.getPropertyName().equals("zone")){
+			// Afficher la nouvelle zone
+			imageZoneLabel.setIcon(((Zone) evt.getNewValue()).getImage());
+		}
+		
+	}
+	
+}

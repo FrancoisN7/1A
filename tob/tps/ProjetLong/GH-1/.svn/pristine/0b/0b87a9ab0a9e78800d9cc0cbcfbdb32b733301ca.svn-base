@@ -1,0 +1,81 @@
+package Zone;
+
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+
+public class ControleurLieu extends JPanel {
+
+	private Lieu lieu;
+	private VueLieu vue;
+
+	public ControleurLieu(Lieu lieu, VueLieu vue) {
+		super();
+		this.lieu = lieu;
+		this.vue = vue;
+		this.setLayout(null);
+		maj();
+		lieu.addObserver(new Observer() {
+			@Override
+			public void update(Observable arg0, Object arg1) {
+				maj();
+			}
+		});
+
+	}
+
+	private void maj() {
+		this.removeAll();
+		Zone zone = lieu.getZoneCourante();
+		for (Interactif element : zone) {
+			JPopupMenu popupMenu = new JPopupMenu();
+
+			JLabel labelElement = new JLabel();
+			labelElement.setIcon(new ImageIcon(element.getClass().getResource("res/" + element.getImage())));
+			labelElement.setBounds(element.getX(), element.getY(), element.getWidth(), element.getHeight());
+
+			for (String option : element.getOptions()) {
+				JMenuItem menuItem = new JMenuItem(option);
+				menuItem.addActionListener(element);
+				popupMenu.add(menuItem);
+			}
+
+			labelElement.addMouseListener(new MouseListener() {
+
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					popupMenu.show(labelElement, e.getX(), e.getY());
+				}
+
+				@Override
+				public void mouseEntered(MouseEvent e) {
+				}
+
+				@Override
+				public void mouseExited(MouseEvent e) {
+				}
+
+				@Override
+				public void mousePressed(MouseEvent e) {
+				}
+
+				@Override
+				public void mouseReleased(MouseEvent e) {
+				}
+
+			});
+
+			this.add(labelElement);
+		}
+		this.add(vue);
+		this.setVisible(true);
+	}
+
+}

@@ -1,0 +1,99 @@
+% Compte-rendu minimal du mini-projet SDA : LCA et TH
+% Auteur : TESTU François
+% Groupe de TP : G
+
+
+**Consigne :** Vous devez écrire vos réponse à la place des ... en laissant
+une ligne vide avant et deux après votre réponse.
+
+**Remarque :** Ce document utilise le langage Markdown. On peut en engendrer
+une version PDF en faisant par exemple :
+
+~~~
+pandoc --toc -N -o LISEZ-MOI.pdf LISEZ-MOI.txt
+~~~
+
+
+# Exercice 1
+
+## Question 1.4
+
+**Indiquer les inconvénients/avantages d'une implantation par listes chaînées
+d'une SDA.**
+
+Les inconvénients d'une implantation par listes chaînées d'une SDA sont que l'accès aux éléments ne se fait pas directement et le module nécessite des implantations par récursivité ce qui est couteux en mémoire et aussi en temps. Cela peut être pratique si cela ne prend pas beaucoup d'éléments et c'est une structure dynamique. 
+
+
+
+# Évaluation expérimentale.
+
+## Performance comparée de LCA et TH
+
+Indiquer ici les résultats obtenus.
+
+time ./evaluer_alea_th 1000 10000
+Borne  : 1000
+Taille : 10000
+Min : 0
+Max : 23
+
+real	0m0,730s
+user	0m0,726s
+sys	0m0,000s
+
+~/1A/pim/tp/tp10$ time ./evaluer_alea_lca 1000 1000
+Borne  : 1000
+Taille : 1000
+Min : 0
+Max : 5
+
+real	0m6,222s
+user	0m6,218s
+sys	0m0,000s
+
+~/1A/pim/tp/tp10$ time ./evaluer_alea_th 10000 10000
+Borne  : 10000
+Taille : 10000
+Min : 0
+Max : 6
+
+real	0m2,333s
+user	0m2,325s
+sys	0m0,004s
+
+
+
+## Qualité du générateur aléatoire
+
+Indiquer les conclusions quant à la qualité du générateur aléatoire.
+
+Le générateur aléatoire semble plutôt bon car le minimum est proche du maximum. Par exemple, pour le dernier test ci-dessus, la redondance maximum d'un nombre est uniquement de 6 sur 10 000 valeurs avec une borne de 10 000.
+
+
+
+# Principales difficultés rencontrées
+
+Indiquer ici les principales difficultés rencontrées lors de la réalisation de
+ce projet et comment elles ont été surmontées ou contournéeS.
+
+L'emploi de la récursivité pour le premier module ainsi que la méthode pour l'implanter ne m'étaient pas vraiment naturels. A force de devoir situer les erreurs et voir comment les reprendre, j'ai fini par être plus familier avec la création du module. Ainsi, la réalisation du module TH était plus simple après avoir bien compris celle de LCA. Néanmois, je restais parfois bloqué sur quelques subtilités que je ne réussissais pas à discerner tout seul. On m'a donc expliqué certaines erreurs dans les cas ou j'étais bloqué.
+
+
+
+# Informations complémentaires
+
+Indiquer ici les informations qui pourraient aider à la compréhension du
+travail réalisé.
+
+Cette partie peut être vide.
+
+...
+
+
+
+# Bilan personnel
+
+Quel bilan personnel tirez vous de ce mini-projet ?
+
+Au début, j'étais assez découragé car il faut maîtriser beaucoup de subtilités de langage et aussi de compréhension de programmation. Mais à force d'y passer du temps, j'ai fini par améliorer ma compréhension de la pim. Et c'est vrai que c'était très satisfaisant de voir quand les tests passaient !!
+

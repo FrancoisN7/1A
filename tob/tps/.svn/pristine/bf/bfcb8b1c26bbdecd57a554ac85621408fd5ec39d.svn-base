@@ -1,0 +1,98 @@
+Date de l'évaluation : mar. 05 avril 2022 09:32:42 CEST
+
+!!! Il est interdit de changer ConfigurationException.java (voir evaluations/penalites2/ConfigurationException.java.diff)
+!!! Il est interdit de changer CoupInvalideException.java (voir evaluations/penalites2/CoupInvalideException.java.diff)
+
+Nombre de similitudes (voir evaluations/penalites2/sim_java.txt) : 5
+Les similitudes indiquent généralement du code à restructurer.
+
+Erreurs checkstyle (différentes/types) : 44/12	(voir evaluations/penalites2//checkstyle.log)
+
+Classe OperationInterditeException : OperationInterditeException (ok)
+
+Procuration sur le jeu réel : allumettes/Proxy.java (ok)
+
+OperationInterditeException, levée dans : allumettes/Proxy.java (ok)
+OperationInterditeException, récupérée dans : allumettes/Arbitre.java (ok)
+
+Throwable, Exception et RuntimeException ne devraient pas être récupérées car trop générales... ok
+
+AssertionError ne doit pas être récupérée... ok
+
+Autres exceptions récupérées :
+  | allumettes/Arbitre.java:97:         } catch (CoupInvalideException e) {
+  | allumettes/Arbitre.java:118:        } catch (
+  | allumettes/Jouer.java:51:       } catch (ConfigurationException e) {
+  | allumettes/Tricheur.java:10:            } catch (CoupInvalideException e) {
+  | allumettes/Humain.java:18:      } catch (InputMismatchException e) {
+
+Utilisation de 'Scanner' : ok
+  | allumettes/Humain.java:7:   static Scanner saisieUtilisateur = new Scanner(System.in);
+
+Utilisation de 'split' : ok
+  | allumettes/Jouer.java:120:      return (args.split("@"));
+
+Utilisation de 'Random' : ok
+  | allumettes/Naif.java:3:import java.util.Random;
+  | allumettes/Naif.java:16:        Random aleatoire = new Random();
+
+Utilisation de '3' : ok
+
+Affichage de 'Impossible !' : ok
+
+Utilisation de 'System.exit' : ok
+
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+Compilation de RapideTest.java : OK.
+Test exemplePresqueSujet : ok
+Test exempleTricheurSujet : ok
+Test exempleConfiantTricheurSujet : ok
+Test exempleRobustesse : ok
+Test exempleHumainTricheurExpert : NON CONFORME (voir evaluations/penalites2/exempleHumainTricheurExpert.diff)	(pénalité : 2)
+Test exempleMaxLou : ok
+Test exempleRapideRapide : ok
+Test exempleTricheurExpert : ok
+Test exempleExpertTest : ok
+Test exempleExpertTest2 : ok
+Test exempleExpertTest3 : ok
+Test exempleExpertTest4 : ok
+Test exempleRapideTest : ok
+Test exempleRapideTest1 : ok
+Test exempleRapideTest2 : ok
+Test exempleRapideTest3 : ok
+
+Test RobustesseTest : Tests run: 25,  Failures: 10	(pénalité : 2)	(voir evaluations/penalites2/RobustesseTest.log)
+    1) testerStrategieDoubleAtSymetrieConfiant(RobustesseTest)
+        AssertionError
+    2) testerStrategieInconnueSymetrieConfiant(RobustesseTest)
+        AssertionError
+    3) testerStrategieDoubleAtStrategieALaFinSymetrie(RobustesseTest)
+        AssertionError
+    4) testerStrategieDoubleAtStrategieALaFinSymetrieConfiant(RobustesseTest)
+        AssertionError
+    5) testerStrategieInconnueSymetrie(RobustesseTest)
+        AssertionError
+    6) testerSansStrategieSymetrie(RobustesseTest)
+        AssertionError
+    7) testerSansStrategieSymetrieConfiant(RobustesseTest)
+        AssertionError
+    8) testerNomNonDefiniSymetrieConfiant(RobustesseTest)
+        AssertionError
+    9) testerStrategieDoubleAtSymetrie(RobustesseTest)
+        AssertionError
+    10) testerNomNonDefiniSymetrie(RobustesseTest)
+        AssertionError
+
+
+On recommence avec les classes/interfaces fournies : Jeu ConfigurationException CoupInvalideException
+Compilation de Jouer.java : OK.
+Compilation de Arbitre.java : OK.
+
+Vérification du respect du diagramme de classe...
+Test FormeTest : OK (2 tests)	(voir evaluations/penalites2/FormeTest.log)
+
+Compilation de RapideTest.java : OK.
+Test allumettes.RapideTest : OK (1 test)	(voir evaluations/penalites2/allumettes.RapideTest.log)
+
+Total pénalités : 4

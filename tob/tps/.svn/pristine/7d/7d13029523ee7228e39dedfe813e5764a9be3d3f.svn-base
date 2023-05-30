@@ -1,0 +1,11 @@
+1,6c1,3
+< 
+< 	à faire !
+< 
+< Exception in thread "main" allumettes.ConfigurationException: Erreur dans la saisie
+< 	at allumettes.Jouer.confiant(Jouer.java:73)
+< 	at allumettes.Jouer.main(Jouer.java:31)
+---
+> Allumettes restantes : 13
+> [Je triche...]
+> Abandon de la partie car J1 triche !

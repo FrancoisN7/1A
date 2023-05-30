@@ -1,0 +1,70 @@
+package deplacement;
+
+import java.awt.FlowLayout;
+import java.awt.event.MouseEvent;
+
+import javax.swing.*;
+
+@SuppressWarnings("serial")
+
+public class EcranAffiche extends JFrame implements Ecran {
+
+	JLabel label;
+	ImageIcon image;
+	public static EcranAffiche ecran;
+	
+	public EcranAffiche() {
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setLayout(new FlowLayout());
+		label = new JLabel();
+		label.addMouseListener(this);
+		this.add(label);
+		this.setVisible(true);
+	}
+	
+	//public abstract void Afficher();
+	
+	public void Afficher(String nom){
+		image = new ImageIcon(getClass().getResource("res/" + nom));
+	    label.setIcon(image);
+	    this.pack();
+		this.setLocationRelativeTo(null);
+    }
+
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	} 
+	
+	
+	public static void main(String[] args) {
+	    ecran = new Carte();  
+	    ecran.Afficher("carte.jpg");
+	} 
+	
+}

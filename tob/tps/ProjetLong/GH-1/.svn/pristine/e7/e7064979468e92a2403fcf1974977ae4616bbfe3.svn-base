@@ -1,0 +1,147 @@
+package minijeu_falaise;
+
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.ArrayList;
+import java.util.List;
+
+
+import javax.swing.JPanel;
+
+public class Ecran extends JPanel implements Runnable{
+	
+	//parametres
+	final static int tailleStandard = 16;
+	final static int echelle = 3;
+	
+	public static final int longueurEcran = 16 * tailleStandard * echelle;
+	public static final int largeurEcran = 12 * tailleStandard * echelle;
+	
+	private int fps = 30;
+	private boolean perdu;
+	
+	Touches touches = new Touches();
+	Thread gameThread;
+	
+	
+	
+	private List<Projectile> projectiles;
+	
+	//position par default
+	private int posX = largeurEcran/2;
+	private int posY = longueurEcran - 50;
+	private int vitesse = 4;
+	
+	
+	public Ecran() {
+		this.setPreferredSize(new Dimension(largeurEcran, longueurEcran));
+		this.setBackground(Color.black);
+		this.setDoubleBuffered(true);
+		this.addKeyListener(touches);
+		this.setFocusable(true);
+	}
+	
+	public void demarrerGameThread() {
+		this.projectiles = new ArrayList<>();
+		
+		projectiles.add(new Projectile(20, 5, 200, 200));
+		
+		
+		gameThread = new Thread(this);
+		gameThread.start();
+	}
+	
+	
+	@Override
+	public void run() {
+		double dt = 1000/fps;
+		double temps = System.currentTimeMillis() + dt;
+			
+		while (gameThread != null ) {
+			try {
+				//mise à jour
+				update();
+				
+				//affichage
+				repaint();
+				
+				
+				
+				double tempsRestant = temps - System.currentTimeMillis();
+				tempsRestant = tempsRestant;
+				
+				if (tempsRestant < 0) {
+					tempsRestant = 0;
+				}
+				Thread.sleep((long) tempsRestant);
+				temps += dt;
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			} catch (ImpactException e) {
+				gameThread = null;
+			}
+			
+			
+		}
+	}
+	
+	
+	
+	public void update() throws ImpactException{
+		if (touches.toucheHaut) {
+			posY -= vitesse;
+		}  if (touches.toucheBas) {
+			posY += vitesse;
+		}  if (touches.toucheGauche) {
+			posX -= vitesse;
+		}  if (touches.toucheDroite) {
+			posX += vitesse;
+		}
+		Projectile proj = Projectile.randomProjectile();
+		if (proj != null) {
+			projectiles.add(projectiles.size(), proj);
+		} if (perdu) {
+			throw new ImpactException();
+		}
+		for (int i = 0; i < projectiles.size(); i++) {
+			proj = projectiles.get(i);
+			if (proj.getCentre().distance(new Point(posX, posY)) < proj.getRayon()) {
+				perdu = true;
+				
+				
+			}
+		}
+	}
+	
+	
+	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		
+		Graphics2D g2 = (Graphics2D)g;
+		g2.setColor(Color.white);
+		g2.fillRect(posX, posY, tailleStandard, tailleStandard);
+		//g2.dispose();
+		
+		Projectile proj;
+		for (int i = 0; i < projectiles.size(); i++) {
+			proj = projectiles.get(i);
+			proj.translater(0, proj.getVitesse());
+			g2 = (Graphics2D)g;
+			g2.setColor(Color.blue);
+			g2.fillOval(proj.getCentre().getX(), proj.getCentre().getY(), proj.getRayon(), proj.getRayon());
+			if (proj.getCentre().getY() > longueurEcran) {
+				projectiles.remove(i);
+			} 
+			
+		}
+		if (perdu) {
+			g2.setColor(Color.red);
+			g2.drawString("Perdu", largeurEcran/2, longueurEcran/2);
+		}
+		g2.dispose();
+	}
+
+}

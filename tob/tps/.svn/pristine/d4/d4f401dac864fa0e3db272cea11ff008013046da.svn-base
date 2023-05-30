@@ -1,0 +1,16 @@
+allumettes/Jouer.java:10: error: '{' expected
+     private enum Strategie [ humain, rapide, naif, expert ];
+                           ^
+allumettes/Jouer.java:10: error: ',', '}', or ';' expected
+     private enum Strategie [ humain, rapide, naif, expert ];
+                            ^
+allumettes/Jouer.java:10: error: '}' expected
+     private enum Strategie [ humain, rapide, naif, expert ];
+                             ^
+allumettes/Jouer.java:10: error: <identifier> expected
+     private enum Strategie [ humain, rapide, naif, expert ];
+                                    ^
+allumettes/Jouer.java:10: error: ';' expected
+     private enum Strategie [ humain, rapide, naif, expert ];
+                                                          ^
+5 errors

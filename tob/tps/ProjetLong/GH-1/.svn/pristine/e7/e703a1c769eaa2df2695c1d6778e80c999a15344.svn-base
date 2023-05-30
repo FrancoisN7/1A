@@ -1,0 +1,35 @@
+package Zone;
+
+import java.util.Observable;
+import java.util.Observer;
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class VueLieu extends JLabel {
+
+	private Lieu lieu;
+
+	public VueLieu(Lieu lieu){
+		super();
+		this.lieu = lieu;
+		maj();
+		lieu.addObserver(new Observer() {
+
+			@Override
+			public void update(Observable o, Object arg) {
+				maj();
+			}
+
+		});
+
+	}
+
+	private void maj() {
+		Zone zone = lieu.getZoneCourante();
+		ImageIcon image = new ImageIcon(getClass().getResource("res/" + zone.getImage()));
+		this.setIcon(image);
+		this.setBounds(0, 0, zone.getWidth(), zone.getHeight());
+	}
+
+}

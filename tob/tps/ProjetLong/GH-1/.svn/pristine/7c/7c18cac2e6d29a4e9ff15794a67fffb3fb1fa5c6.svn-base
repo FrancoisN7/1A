@@ -1,0 +1,29 @@
+package Zone;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Observable;
+
+/**
+ * Classe modélisant le lieu courant.
+ */
+public class Lieu extends Observable {
+
+	private Zone zoneCourante;
+
+	public Lieu(Zone zone) {
+		this.zoneCourante = zone;
+	}
+
+	public void setZoneCourante(Zone zone) {
+		zoneCourante = zone;
+		this.setChanged();
+		this.notifyObservers();
+	}
+
+	public Zone getZoneCourante() {
+		return zoneCourante;
+	}
+}

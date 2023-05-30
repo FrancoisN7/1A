@@ -1,0 +1,45 @@
+Dans ce fichier `reponses1.txt`, 
+
+
+[Question 1.1] Indiquer 
+- comment obtenir le ou les exécutables par compilation séparée.
+
+1) Il faut compiler chaque fichier ".c" séparément dont on a besoin pour obtenir 
+les fichiers ".o" grâce à la commande : "c99 -Wextra -pedantic -c nom_fichier.c".
+
+2) Par la suite, pour générer l'exécutable, il suffit de rentrer la commande
+"c99 nom_fichier1.o nom_fichier2.o ... -o executable". "nom_fichier1.o", 
+"nom_fichier2.o",... correspondent aux fichiers dont on a besoin pour générer 
+l'exécutable.
+
+
+- les dépendances entre les fichiers qui constituent l’application.
+
+Le fichier "file.c" est une implémentation de la spécification "file.h". 
+Les fichiers "test_file.c" et "exemple_file.c" sont dépendants du fichier 
+"file.h".
+
+
+- le rôle de la règle `.PHONY` dans Makefile.
+
+La règle ".PHONY" est utile dans le cas ou les fichiers listés après
+présentent des dépendances. Elle permet d'exécuter la règle quand même dans 
+ce cas. 
+
+
+[Question 1.5] Indiquer
+- Quel est le sous-programme non-visible des autres modules et défini dans le module File.
+
+Le sous-programme non visible des autres modules et défini dans le module File est cellule.
+
+
+- Que se passe-t-il si on enlève le mot-clé static à la compilation ?
+  
+Il ne se passe rien de spécial.
+ 
+
+- Quel est le risque de ne pas le mettre ?
+
+Dans le cas ou on ne le met pas, l'utilisateur peut utiliser ce sous-programme. 
+Cependant, ce n'est pas sûr qu'il gère correctement la mémoire. Le "static" 
+permet ainsi de réduire les erreurs de l'utilisateur du sous-programme.

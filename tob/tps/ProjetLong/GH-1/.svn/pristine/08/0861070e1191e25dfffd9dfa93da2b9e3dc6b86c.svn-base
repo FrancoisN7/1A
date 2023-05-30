@@ -1,0 +1,42 @@
+package Introduction;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
+
+public class Intro_debut{
+
+	public Intro_debut() {
+		construireEnsemble();
+	}
+	
+	public void construireEnsemble()  {
+		JFrame fenetre = new JFrame();
+		JPanel panel = new JPanel();
+		String[] tableau = new String[3];
+		CreationIntro ensemble = new CreationIntro(fenetre, panel, tableau);
+		
+		ensemble.definirTexteIntro("Le crash de votre avion vous laisse seul sur une île déserte.", "L'objectif? S'enfuir vivant de l'île.", "Et attention, chaque mauvaise décision met votre vie en péril.");
+		try {
+			ensemble.construireFenetre();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+
+		
+	}
+		  public static void main(String args[]) throws IOException 
+		  {
+			  EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						new Intro_debut();
+					}
+				});
+			  
+			  }
+
+		  
+	}
+
+

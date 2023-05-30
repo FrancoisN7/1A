@@ -1,0 +1,11 @@
+allumettes/Arbitre.java:35: error: cannot find symbol
+		} catch (OperationImpossibleException e){
+		         ^
+  symbol:   class OperationImpossibleException
+  location: class Arbitre
+./allumettes/Proxy.java:19: error: cannot find symbol
+			throw new OperationImpossibleException();
+			          ^
+  symbol:   class OperationImpossibleException
+  location: class Proxy
+2 errors

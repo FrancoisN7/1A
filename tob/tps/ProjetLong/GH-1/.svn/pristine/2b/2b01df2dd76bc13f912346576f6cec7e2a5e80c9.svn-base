@@ -1,0 +1,22 @@
+package Carte.VC;
+
+import Joueur.Joueur;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class CarteFenetre extends JDialog {
+
+    public CarteFenetre(Joueur joueur){
+        super();
+        this.setLayout(new BorderLayout());
+        CarteVue carteVue = new CarteVue(joueur);
+        CarteControleur carteControleur = new CarteControleur(carteVue);
+        //this.add(carteControleur);
+        this.add(carteVue, BorderLayout.NORTH);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        this.pack();
+        this.setResizable(false);
+        this.setVisible(true);
+    }
+}

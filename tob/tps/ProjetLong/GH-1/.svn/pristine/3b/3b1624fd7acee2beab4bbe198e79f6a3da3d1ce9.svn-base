@@ -1,0 +1,9 @@
+package minijeu_falaise;
+
+public class ImpactException extends Exception {
+
+	
+	public ImpactException() {
+		super();
+	}
+}

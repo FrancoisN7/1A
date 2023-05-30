@@ -1,0 +1,44 @@
+package Dialogue;
+
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import javax.swing.*;
+import java.awt.EventQueue;
+
+public class DialogueIU extends JDialog {
+
+	public DialogueIU(){
+		super();
+		this.setLayout(new GridBagLayout());
+		GridBagConstraints c = new GridBagConstraints();
+
+		DialogueSimple dialogueLuffy = new DialogueSimple("Luffy", ArbresDialogues.genererArbreDialogueLuffy());
+		DialogueVue dialogueVue = new DialogueVue(dialogueLuffy);
+		DialogueControleur dialogueControleur = new DialogueControleur(dialogueLuffy);
+		c.gridx = 0;
+		c.gridy = 0;
+		c.fill = GridBagConstraints.HORIZONTAL;
+		this.add(dialogueVue, c);
+		c.gridx = 0;
+		c.gridy = 1;
+		c.weighty = 0.5;
+		this.add(dialogueControleur, c);
+		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setUndecorated(true);
+		this.pack();
+		this.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		FlatDarkLaf.setup();
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new DialogueIU();
+			}
+		});
+	}
+	
+}

@@ -1,0 +1,15 @@
+package allumettes;
+import allumettes.Arbitre;
+import allumettes.Joueur;
+
+public class NaifTest {
+	
+	public static void main(String[] args) {
+	Joueur j1 = new Joueur("Sarah", new Naif());
+	Joueur j2 = new Joueur("Lena", new Naif());
+	Arbitre arbitre = new Arbitre(j1, j2);
+	Jeu jeu = new ClassJeu();
+	arbitre.Jouons(jeu);
+	}
+}
+

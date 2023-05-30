@@ -1,0 +1,13 @@
+package allumettes;
+import allumettes.Joueur;
+
+public class ExpertTest {
+	
+	public static void main(String[] args) {
+	Joueur j1 = new Joueur("Sarah", new Naif());
+	Joueur j2 = new Joueur("Lena", new Expert());
+	Arbitre arbitre = new Arbitre(j1, j2);
+	Jeu jeu = new ClassJeu();
+	arbitre.Jouons(jeu);
+	}
+}

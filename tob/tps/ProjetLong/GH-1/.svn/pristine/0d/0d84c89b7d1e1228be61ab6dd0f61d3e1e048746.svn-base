@@ -1,0 +1,51 @@
+package IU;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+
+import javax.swing.BorderFactory;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import Joueur.Joueur;
+
+public class BarreUtilisateurVue extends JPanel implements PropertyChangeListener {
+
+	static final int width = 1280;
+	static final int height = 200;
+
+	JLabel messageJoueurLabel;
+
+	/**
+	 * 
+	 */
+	public BarreUtilisateurVue(Joueur joueur) {
+		super();
+
+		// Parametres de la barre
+		this.setPreferredSize(new Dimension(width, height));
+		this.setBackground(Color.BLACK);
+		this.setLayout(new BorderLayout());
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		// Affichage du message pour le joueur
+		messageJoueurLabel = new JLabel();
+		messageJoueurLabel.setFont(new Font("Verdana", Font.PLAIN, 30));
+		messageJoueurLabel.setForeground(Color.WHITE);
+		messageJoueurLabel.setHorizontalAlignment(JLabel.CENTER);
+		messageJoueurLabel.setVerticalAlignment(JLabel.CENTER);
+		this.add(messageJoueurLabel, BorderLayout.CENTER);
+		joueur.addPropertyChangeListener(this);
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		if (evt.getPropertyName().equals("message")) {
+			messageJoueurLabel.setText((String) evt.getNewValue());
+		}
+	}
+}

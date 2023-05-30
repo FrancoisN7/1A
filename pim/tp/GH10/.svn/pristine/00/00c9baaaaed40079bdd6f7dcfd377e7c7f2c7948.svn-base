@@ -1,0 +1,265 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Command_line; use Ada.Command_line;
+with arbre; use arbre;
+with LCA; use LCA;
+with Tableau;
+
+
+procedure Compresser is
+    --type T_octet is mod 2**8;
+
+    package tab_arbre is new tableau (T_Donnee => T_arbre, capacite => 257);
+    use tab_arbre;
+
+
+    procedure construire_tab_noeuds(tab_noeuds : out tab_arbre.T_Tableau; Taille : out Integer; position_fichier : in integer) is
+        file_txt : Ada.Text_IO.file_type;			-- pour l'accès par caractère
+        un_char : Character;
+        val : Integer;
+        feuille : T_Arbre;
+        freq : Integer;
+    begin
+        taille := 0;
+        open (file_txt, In_File, Argument(position_fichier)); 	-- Ouverture du fichier en lecture
+        while not end_of_file(file_txt) loop--récupérer les caractères du texte
+            taille := taille + 1;
+            Get_immediate (file_txt, un_char);
+            val := Character'pos(un_char);
+            Initialiser(feuille);
+            if est_vide(la_donnee(tab_noeuds, val)) then--cas où on a pas encore enregistré ce caractère
+                creer(feuille, 1, val);
+                Enregistrer(tab_noeuds, val, feuille);
+            else--cas où on a déjà vu ce caractère
+                freq := la_cle(la_donnee(tab_noeuds, val));
+                feuille := la_donnee(tab_noeuds, val);
+                vider(feuille);
+                creer(feuille, freq + 1, val);
+                Enregistrer(tab_noeuds, val, feuille);
+            end if;
+        end loop;
+        close (file_txt);
+        Initialiser(feuille);        --ajout de \$
+        creer(feuille, 0, -1);
+        enregistrer(tab_noeuds, longueur(tab_noeuds), feuille);
+    end construire_tab_noeuds;
+
+
+    --construire l'arbre de Huffman
+    procedure construire_arbre(arbre : out T_Arbre; position_fichier : Integer) is
+        function indice_min(tab : in tab_arbre.T_Tableau) return Integer is
+            indice : Integer;
+            min : integer;
+        begin
+            indice := 1;
+            while est_vide(la_donnee(tab, indice)) loop
+                indice := indice + 1;
+            end loop;
+            min := la_cle(la_donnee(tab, indice));
+            for i in indice..longueur(Tab) loop
+                if not(est_vide(la_donnee(tab, i))) and then min > la_cle(la_donnee(tab, i)) then
+                    indice := i;
+                    min := la_cle(la_donnee(tab, i));
+                end if;
+            end loop;
+            return indice;
+        end indice_min;
+
+        taille : integer;
+        tab_noeuds : tab_arbre.T_Tableau;
+        indice : Integer;
+        courant : T_Arbre;
+        arbre_vide : T_Arbre;
+    begin
+        construire_tab_noeuds(tab_noeuds, taille, position_fichier);
+        indice := indice_min(tab_noeuds);
+        --fusionner les deux noeuds à fréquence minimale jusqu'à arriver à un seul arbre
+        while la_cle(la_donnee(tab_noeuds, indice)) < taille loop
+            courant := la_donnee(tab_noeuds, indice);
+            Initialiser(arbre_vide);
+            Enregistrer(tab_noeuds, indice, arbre_vide);
+            indice := indice_min(tab_noeuds);
+            Fusionner(arbre, courant, la_donnee(tab_noeuds, indice));
+            Enregistrer(tab_noeuds, indice, arbre);
+            indice := indice_min(tab_noeuds);
+        end loop;
+    end construire_arbre;
+
+
+    procedure afficher_tab_huffman(tab_huffman : in tab_lca.T_Tableau) is
+        sda : T_LCA;
+    begin
+        for i in 1..tab_lca.longueur(tab_huffman) loop
+            sda := tab_lca.la_donnee(tab_huffman, i);
+            if not(Est_Vide(sda)) then
+                put("'");
+                afficher_carac(i);
+                put("' --> ");
+                afficher(sda);
+                new_line;
+            end if;
+        end loop;
+    end afficher_tab_huffman;
+
+    procedure structurer_arbre(arbre : in T_Arbre; structure_arbre : in out T_LCA) is
+    begin
+        if est_feuille(arbre) then
+            ajouter(structure_arbre, 1);
+        else
+            ajouter(structure_arbre, 0);
+            structurer_arbre(fils_gauche(arbre), structure_arbre);
+            structurer_arbre(fils_droit(arbre), structure_arbre);
+        end if;
+    end structurer_arbre;
+
+
+    procedure parcours_infixe(arbre : in T_Arbre; tab_infixe : out tab_entier.T_Tableau) is
+
+
+        procedure creer_tab_infixe(arbre : in T_Arbre; tab_infixe : in out tab_entier.T_Tableau; indice: in out integer) is
+            donnee : Integer;
+        begin
+            if est_feuille(arbre) then
+                indice := indice + 1;
+                donnee := la_donnee(arbre);
+                tab_entier.Enregistrer(tab_infixe, indice, donnee);
+            else
+                creer_tab_infixe(fils_gauche(arbre), tab_infixe, indice);
+                creer_tab_infixe(fils_droit(arbre), tab_infixe, indice);
+            end if;
+        end creer_tab_infixe;
+
+        taille : integer;
+        indice : integer;
+        donnee : Integer;
+    begin
+        taille := 0;
+        creer_tab_infixe(arbre, tab_infixe, taille);
+        donnee := tab_entier.la_donnee(tab_infixe, taille);
+        tab_entier.Enregistrer(tab_infixe, taille + 1, donnee);
+        --traiter la position de \$
+        indice := 0;
+        loop
+            indice := indice + 1;
+            donnee := tab_entier.la_donnee(tab_infixe, indice);
+            exit when donnee = -1;
+        end loop;
+        donnee := tab_entier.la_donnee(tab_infixe, 1);
+        tab_entier.Enregistrer(tab_infixe, 1, indice);
+        if indice /= 1 then
+            tab_entier.Enregistrer(tab_infixe, indice, donnee);
+        end if;
+    end parcours_infixe;
+
+
+    procedure encoder_fichier(tab_infixe : in tab_entier.T_Tableau;
+                              tab_huffman : in tab_lca.T_Tableau; structure_arbre : in out T_LCA; position_fichier : in Integer)is
+        --encoder les caractères tu tableau infixe
+        procedure encoder_carac(tab_infixe : in tab_entier.T_Tableau; file_hff : in out Byte_file.file_type) is
+            octet : T_octet;
+            indice : integer;
+            donnee : integer;
+        begin
+            indice := 1;
+            donnee := tab_entier.la_donnee(tab_infixe, indice);
+            octet := int2byte(donnee);
+            byte_file.write(file_hff, octet);
+            loop
+                indice := indice + 1;
+                donnee := tab_entier.la_donnee(tab_infixe, indice);
+                octet := int2byte(donnee);
+                byte_file.write(file_hff, octet);
+                exit when donnee = tab_entier.la_donnee(tab_infixe, indice - 1);
+            end loop;
+        end encoder_carac;
+
+
+        procedure encoder_texte(tab_huffman : in tab_lca.T_Tableau; compteur : in out Integer;
+                                octet : in out T_octet; file_hff : in out Byte_file.file_type; position_fichier : in Integer) is
+            file_txt : Ada.Text_IO.file_type;
+            carac : Character;
+            sda : T_LCA;
+            taille_tab : integer;
+        begin
+            open (file_txt, In_File, Argument(position_fichier));
+            while not end_of_file(file_txt) loop--encoder chaque caractère
+                Get_immediate (file_txt, carac);
+                sda := tab_lca.la_donnee(tab_huffman, Character'pos(carac));
+                encoder_sda(sda, compteur, octet, file_hff);
+            end loop;
+            taille_tab := tab_lca.longueur(tab_huffman);
+            sda := tab_lca.la_donnee(tab_huffman, taille_tab);
+            encoder_sda(sda, compteur, octet, file_hff);
+            close(file_txt);
+        end encoder_texte;
+
+
+        compteur : Integer;
+        octet : T_octet;
+        file_hff : Byte_file.file_type;
+    begin
+        byte_file.create(file_hff, byte_file.Out_File, Argument (position_fichier) & ".hff"); -- Création / écriture
+        encoder_carac(tab_infixe, file_hff); --encoder le tab_infixe
+        compteur := 0;
+        octet := 0;
+        encoder_sda(structure_arbre, compteur, octet, file_hff);
+        encoder_texte(tab_huffman, compteur, octet, file_hff, position_fichier);
+        while compteur < 8 loop --encoder le dernier octet
+            compteur := compteur + 1;
+            octet := octet * 2;
+        end loop;
+        byte_file.Write(file_hff, octet);
+        byte_file.close(file_hff);
+    end encoder_fichier;
+
+    arbre : T_Arbre;
+    pos : Integer;
+    code : tab_entier.T_Tableau;
+    tab_infixe : tab_entier.T_Tableau;
+    structure_arbre : T_LCA;
+    sda_binaire : T_LCA;
+    tab_huffman : tab_lca.T_Tableau;
+    position_fichier : integer;
+begin
+    if Argument_Count = 1 or Argument_Count = 2 then
+        position_fichier := Argument_Count;
+    end if;
+    --construire l'arbre de huffman
+    construire_arbre(arbre, position_fichier);
+
+    --creer le tableau de huffman
+    Initialiser(sda_binaire);
+    creer_tab_huffman(arbre, tab_huffman, sda_binaire);
+    vider(sda_binaire);
+
+    --creer le tableau infixe
+    parcours_infixe(arbre, tab_infixe);
+
+    --creer le structure de l'arbre
+    pos := 0;
+    structurer_arbre(arbre, structure_arbre);
+
+    --encoder le fichier
+    encoder_fichier(tab_infixe, tab_huffman, structure_arbre, position_fichier);
+
+    if Argument_Count = 2 then--afficher les etapes si c'est demandé
+        put_line("arbre :");
+        tab_entier.Initialiser(code, 0);
+        pos := 0;
+        afficher_arbre(arbre, pos, code);
+
+        put("Structure de l'arbre : ");
+        afficher(structure_arbre);
+        new_line;
+
+        Put_Line("tableau de huffman :");
+        afficher_tab_huffman(tab_huffman);
+    end if;
+
+    vider(structure_arbre);
+    vider(arbre);
+    for i in 1..tab_lca.longueur(tab_huffman) loop
+        sda_binaire := tab_lca.la_donnee(tab_huffman, i);
+        vider(sda_binaire);
+    end loop;
+end Compresser;

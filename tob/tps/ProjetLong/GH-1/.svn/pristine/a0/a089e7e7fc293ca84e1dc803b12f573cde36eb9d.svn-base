@@ -1,0 +1,15 @@
+package Bataille_Navale;
+
+import java.awt.EventQueue;
+
+public class BatailleNavaleMain {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				PlacerSwing placer = new PlacerSwing();
+				ModeleGrillePerso grilleJoueur = placer.getGrille();
+				new BatailleSwing(grilleJoueur);			
+		}
+	});
+}
+}	

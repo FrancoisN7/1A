@@ -1,0 +1,14 @@
+package octet is
+
+   type T_octet is mod 2**8;
+    for T_octet'Size use 8;
+
+   --obtenir le bit de gauche de l'octet.
+   function bit_de_gauche(octet : in T_octet) return T_octet;
+
+
+   --decaler vers la gauche et rajouter un bit_d pour compléter l'octet.
+   procedure decaler(octet : in out T_octet; bit_d : in T_octet);
+
+
+end octet;

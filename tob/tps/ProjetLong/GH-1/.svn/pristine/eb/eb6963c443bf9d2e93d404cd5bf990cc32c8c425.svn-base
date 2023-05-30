@@ -1,0 +1,51 @@
+package minijeux.minijeu_falaise;
+
+import java.util.Random;
+
+public class Projectile {
+	
+	private int rayon;
+	private int vitesse;
+	private Point centre;
+	
+	private static Random random = new Random();
+	final static int chance = 10;
+	final static int vitesse_max = 20;
+	final static int rayon_max = 50;
+	
+	public Projectile(int rayon, int vitesse, int x, int y) {
+		this.rayon = rayon;
+		this.vitesse = vitesse;
+		this.centre = new Point(x, y);
+	}
+	
+	public int getRayon() {
+		return this.rayon;
+	}
+	
+	public int getVitesse() {
+		return this.vitesse;
+	}
+	
+	public Point getCentre() {
+		Point copie = new Point(this.centre.getX(), this.centre.getY());
+		return copie;
+	}
+	
+	public void translater(int dx, int dy) {
+		this.centre.translater(dx, dy);
+	}
+	
+	public static Projectile randomProjectile() {
+		if (random.nextInt(chance) == 1) {
+			int x = random.nextInt(Ecran.largeurEcran);
+			int y = 0;
+			int v = random.nextInt(vitesse_max) + 1;
+			int r = random.nextInt(rayon_max) + 1;
+			return new Projectile(r, v, x, y);
+		} else {
+			return null;
+		}
+	}
+
+}

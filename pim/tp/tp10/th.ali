@@ -1,0 +1,118 @@
+V "GNAT Lib v2021"
+A -gnatA
+A -gnatwa
+A -gnata
+A -g
+A -mtune=generic
+A -march=x86-64
+P ZX
+
+RN
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_IMPLEMENTATION_PRAGMAS
+
+U th%b			th.adb			55d392db NE OO PK GE IU
+W ada%s			ada.ads			ada.ali
+W ada.unchecked_deallocation%s
+W sda_exceptions%s	sda_exceptions.ads	sda_exceptions.ali
+
+U th%s			th.ads			7a7d1471 BN EE NE OO PK GE
+W ada%s			ada.ads			ada.ali
+Z ada.unchecked_deallocation%s
+W lca%s			lca.adb			lca.ali
+Z sda_exceptions%s	sda_exceptions.ads	sda_exceptions.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D lca.ads		20211124161440 c45cbbcd lca%s
+D lca.adb		20211126175626 09fa5fa2 lca%b
+D sda_exceptions.ads	20211117152019 58fab764 sda_exceptions%s
+D system.ads		20210520051134 a2da961d system%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D th.ads		20211129164836 be21afbc th%s
+D th.adb		20211129165842 70a02666 th%b
+G a e
+G c Z s b [th standard 8 9 none]
+X 1 ada.ads
+16K9*Ada 20e8 11|3r6
+X 3 a-uncdea.ads
+20u15*Unchecked_Deallocation 11|3w10
+X 4 lca.ads
+5+14 T_Cle 10|13r14
+6+14 T_Donnee 10|13r30
+8k9*LCA 80e8 10|1w6 13r10
+10P14 T_LCA 10|71r45[12]
+13U19 Initialiser 11|10s16[10|12]
+18V18 Est_Vide{boolean} 11|22s19[10|12]
+22V18 Taille{integer} 11|38s37[10|12]
+29U19 Enregistrer 11|56s13[10|12]
+36U19 Supprimer 11|80s13[10|12]
+42V18 Cle_Presente{boolean} 11|64s20[10|12]
+47V18 La_Donnee{10|4+9} 11|72s20[10|12]
+51U19 Vider 11|87s16[10|12]
+58u14 Pour_Chaque 11|93r44[10|12]
+X 6 sda_exceptions.ads
+2K9*SDA_Exceptions 6e19 11|2w6 2r34
+X 10 th.ads
+3+9 T_Cle 6r35 13r23 32r37 37r60 44r58 50r56 55r53 65r50 11|43r37 52r55 60r51
+. 68r48 76r53
+4+9 T_Donnee 13r42 37r80 55r67 65r68 11|52r75 68r62
+5i4 CAPACITE{integer} 71r26 11|9r19 21r21 37r19 47r29 86r19 95r19
+6V18 Hachage{integer} 6>26 11|46s20
+6*26 Cle{3+9}
+8k9*TH 3z9 4z9 5z4 6z18 71E9 73l5 73e7 11|5b14 102l5 102t7
+10A9*T_TH(4|10P14[12]) 17r39 22r33 26r34 37r44 44r42 50r40 55r37 59r38 66r35
+. 71c9 11|7r34 15r31 33r29 52r39 60r35 68r32 76r37 84r33 92r35
+12K12*LCA_2[4|8] 14r8 71r39 11|10r10 22r13 38r31 56r7 64r14 72r14 80r7 87r10
+. 93r38
+17U19*Initialiser 17<31 11|7b14 12l8 12t19
+17a31 Th{10A9} 18r35 11|7b26 10m28 10r28
+22V18*Est_Vide{boolean} 18s25 22>28 28s32 60s25 11|15b13 30l8 30t16
+22a28 Th{10A9} 11|15b23 22r28
+26V18*Taille{integer} 26>26 39s74 39s88 40s68 40s82 45s26 45s40 11|33b13
+. 41l8 41t14
+26a26 Th{10A9} 28r42 11|33b21 38r44
+32V13*Indice_tableau{integer} 32>28 11|43b13 48l8 48t22 55s21 63s20 71s19
+. 79s19
+32*28 Cle{3+9} 11|43b28 46r28
+37U19*Enregistrer 37=32 37>51 37>68 11|52b14 57l8 57t19
+37a32 Th{10A9} 38r39 38r64 39r57 39r82 39r96 40r52 40r76 40r90 11|52b27 56m25
+. 56r25
+37*51 Cle{3+9} 38r43 38r68 39r61 40r56 11|52b46 55r36 56r41
+37*68 Donnee{4+9} 38r75 11|52b63 56r46
+44U19*Supprimer 44=30 44>49 11|76b14 81l8 81t17
+44a30 Th{10A9} 45r34 45r48 46r47 11|76b25 80m23 80r23
+44*49 Cle{3+9} 46r51 11|76b44 79r34 80r39
+50V18*Cle_Presente{boolean} 38s25 39s43 40s38 46s33 50>32 50>47 11|60b13
+. 65t7
+50a32 Th{10A9} 11|60b27 64r33
+50*47 Cle{3+9} 11|60b42 63r35 64r49
+55V18*La_Donnee{4+9} 38s53 55>29 55>44 11|68b13 73l8 73t17
+55a29 Th{10A9} 11|68b24 72r30
+55*44 Cle{3+9} 11|68b39 71r34 72r46
+59U19*Vider 59=26 11|84b14 89l8 89t13
+59a26 Th{10A9} 60r35 11|84b21 87m22 87r22
+65U32 Traiter 65>41 65>57 11|93r56
+65*41 Cle{3+9}
+65*57 Donnee{4+9}
+66u14*Pour_Chaque 66>27 11|92b14 99l8 99t19
+66a27 Th{10A9} 11|92b27 96r24
+X 11 th.adb
+9i11 i{integer} 10r31
+16b7 test{boolean} 20m7 21r34 25m13 29r14
+17i7 indice{integer} 19m7 21r13 22r31 27m10 27r18
+34i7 Taille_th{integer} 36m7 38m10 38r21 40r14
+37i11 i{integer} 38r47
+44i7 v_hachage{integer} 46m7 47r15
+53i7 indice_tab{integer} 55m7 56r28
+61i7 indice_tab{integer} 63m7 64r36
+69i7 indice_tab{integer} 71m7 72r33
+77i7 indice_tab{integer} 79m7 80r26
+86i11 i{integer} 87r25
+93U17 Pour_Chaque_2[4|58] 96s10
+95i11 i{integer} 96r27
+

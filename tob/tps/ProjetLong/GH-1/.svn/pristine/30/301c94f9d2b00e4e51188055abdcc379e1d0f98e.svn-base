@@ -1,0 +1,55 @@
+package Joueur;
+
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+import Zone.Zone;
+
+public class JoueurSimple implements Joueur {
+
+	private Zone zoneCourante;
+	private PropertyChangeSupport support;
+	private String message;
+
+	/**
+	 * @param zoneCourante
+	 */
+	public JoueurSimple(Zone zoneCourante) {
+		this.zoneCourante = zoneCourante;
+		this.message = null;
+		support = new PropertyChangeSupport(this);
+	}
+
+	@Override
+	public Inventaire getInventaire() {
+		return new Inventaire();
+	}
+
+	@Override
+	public Zone getZoneCourante() {
+		return this.zoneCourante;
+	}
+
+	@Override
+	public void setZoneCourante(Zone nouvelleZone) {
+		support.firePropertyChange("zone", this.zoneCourante, nouvelleZone);
+		this.zoneCourante = nouvelleZone;
+	}
+
+	@Override
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void setMessage(String message) {
+		support.firePropertyChange("message", this.message, message);
+		this.message = message;
+	}
+
+}

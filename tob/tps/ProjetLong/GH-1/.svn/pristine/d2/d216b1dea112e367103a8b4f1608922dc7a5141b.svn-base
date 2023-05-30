@@ -1,0 +1,16 @@
+package Zone;
+
+import java.awt.event.ActionListener;
+
+/** Interface sur les éléments affichables qui ont une liste d'interactions
+ * possibles selon un menu déroulant.
+ */
+interface Interactif extends Affichable, ActionListener {
+
+	/**
+	 * Obtenir la liste des options possibles.
+	 * @return Liste des options possibles
+	 */
+	String[] getOptions();
+
+}

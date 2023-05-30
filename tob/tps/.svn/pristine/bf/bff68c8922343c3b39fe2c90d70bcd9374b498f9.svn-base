@@ -1,0 +1,101 @@
+package allumettes;
+
+/**
+ * Lance une partie des 13 allumettes en fonction des arguments fournis sur la
+ * ligne de commande.
+ * 
+ * @author Xavier Crégut
+ * @version $Revision: 1.5 $
+ */
+public class Jouer {
+	/**
+	 * Lancer une partie. En argument sont donnés les deux joueurs sous la forme
+	 * nom@stratégie.
+	 * 
+	 * @param args la description des deux joueurs
+	 */
+	public static void main(String[] args) {
+		try {
+			verifierNombreArguments(args);
+
+		} catch (ConfigurationException e) {
+			System.out.println();
+			System.out.println("Erreur : " + e.getMessage());
+			afficherUsage();
+			System.exit(1);
+		}
+
+		// Récupération des données
+		boolean confiant = confiant(args);
+		int indice_infosj = 0;
+		if (confiant) {
+			indice_infosj++;
+		}
+		//création du joueur 1
+		String[] arg1 = args[indice_infosj].split("@");
+		Joueur j1 = creerJoueur(arg1);
+		
+		//création du joueur 2
+		String[] arg2 = args[indice_infosj+1].split("@");
+		Joueur j2 = creerJoueur(arg2);
+		
+		//Démarrage de la partie
+		Arbitre arbitre = new Arbitre(j1, j2, confiant);
+		Jeu jeu = new ClassJeu(13);
+			
+		arbitre.Jouons(jeu);
+	}
+
+	private static void verifierNombreArguments(String[] args) {
+		final int nbJoueurs = 2;
+		if (args.length < nbJoueurs) {
+			throw new ConfigurationException("Trop peu d'arguments : " + args.length);
+		}
+		if (args.length > nbJoueurs + 1) {
+			throw new ConfigurationException("Trop d'arguments : " + args.length);
+		}
+	}
+
+	/** Afficher des indications sur la manière d'exécuter cette classe. */
+	public static void afficherUsage() {
+		System.out.println("\n" + "Usage :" + "\n\t" + "java allumettes.Jouer joueur1 joueur2" + "\n\t\t"
+				+ "joueur est de la forme nom@stratégie" + "\n\t\t"
+				+ "strategie = naif | rapide | expert | humain | tricheur" + "\n" + "\n\t" + "Exemple :" + "\n\t"
+				+ "	java allumettes.Jouer Xavier@humain " + "Ordinateur@naif" + "\n");
+	}
+
+	public static boolean confiant(String[] args) {
+		boolean confiant = false;
+		if (args.length == 3) {
+			confiant = args[0].contains("confiant");
+		}
+		return confiant;
+	}
+
+	public static Strategie creerStrategie(String chaine) {
+		if (chaine.contains("humain")) {
+			return new Humain();
+		} else if (chaine.contains("naif")) {
+			return new Naif();
+		}
+
+		else if (chaine.contains("rapide")) {
+			return new Rapide();
+		}
+
+		else if (chaine.contains("expert")) {
+			return new Expert();
+		}
+
+		else {
+			throw new ConfigurationException("Erreur dans la saisie");
+		}
+
+	}
+	public static Joueur creerJoueur(String[] args) {
+		String NomJoueur = args[0];
+		Strategie Strat = creerStrategie(args[1]);
+		return new Joueur(NomJoueur,Strat);
+	}
+
+}

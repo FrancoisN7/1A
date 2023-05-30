@@ -1,0 +1,7 @@
+package Zone;
+
+public class Zones {
+	public static final ZoneSimple foret = new ZoneSimple("foret.jpg", "Foret");
+	public static final ZoneSimple village = new ZoneSimple("village.jpg", "Village");
+	public static final ZoneSimple crash = new ZoneSimple("avion.jpg", "crash");
+}

@@ -1,0 +1,54 @@
+package allumettes;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Joueur {		
+	private String Nom;	//Nom du joueur	
+
+   // private enum Stategie [ humain, rapide, naif, expert ]; //Stratégie du joueur
+
+	/** Construire un joueur à partir de son nom.
+	 * @param NomDonne le nom du joueur
+	 */
+	public Joueur(String NomDonne) {
+		this.Nom = NomDonne;
+	}
+
+	/** Obtenir le nom du joueur.
+	 * @return le nom du joueur
+	 */
+	public String getNom() {
+		return this.Nom;
+	}
+
+	/** Obtenir le nombre d'allumettes que le joueur veut prendre.
+	 * @return le nombre d'allumettes que le joueur veut prendre
+	 */
+	public int getPrise(Jeu jeu) {
+	   int prise; 
+	   switch(Strategie){
+        
+       //cas où le joueur est humain
+       case humain: 
+           Scanner saisieUtilisateur = new Scanner(System.in);
+           System.out.print(", combien d'allumettes ? ");
+           int entree = saisieUtilisateur.nextInt();
+           System.out.println(entree);
+           prise = entree;
+           break;
+   
+       //cas où le joueur est un ordinateur en mode rapide
+       case rapide:
+           prise = 3; //utiliser le parametre jeu pour savoir si c'est possible
+           break;
+   
+       case naif:
+           prise = Math.random()*3; //utiliser le parametre jeu pour savoir si c'est possible
+           break;
+       case expert:
+           
+           break;
+           }
+	}
+    
+}

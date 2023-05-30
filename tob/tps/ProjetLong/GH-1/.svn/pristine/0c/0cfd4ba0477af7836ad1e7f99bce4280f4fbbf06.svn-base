@@ -1,0 +1,9 @@
+package deplacement;
+
+import java.awt.event.MouseListener;
+
+public interface Ecran extends MouseListener {
+	
+	public void Afficher(String nom);
+	
+}

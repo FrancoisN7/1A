@@ -1,0 +1,65 @@
+package Zone.Modele;
+
+import Affichable.Interactif;
+import GestionnaireJeu.GestionnaireDeJeu;
+import Joueur.Joueur;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.Objects;
+
+public class Naufrage implements Interactif {
+
+    private final ImageIcon image;
+    private final Joueur joueur;
+    private final GestionnaireDeJeu gestionnaireDeJeu;
+
+    public Naufrage(GestionnaireDeJeu gestionnaireDeJeu){
+        this.image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("res/" + "naufrage.png")));
+        this.gestionnaireDeJeu = gestionnaireDeJeu;
+        this.joueur = gestionnaireDeJeu.getJoueur();
+    }
+
+    @Override
+    public ImageIcon getImage() {
+        return image;
+    }
+
+    @Override
+    public int getX() {
+        return 900;
+    }
+
+    @Override
+    public int getY() {
+        return 350;
+    }
+
+    @Override
+    public int getLargeur() {
+        return 100;
+    }
+
+    @Override
+    public int getHauteur() {
+        return 153;
+    }
+
+    @Override
+    public String getNom() {
+        return "Naufragé";
+    }
+
+    @Override
+    public String[] getOptions() {
+        return new String[]{"Parler", "Annuler"};
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        switch (actionEvent.getActionCommand()){
+            case "Parler": joueur.setZoneCourante(gestionnaireDeJeu.getZone("Falaise")); break;
+            case "Annuler": break;
+        }
+    }
+}

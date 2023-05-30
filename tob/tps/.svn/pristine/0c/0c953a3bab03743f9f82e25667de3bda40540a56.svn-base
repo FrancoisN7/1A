@@ -1,0 +1,23 @@
+
+# Remarques générales ################################################
+
+Tenir compte des remarques générales disponibles via Moodle
+et de l'évaluation automatique disponible sur votre SVN via `svn update`.
+
+Elles ne sont pas reprises ici !
+
+
+# LISEZ-MOI.txt ######################################################
+
+* Question 1 : Pas de réponse
+
+* Question 2 : Pas de réponse
+
+
+# Remarques supplémentaires ##########################################
+
+Il faut remplir le fichier LISEZ-MOI.txt !
+
+Classe Cercle:
+- Partager le code entre constructeurs
+

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project>
+    <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_file>
+    <file_marker column=" 1" line=" 115" >
+      <vfs_project>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 120" >
+      <vfs_project>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/src/compresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 141" >
+      <vfs_project>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/src/decompresser.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 66" >
+      <vfs_project>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/src/arbre.ads</vfs_file>
+    </file_marker>
+    <file_marker column=" 21" line=" 2" >
+      <vfs_project>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/src/tableau.ads</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 1" line=" 81" >
+      <vfs_project>/home/ftestu/1A/pim/tp/GH10/Gnat/huffman.gpr</vfs_project>
+      <vfs_file>/home/ftestu/1A/pim/tp/GH10/Gnat/src/lca.ads</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>

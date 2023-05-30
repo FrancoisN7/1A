@@ -1,0 +1,136 @@
+-- with Ada.Text_IO;            use Ada.Text_IO;
+with SDA_Exceptions;         use SDA_Exceptions;
+with Ada.Unchecked_Deallocation;
+
+package body LCA is
+
+	procedure Free is
+		new Ada.Unchecked_Deallocation (Object => T_Cellule, Name => T_LCA);
+
+
+	procedure Initialiser(Sda: out T_LCA) is
+	begin
+		Sda:=null;
+	end Initialiser;
+
+
+	function Est_Vide (Sda : in T_LCA) return Boolean is
+	begin
+		return Sda=null;
+	end Est_vide;
+
+
+   function Taille (Sda : in T_LCA) return Integer is
+      courant : T_LCA;
+      nb_elements : Integer;
+   begin
+      courant:=Sda;
+      nb_elements:=0;
+
+      While courant/=null loop
+         nb_elements:=nb_elements+1;
+         courant:=courant.all.suivant;
+      end loop;
+      return nb_elements;
+	end Taille;
+
+
+   procedure Enregistrer (Sda : in out T_LCA ; Cle : in T_Cle ; Donnee : in T_Donnee) is
+	begin
+      if Sda=null then
+         Sda:=new T_Cellule'(Cle,Donnee,null);
+
+      else
+         if Sda.all.cle=Cle then
+            Sda.all.donnee:=Donnee;
+         else
+            Enregistrer(Sda.all.suivant,Cle,Donnee);
+         end if;
+      end if;
+	end Enregistrer;
+
+
+      function Cle_Presente (Sda : in T_LCA ; Cle : in T_Cle) return Boolean is
+      test_Cle_Presente : Boolean;
+      courant : T_LCA;
+      begin
+      courant:=Sda;
+      test_Cle_Presente:= False;
+
+      While courant/=null or test_Cle_Presente loop
+
+         if courant.all.cle=Cle then
+            test_Cle_Presente:=True;
+         end if;
+
+         courant:=courant.all.suivant;
+      end loop;
+	   return test_Cle_Presente;
+	end;
+
+
+   function La_Donnee (Sda : in T_LCA ; Cle : in T_Cle) return T_Donnee is
+      courant : T_LCA;
+   begin
+      if Cle_Presente(Sda,Cle) then
+         courant:=Sda;
+
+         While courant.all.cle/=Cle loop
+            courant:=courant.all.suivant;
+         end loop;
+         return(courant.all.Donnee);
+
+      else
+         raise Cle_Absente_Exception;
+      end if;
+	end La_Donnee;
+
+
+   procedure Supprimer (Sda : in out T_LCA ; Cle : in T_Cle) is
+      courant : T_LCA;
+      sauvegarde_courant : T_LCA;
+	begin
+		if Cle_Presente(Sda,Cle) then
+         courant:=Sda;
+         While courant.all.cle/=Cle loop
+            sauvegarde_courant:=courant;
+            courant:=courant.all.suivant;
+
+         end loop;
+         sauvegarde_courant.all.suivant:=courant.all.suivant;
+         Free(courant);
+      else
+         raise Cle_Absente_Exception;
+      end if;
+	end Supprimer;
+
+
+	procedure Vider (Sda : in out T_LCA) is
+	begin
+		if Sda /= Null then
+			Vider (Sda.all.suivant);
+			Free (Sda);
+		else
+			Null;
+		end if;
+	end Vider;
+
+
+   procedure Pour_Chaque (Sda : in T_LCA) is
+      Cle : T_cle;
+      Donnee : T_Donnee;
+   begin
+      if Sda=null then
+         null;
+      else
+         Cle:=Sda.cle;
+         Donnee:=Sda.donnee;
+         Traiter(Cle,Donnee);
+         Pour_chaque(Sda.all.suivant);
+      end if;
+      Exception
+         When others => null;
+   end Pour_Chaque;
+
+
+end LCA;

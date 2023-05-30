@@ -1,0 +1,54 @@
+package Introduction;
+
+import IU.IU;
+import Joueur.JoueurSimple;
+import Joueur.Joueur;
+import Zone.Modele.Zones;
+import com.formdev.flatlaf.FlatDarkLaf;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class Introduction implements ActionListener {
+
+    String[] textes;
+    int indiceTexte;
+    Joueur joueur;
+    IU fenetre;
+
+    public Introduction(String...textes){
+        joueur = new JoueurSimple(Zones.crash);
+        indiceTexte = 1;
+        this.textes = textes;
+
+        JButton continuer = new JButton("Continuer");
+        continuer.addActionListener(this);
+        continuer.setSize(new Dimension(30, 30));
+
+        fenetre = new IU(joueur);
+        joueur.setMessage(textes[0]);
+        fenetre.getBarreUtilisateur().add(continuer);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        if (indiceTexte < textes.length) {
+            joueur.setMessage(textes[indiceTexte++]);
+        }
+        else {
+            joueur.setZoneCourante(Zones.foret);
+            fenetre.initialiser();
+        }
+    }
+
+    public static void main(String[] args) {
+        FlatDarkLaf.setup();
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Introduction("Le crash de votre avion vous laisse seul sur une île déserte.", "L'objectif? S'enfuir vivant de l'île.", "Et attention, chaque mauvaise décision met votre vie en péril.");
+            }
+        });
+    }
+}

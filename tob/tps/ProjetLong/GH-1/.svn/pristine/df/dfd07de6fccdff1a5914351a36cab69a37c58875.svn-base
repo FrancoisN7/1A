@@ -1,0 +1,20 @@
+package deplacement;
+
+import java.awt.event.*;
+
+@SuppressWarnings("serial")
+public class Ruines extends EcranAffiche{  
+
+	public Ruines(){
+		super();
+	}
+	
+	@Override 
+    public void mouseClicked(MouseEvent e) {
+		ecran.dispose();
+		ecran = new Carte();
+        ecran.Afficher("carte.jpg");
+    }  
+	
+}
+

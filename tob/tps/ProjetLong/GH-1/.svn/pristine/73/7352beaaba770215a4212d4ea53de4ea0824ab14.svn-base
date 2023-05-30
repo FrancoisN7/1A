@@ -1,0 +1,22 @@
+package Zone;
+
+import Affichable.Affichable;
+import Affichable.Interactif;
+
+/**
+ * Une zone est un élément affichable qui possède des éléments interactifs
+ */
+public interface Zone extends Affichable, Iterable<Interactif> {
+	
+	/**
+	 * Ajouter un élément interactif dans la zone.
+	 * @param element l'élément interactif à ajouter
+	 */
+	void ajouterElementInteractif(Interactif element);
+
+	/**
+	 * Supprimer un élément interactif de la zone.
+	 * @param element l'élément interactif à supprimer
+	 */
+	void supprimerElementInteractif(Interactif element);
+}

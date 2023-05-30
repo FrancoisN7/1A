@@ -1,0 +1,43 @@
+Indiquer vos réponses aux questions de l'exercice 1 du Bilan 2 ci-après : 
+
+[B1.1] Quelle est la portée de chaque variable déclarée ? Pour chaque variable, on donnera le numéro de ligne où commence et se termine sa portée.
+
+n est déclarée à la ligne 8, sa portée est jusqu'à la ligne 37.
+r est déclarée à la ligne 30, sa portée est jusqu'à la ligne 33.
+a est déclarée à la ligne 13, sa portée est jusqu'à la ligne 17.
+*p est est déclarée à la ligne 9, sa portée est jusqu'à la ligne 37.
+*p est est déclarée à la ligne 14, sa portée est jusqu'à la ligne 37.
+
+[B1.2] Y a-t-il un exemple de masquage de variable dans ce programme ?
+
+n vaut 10 de la 8e à la 21e ligne et de la 26e à la 37e. Il vaut 7 entre la ligne 22 et la ligne 24.
+
+[B1.3] Peut-on savoir ce que devrait afficher l’exécution de ce programme ?
+
+&n = "l'adresse de n"
+p = (nil)
+&a = "l'adresse de a"
+p = "l'adresse de a"
+*p = 5
+p = "l'adresse de a"
+*p = 5
+n = 7
+&n = "la nouvelle adresse de n"
+etc.
+
+Donc on ne peut pas savoir des adresses non initialisées avant.
+
+
+
+[B1.4] Même s’il compile sans erreur, ce programme est faux. Pourquoi ?
+a n'existe plus mais p l'a quand même en valeur.
+
+
+
+[B1.5] La valeur de `p` change-t-elle après l’initialisation de la ligne 14 ?
+Non.
+
+
+
+[B1.6] Que se passerait-il si on modifiait `*p` après la ligne 19 ?
+On n'aura plus accès à la valeur de a.

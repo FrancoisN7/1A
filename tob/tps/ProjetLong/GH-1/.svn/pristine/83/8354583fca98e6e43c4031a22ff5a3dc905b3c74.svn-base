@@ -1,0 +1,78 @@
+package Joueur;
+
+import java.awt.*;
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
+import Carte.Modele.Carte;
+import Carte.Modele.CarteSimple;
+import Zone.Modele.Zone;
+import Barre_Outils.ModeleInventaireSimple;
+
+public class JoueurSimple implements Joueur {
+
+	private Zone zoneCourante;
+	private final PropertyChangeSupport support;
+	private String message;
+	private final ModeleInventaireSimple inventaire;
+	private final Carte carte;
+
+	/**
+	 * Créer un joueur dans une zone de départ choisie.
+	 * @param zoneDepart la zone de départ
+	 */
+	public JoueurSimple(Zone zoneDepart) {
+		this.zoneCourante = zoneDepart;
+		this.message = null;
+		carte = new CarteSimple(null, null);
+
+		this.inventaire = new ModeleInventaireSimple();
+		support = new PropertyChangeSupport(this);
+	}
+
+	@Override
+	public ModeleInventaireSimple getInventaire() {
+		return this.inventaire;
+	}
+
+	@Override
+	public Zone getZoneCourante() {
+		return this.zoneCourante;
+	}
+
+	public void obtenirCarte(){
+		support.firePropertyChange("carte", null, carte);
+		this.setMessage("Vous traversez avec succès et vous trouvez une carte oubliée sur le sol");
+	}
+	
+	public void majInv(){
+		support.firePropertyChange("maj inventaire", null, this.getInventaire());
+	}
+
+	@Override
+	public void setZoneCourante(Zone nouvelleZone) {
+		support.firePropertyChange("zone", this.zoneCourante, nouvelleZone);
+		this.zoneCourante = nouvelleZone;
+	}
+
+	@Override
+	public Carte getCarte(){
+		return carte;
+	}
+	@Override
+    public void addPropertyChangeListener(PropertyChangeListener pcl) {
+		support.addPropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void removePropertyChangeListener(PropertyChangeListener pcl) {
+		support.removePropertyChangeListener(pcl);
+	}
+
+	@Override
+	public void setMessage(String message) {
+		support.firePropertyChange("message", this.message, message);
+		this.message = message;
+	}
+
+}

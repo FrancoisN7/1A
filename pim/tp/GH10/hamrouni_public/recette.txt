@@ -1,0 +1,9 @@
+Durée : 15 mn par binôme
+   * présentation : 6mn - 3mn par étudiant
+   - Aller à l'essentiel : architecture, choix, répartition du travail, 
+   état d'avancement, délai d'amélioration 
+   - support simple : 1 à 2 pages page par étudiant
+
+   * compilation + démo
+
+   * questions réponses

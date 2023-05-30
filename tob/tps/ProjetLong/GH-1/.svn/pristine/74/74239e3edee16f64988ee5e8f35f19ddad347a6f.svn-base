@@ -1,0 +1,65 @@
+package Zone.Modele;
+
+import Affichable.Interactif;
+import GestionnaireJeu.GestionnaireDeJeu;
+import Joueur.Joueur;
+
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.util.Objects;
+
+public class Fleche implements Interactif {
+
+    private final ImageIcon image;
+    private final Joueur joueur;
+    private final GestionnaireDeJeu gestionnaireDeJeu;
+
+    public Fleche(GestionnaireDeJeu gestionnaireDeJeu){
+        this.image = new ImageIcon(Objects.requireNonNull(this.getClass().getResource("res/" + "arrow2.png")));
+        this.gestionnaireDeJeu = gestionnaireDeJeu;
+        this.joueur = gestionnaireDeJeu.getJoueur();
+    }
+
+    @Override
+    public ImageIcon getImage() {
+        return image;
+    }
+
+    @Override
+    public int getX() {
+        return 490;
+    }
+
+    @Override
+    public int getY() {
+        return 295;
+    }
+
+    @Override
+    public int getLargeur() {
+        return 50;
+    }
+
+    @Override
+    public int getHauteur() {
+        return 50;
+    }
+
+    @Override
+    public String getNom() {
+        return "Fleche";
+    }
+
+    @Override
+    public String[] getOptions() {
+        return new String[]{"Se rendre à la falaise", "Annuler"};
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        switch (actionEvent.getActionCommand()){
+            case "Se rendre à la falaise": joueur.setZoneCourante(gestionnaireDeJeu.getZone("Falaise")); break;
+            case "Annuler": break;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+generic
+   type T_Cle is private;
+   type T_Donnee is private;
+   CAPACITE : Integer;
+
+package T_TH is
+   type TH is limited private;
+
+
+package LCA_String_Integer is
+		new LCA (T_Cle => Unbounded_String, T_Donnee => Integer);
+   use LCA_String_Integer;
+
+private
+   type T_Tab is array(1..CAPACITE) of T_LCA_String_Integer;

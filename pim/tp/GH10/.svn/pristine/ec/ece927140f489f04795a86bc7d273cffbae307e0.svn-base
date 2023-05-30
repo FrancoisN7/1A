@@ -1,0 +1,21 @@
+
+
+package body octet is
+
+
+    function bit_de_gauche(octet : in T_octet) return T_octet is
+    begin
+        return octet/128;
+    end bit_de_gauche;
+
+
+
+    procedure decaler(octet : in out T_octet; bit_d : in T_octet) is
+    begin
+        octet := (octet * 2) + bit_d;
+    end decaler;
+
+
+
+
+end octet;

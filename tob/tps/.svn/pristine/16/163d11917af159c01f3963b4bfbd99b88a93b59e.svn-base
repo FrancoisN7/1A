@@ -1,0 +1,123 @@
+package allumettes;
+
+/**
+ * Lance une partie des 13 allumettes en fonction des arguments fournis sur la
+ * ligne de commande.
+ * 
+ * @author Xavier Crégut
+ * @version $Revision: 1.5 $
+ */
+public class Jouer {
+	/**
+	 * Lancer une partie. En argument sont donnés les deux joueurs sous la forme
+	 * nom@stratégie.
+	 * 
+	 * @param args la description des deux joueurs
+	 */
+	public static void main(String[] args) {
+		try {
+			verifierNombreArguments(args);
+
+			// Récupération des données
+			boolean confiant = confiant(args);
+			int indice_infosj = 0;
+			if (confiant) {
+				indice_infosj++;
+			}
+			// création du joueur 1
+			String argj1 = args[indice_infosj];
+
+			String[] arg1 = SeparerChar(argj1);
+			if (arg1.length != 2 || arg1[0].isEmpty() || arg1[1].isEmpty()) {
+				throw new ConfigurationException("mauvaise config");
+			}
+			Joueur j1 = creerJoueur(arg1);
+
+			// création du joueur 2
+			String argj2 = args[indice_infosj + 1];
+
+			String[] arg2 = SeparerChar(argj2);
+			if (arg2.length != 2 || arg2[0].isEmpty() || arg2[1].isEmpty()) {
+				throw new ConfigurationException("mauvaise config");
+			}
+			Joueur j2 = creerJoueur(arg2);
+
+			// Démarrage de la partie
+			Arbitre arbitre = new Arbitre(j1, j2, confiant);
+			Jeu jeu = new ClassJeu(13);
+
+			arbitre.arbitrer(jeu);
+
+		} catch (ConfigurationException e) {
+			System.out.println();
+			System.out.println("Erreur : " + e.getMessage());
+			afficherUsage();
+			System.exit(1);
+		}
+	}
+
+	private static void verifierNombreArguments(String[] args) {
+		final int nbJoueurs = 2;
+		if (args.length < nbJoueurs) {
+			throw new ConfigurationException("Trop peu d'arguments : " + args.length);
+		}
+		if (args.length > nbJoueurs + 1) {
+			throw new ConfigurationException("Trop d'arguments : " + args.length);
+		}
+	}
+
+	/** Afficher des indications sur la manière d'exécuter cette classe. */
+	public static void afficherUsage() {
+		System.out.println("\n" + "Usage :" + "\n\t" + "java allumettes.Jouer joueur1 joueur2" + "\n\t\t"
+				+ "joueur est de la forme nom@stratégie" + "\n\t\t"
+				+ "strategie = naif | rapide | expert | humain | tricheur" + "\n" + "\n\t" + "Exemple :" + "\n\t"
+				+ "	java allumettes.Jouer Xavier@humain " + "Ordinateur@naif" + "\n");
+	}
+
+	public static boolean confiant(String[] args) {
+		int trois = 3;
+		boolean confiant = false;
+		if (args.length == trois) {
+			confiant = args[0].equals("-confiant");
+			if (!confiant) {
+				throw new ConfigurationException("Mauvaise config");
+			}
+		}
+		return confiant;
+	}
+
+	public static Strategie creerStrategie(String chaine) {
+		if (chaine.equals("humain")) {
+			return new Humain();
+		} else if (chaine.equals("naif")) {
+			return new Naif();
+		}
+
+		else if (chaine.equals("rapide")) {
+			return new Rapide();
+		}
+
+		else if (chaine.equals("expert")) {
+			return new Expert();
+		}
+
+		else if (chaine.equals("tricheur")) {
+			return new Tricheur();
+		}
+
+		else {
+			throw new ConfigurationException("Erreur dans la saisie");
+		}
+
+	}
+
+	public static Joueur creerJoueur(String[] args) {
+		String NomJoueur = args[0];
+		Strategie Strat = creerStrategie(args[1]);
+		return new Joueur(NomJoueur, Strat);
+	}
+
+	public static String[] SeparerChar(String args) {
+		return (args.split("@"));
+	}
+}

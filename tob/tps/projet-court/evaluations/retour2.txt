@@ -1,0 +1,19 @@
++ C3 : Qualité du source de l'application : 1 pt
+    + choix des identifiants
++ C13 : L'arbitre ne doit ni utiliser directement, ni tester la stratégie d'un joueur (instanceof, equals, etc) : 1 pt
++ C14 : Impossible de changer dynamiquement de stratégie (cf Q3) : 2 pt
++ C16 : Tests unitaires de la stratégie rapide
+	+ non complets : .5 pt
++ C21 : Deux ou plus répétitions imbriquées dans une méthode : 2 pt
+
++ L3 : Fichier LISEZ-MOI.txt : 2 pt
+    + Question 3 : 1 pt
+    + Explications non pertinentes : 1 pt
+
++ Autres remarques :
+    - Ce n'est pas à l'arbitre de récupérer l'exception ConfigurationException
+    - Ce n'est pas à l'arbitre de tricher
+
++ Total pénalités : 8
++ Correction sur les pénalités automatiques : 0
+

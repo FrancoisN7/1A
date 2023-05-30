@@ -1,0 +1,7 @@
+
+	à faire !
+
+Exception in thread "main" allumettes.ConfigurationException: Erreur dans la saisie
+	at allumettes.Jouer.creerStrategie(Jouer.java:92)
+	at allumettes.Jouer.creerJoueur(Jouer.java:98)
+	at allumettes.Jouer.main(Jouer.java:42)

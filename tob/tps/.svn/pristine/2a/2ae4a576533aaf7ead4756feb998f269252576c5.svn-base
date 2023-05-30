@@ -1,0 +1,75 @@
+package allumettes;
+
+import java.util.Scanner;
+
+import allumettes.Strategie;
+
+public class Arbitre {
+	
+	private Joueur j1 ; //Joueur1	
+	private Joueur j2 ; //Joueur2
+
+	/** Construire un arbitre à partir de son nom.
+	 * @param Joueur1 le joueur 1
+	 * @param Joueur2 le joueur 2
+	 */
+	public Arbitre(Joueur Joueur1, Joueur Joueur2) {
+		this.j1 = Joueur1;
+		this.j2 = Joueur2;
+	}
+
+	/** Faire jouer un joueur 
+	 * et afficher le déroulement du jeu.
+	 */
+	public void FaireJouer(Joueur joueur, Jeu jeu) {
+		//Nombre d'Allumettes restantes
+		int NombreAlu = jeu.getNombreAllumettes();
+		System.out.print("Allumettes restantes : " + NombreAlu);
+	
+		
+		//FaireJouer un joueur
+		Strategie Strategie = joueur.getStrategie();
+		String NomJ = joueur.getNom();
+        System.out.print(NomJ + ", combien d'allumettes ? ");
+        int prise = Strategie.getPrise();
+        System.out.println(prise);
+        
+        //Récapitulatif du coup du joueur
+        //Disjonction de cas pour l'accord de "allumette(s)"
+        if (prise == 1) {
+        System.out.print(NomJ + " prend 1 allumette.");
+        }
+        else {
+        System.out.print(NomJ + " prend " + prise + " allumettes.");
+        }
+        
+        //Retirer les allumettes demandées du jeu
+        jeu.retirer(prise);
+	}
+
+	
+	
+	/** Faire jouer les 2 joueurs l'un après l'autre 
+	 * et afficher le déroulement du jeu jusqu'à la 
+	 * défaite de l'un des 2 joueurs.
+	 */
+	public void Jouons(Jeu jeu) {
+		int NombreAlu = jeu.getNombreAllumettes();
+		int tour = 1; //définit le tour du joueur
+		
+		while (NombreAlu != 0) {
+			
+			if (tour == 1) {
+				FaireJouer(j1, jeu);
+				tour = 2;
+			}
+			else {
+				FaireJouer(j2, jeu);
+				tour = 1;
+			}
+			NombreAlu = jeu.getNombreAllumettes();				
+		}
+	}
+    
+}
+

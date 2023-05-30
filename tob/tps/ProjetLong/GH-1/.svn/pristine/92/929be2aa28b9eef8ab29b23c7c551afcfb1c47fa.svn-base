@@ -1,0 +1,73 @@
+package Barre_Outils;
+
+import javax.swing.*;
+import java.awt.*;
+import javax.swing.event.*;
+import javax.swing.JTextArea;
+import java.awt.event.*;
+
+import Barre_Outils.*;
+
+public class BarreOutils {
+
+    /** Fenetre de la barre */
+    private JFrame fenetreBarre;
+
+    /** Barre */
+    private final JLabel barre = new JLabel(new ImageIcon(this.getClass().getResource("bleu.jpg")));
+
+    /** Bouton inventaire */
+    private final JButton boutonInv = new JButton("Inventaire");
+
+    /** Constructeur */
+    public BarreOutils(){
+
+        // Construire la fenêtre de jeu
+        this.fenetreBarre = new JFrame("Jeu d'aventure");
+        fenetreBarre.setPreferredSize(new Dimension(1450, 900));
+        this.fenetreBarre.setLocation(200, 3000);
+
+        // Construire le contrôleur (gestion des événements)
+		this.fenetreBarre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        // Container
+		Container contenu = fenetreBarre.getContentPane();
+        contenu.setLayout(null);
+
+        //Fond
+        barre.setBounds(0, 0, 1450, 2050);
+
+        contenu.add(barre);
+
+        //Inventaire 
+        boutonInv.setForeground(Color.BLACK);
+        boutonInv.setFont(new Font("Serif", Font.BOLD, 25));
+        boutonInv.setVerticalTextPosition(SwingConstants.CENTER); 
+        boutonInv.setHorizontalTextPosition(SwingConstants.CENTER);
+        boutonInv.setBounds(1000, 700, 200, 75);
+        boutonInv.addActionListener(new ActionInventaire());
+
+        contenu.add(boutonInv);
+
+        // Afficher la fenêtre
+		this.fenetreBarre.pack();			// redimmensionner la fenêtre
+		this.fenetreBarre.setVisible(true);	// l'afficher
+
+    }
+
+
+    private class ActionInventaire implements ActionListener {
+		public void actionPerformed(ActionEvent inventaire){
+			new Inventaire();
+		}
+	}
+
+    // La méthode principale
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				new BarreOutils();
+			}
+		});
+	}
+}

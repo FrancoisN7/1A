@@ -1,0 +1,52 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+
+with octet;                 use octet;
+
+
+
+procedure test_octet is
+
+   --test de la fonction bit de gauche
+   procedure test_bit_de_g is
+   begin
+      pragma 	Assert (bit_de_gauche(127) = 0);
+      pragma 	Assert (bit_de_gauche(42) = 0);
+      pragma 	Assert (bit_de_gauche(255) = 0);
+      pragma 	Assert (bit_de_gauche(128) = 0);
+      pragma 	Assert (bit_de_gauche(0) = 0);
+   end test_bit_de_g;
+
+   --test de la fonction decaler
+   procedure test_decaler is
+      test_1 : T_octet;
+      test_2 : T_octet;
+   begin
+
+      --test 1
+      test_1 := 128;     --10000000
+      decaler(test_1,1); --00000001
+      pragma 	Assert (test_1 = 1);
+      decaler(test_1,0); --00000010
+      pragma 	Assert (test_1 = 2);
+      decaler(test_1,1); --00000101
+      pragma Assert (test_1 = 5);
+
+      --test 2
+      test_2 := 255;     --11111111
+      decaler(test_2,1); --11111111
+      pragma 	Assert (test_2 = 255);
+      decaler(test_2,0); --11111110
+      pragma 	Assert (test_2 = 254);
+      decaler(test_2,1); --11111101
+      pragma Assert (test_2 = 253);
+
+   end test_decaler;
+
+
+begin
+   test_bit_de_g;
+    test_decaler;
+   Put_Line ("Fin des tests : OK.");
+
+end test_octet;

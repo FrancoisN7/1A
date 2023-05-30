@@ -1,0 +1,25 @@
+package interaction;
+
+public interface ModeleInteraction {
+
+	// Définition des événements qui vont influencer le modèle.
+
+		/** Quitter l'interaction. */
+		void quitterInteraction();
+
+		/** Faire la consequence de l'action1.*/
+		void agir1();
+		
+		/** Faire la consequence de l'action2.*/
+		void agir2();
+		
+		/** Faire la consequence de l'action3.*/
+		void agir3();
+		
+		/** Faire la consequence de l'action4.*/
+		void agir4();
+		
+
+}
+
+

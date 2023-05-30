@@ -1,0 +1,138 @@
+% Validation de http://hpxc/cregut.svn.enseeiht.fr/2021/1sn/pim/tps/ftestu/tp10
+% Run on 2021-11-20 14:19:54.420809
+
+
+################################################################################
+# Modification des fichiers fournis
+################################################################################
+
+
+================================================================================
+## Fichiers qui NE devaient PAS être modifiés
+================================================================================
+
+* Fichier alea.adb non modifié... ok
+* Fichier alea.ads non modifié... ok
+* Fichier exemple_alea.adb non modifié... ok
+* Fichier exemple_unbounded_string.adb non modifié... ok
+* Fichier sda_exceptions.ads non modifié... ok
+* Fichier test_lca.adb non modifié... ERREUR
+
+  | 373,381c373,381
+  | < 	--Tester_Supprimer;
+  | < 	--Tester_Supprimer_Un_Element;
+  | < 	--Tester_Remplacer_Un_Element;
+  | < 	--Tester_Supprimer_Erreur;
+  | < 	--Tester_La_Donnee_Erreur;
+  | < 	--Tester_Pour_chaque;
+  | < 	--Tester_Pour_chaque_Somme_Si_Cle_Commence_Par_Q;
+  | < 	--Tester_Pour_chaque_Somme_Len4_Erreur;
+  | < 	--Put_Line ("Fin des tests : OK.");
+  | ---
+  | > 	Tester_Supprimer;
+  | > 	Tester_Supprimer_Un_Element;
+  | > 	Tester_Remplacer_Un_Element;
+  | > 	Tester_Supprimer_Erreur;
+  | > 	Tester_La_Donnee_Erreur;
+  | > 	Tester_Pour_chaque;
+  | > 	Tester_Pour_chaque_Somme_Si_Cle_Commence_Par_Q;
+  | > 	Tester_Pour_chaque_Somme_Len4_Erreur;
+  | > 	Put_Line ("Fin des tests : OK.");
+
+
+================================================================================
+## Fichiers qui DEVAIENT être modifiés
+================================================================================
+
+* Fichier lca_sujet.adb modifié... ok
+* Fichier lca.ads modifié... ok
+* Fichier lca.adb modifié... ok
+
+
+################################################################################
+# Nettoyer
+################################################################################
+
+* Running gnatclean... ok
+
+
+################################################################################
+# Exercice 1
+################################################################################
+
+
+================================================================================
+## Modifications de lca.ads
+================================================================================
+
+* Comparaison de lca.ads et fournis/lca.ads... différents
+
+   | -- AVEC_AFFICHER_DEBUG START DELETE                                                                <
+   |         -- Afficher la Sda en révélant sa structure interne.                                       <
+   |         generic                                                                                    <
+   |                 with procedure Afficher_Cle (Cle : in T_Cle);                                      <
+   |                 with procedure Afficher_Donnee (Donnee : in T_Donnee);                             <
+   |         procedure Afficher_Debug (Sda : in T_LCA);                                                 <
+   |                                                                                                    <
+   |                                                                                                    <
+   | -- AVEC_AFFICHER_DEBUG STOP DELETE                                                                 <
+   |    Type T_Cellule;                                                                                 |
+   |    Type T_LCA is access T_Cellule;                                                                 |          -- TODO : à compléter
+   |    Type T_Cellule is                                                                               <
+   |       record                                                                                       <
+   |          Cle : T_Cle;                                                                              <
+   |          Donnee : T_Donnee;                                                                        <
+   |          Suivant : T_LCA;                                                                          <
+   |       end record;                                                                                  <
+
+
+================================================================================
+## Exécution de lca_sujet.adb
+================================================================================
+
+* Compilation de lca_sujet.adb... ERREUR
+
+  | lca_sujet.adb:6:06: warning: unit "LCA" is never instantiated
+  | lca_sujet.adb:6:33: a generic package is not allowed in a use clause
+  | lca_sujet.adb:9:11: warning: file name does not match unit name, should be "inserer_donnees.adb"
+  | lca_sujet.adb:9:37: "T_LCA" is not visible
+  | lca_sujet.adb:9:37: non-visible declaration at lca.ads:10
+  | lca_sujet.adb:11:04: "Initialiser" is not visible
+  | lca_sujet.adb:11:04: non-visible declaration at lca.ads:13
+  | lca_sujet.adb:12:04: "Enregistrer" is not visible (more references follow)
+  | lca_sujet.adb:12:04: non-visible declaration at lca.ads:29
+  | gnatmake: "lca_sujet.adb" compilation error
+
+
+================================================================================
+## Exécution de test_lca.adb
+================================================================================
+
+* Compilation de test_lca.adb... ERREUR
+
+  | test_lca.adb:139:19: warning: procedure "Tester_Supprimer" is not referenced
+  | test_lca.adb:167:19: warning: procedure "Tester_Supprimer_Un_Element" is not referenced
+  | test_lca.adb:200:19: warning: procedure "Tester_Remplacer_Un_Element" is not referenced
+  | test_lca.adb:236:19: warning: procedure "Tester_Supprimer_Erreur" is not referenced
+  | test_lca.adb:255:19: warning: procedure "Tester_La_Donnee_Erreur" is not referenced
+  | test_lca.adb:257:17: warning: variable "Inutile" is assigned but never read
+  | test_lca.adb:275:19: warning: procedure "Tester_Pour_chaque" is not referenced
+  | test_lca.adb:280:35: warning: formal parameter "Cle" is not referenced
+  | test_lca.adb:303:19: warning: procedure "Tester_Pour_chaque_Somme_Si_Cle_Commence_Par_Q" is not referenced
+  | test_lca.adb:336:19: warning: procedure "Tester_Pour_chaque_Somme_Len4_Erreur" is not referenced
+  | lca.adb:40:24: expected type "T_Cellule" defined at lca.ads:73
+  | lca.adb:40:24: found type "T_LCA" defined at lca.ads:72
+  | lca.adb:41:13: missing argument for parameter "Sda" in call to "CLE_PRESENTE" declared at lca.ads:42
+  | lca.adb:67:10: missing argument for parameter "Sda" in call to "CLE_PRESENTE" declared at lca.ads:42
+  | lca.adb:83:20: missing argument for parameter "Sda" in call to "CLE_PRESENTE" declared at lca.ads:42
+  | gnatmake: "test_lca.adb" compilation error
+
+
+
+################################################################################
+# Nettoyer
+################################################################################
+
+* Running gnatclean... ok
+
+<!-- vi: set ts=8: -->

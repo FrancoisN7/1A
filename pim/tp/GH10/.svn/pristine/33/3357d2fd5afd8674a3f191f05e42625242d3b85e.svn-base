@@ -1,0 +1,57 @@
+
+generic
+   type T_Donnee is private;
+
+package Arbre is
+
+    type T_Arbre is private;
+
+
+    procedure Initialiser(arbre : out T_Arbre) with
+            post => Est_Vide(arbre);
+
+
+    --est-ce que l'arbre est vide ?
+    function Est_Vide (arbre : in T_Arbre) return Boolean;
+
+    --savoir si un arbre est une feuille ou un noeud
+    function est_feuille(arbre : in T_Arbre) return Boolean;
+
+
+    --initialise un arbre avec cle et donnee
+    procedure creer (arbre : out T_Arbre; cle: in Integer; donnee : in T_Donnee);
+
+
+    --obtenir la clé d'un arbre
+    function la_cle (arbre : in T_Arbre) return Integer;
+
+
+    --obtenir la donnee d'un arbre
+    function la_donnee (arbre : in T_Arbre) return T_Donnee;
+
+
+    function fils_gauche (arbre : in T_Arbre) return T_Arbre;
+
+    function fils_droit (arbre : in T_Arbre) return T_Arbre;
+
+    --fusionner deux arbres en un nouvel arbre
+    procedure Fusionner (arbre : out T_Arbre; arbre_g : in T_arbre; arbre_d : in T_arbre);
+
+
+   -- Supprimer tous les éléments d'un arbre.
+   procedure Vider (arbre : in out T_Arbre) with
+     Post => Est_Vide (arbre);
+
+
+private
+   Type T_Noeud;
+   Type T_Arbre is access T_Noeud;
+   Type T_Noeud is
+      record
+         cle : Integer;
+         donnee : T_Donnee;
+         fils_g : T_Arbre;
+         fils_d : T_Arbre;
+      end record;
+
+end Arbre;

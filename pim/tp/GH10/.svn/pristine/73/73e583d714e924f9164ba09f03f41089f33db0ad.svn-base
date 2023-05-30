@@ -1,0 +1,27 @@
+with Ada.Text_IO; use Ada.Text_IO;
+with Tableau;
+
+
+procedure test_tableau is
+
+
+    package tab_entier is new tableau (T_Donnee => Integer, capacite => 10);
+    use tab_entier;
+
+    function egal(a: in Integer; b : in Integer) return Boolean is
+    begin
+        return a=b;
+    end egal;
+    function appartient is new est_presente(egal);
+
+    tab : tab_entier.T_Tableau;
+begin
+    Initialiser(tab, 0);
+    pragma assert(la_donnee(tab, 1) = 0);
+    Enregistrer(tab, 5, 1);
+    pragma assert(la_donnee(tab, 5) = 1);
+    pragma assert(longueur(tab) = 10);
+    pragma Assert(appartient (1, tab));
+
+    Put_Line("fin des tests OK");
+end test_tableau;

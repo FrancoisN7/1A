@@ -1,0 +1,196 @@
+package Bataille_Navale;
+
+public class ModeleBatailleSimple implements ModeleBataille {
+
+	/** La zone de jeu */
+	private Etat[][] cases;
+	
+	/** Stock la grille de l'ordi */
+	private Integer[][] GrilleAdversaire;
+
+	/** Le nombre de cases cochées */
+	private int nbCoups;
+
+	/** Est-ce que la partie est gagnée ? */
+	private boolean gagnee;
+	private int nbcasestrouves;
+	
+	private ModeleGrillePerso grilleJoueur;
+
+	public ModeleBatailleSimple(ModeleGrillePerso grilleJoueur) {
+		// Créer le damier
+		this.grilleJoueur = grilleJoueur;
+		this.cases = new Etat[ModeleBataille.TAILLE][ModeleBataille.TAILLE];
+		this.GrilleAdversaire = new Integer[ModeleBataille.TAILLE][ModeleBataille.TAILLE];
+		// Commencer une partie
+		initialiser();
+	}
+
+	/** Est-ce que la partie est terminée ? */
+	public boolean estTerminee() {
+		return false;
+	}
+
+	/** Est-ce qu'il y a un gagnant ? */
+	public boolean estGagnee() {
+		gagnee= false;
+		if (this.nbcasestrouves ==6) {
+			gagnee = true;
+		}
+		return gagnee;
+	}
+
+	/** Est-ce que la case (i,j) est vide ? */
+	private boolean estVide(int i, int j) {
+		return getValeur(i,j) == Etat.VIDE;
+	}
+	
+	private boolean estVide(Integer[][] GrilleAdversaire ,int i, int j) {
+		boolean plein = false;
+		if (GrilleAdversaire[i][j] != null) {
+			plein = GrilleAdversaire[i][j] != 0;
+		}
+		return !plein;
+	}
+
+	public Etat getValeur(int x, int y) {
+		return this.cases[x][y];
+	}
+	
+	public boolean estVoisin(int x, int y, int i, int j) {
+		return (Math.abs(x-i)==0) && (Math.abs(y-j)==1) || (Math.abs(x-i)==1) && (Math.abs(y-j)==0);
+	}
+	
+	/** Initialiser le jeu pour faire une nouvelle partie */
+	private void initialiser() {
+		int random1 = 0;
+		int random2 = 0;
+		int random3;
+		int testCase1;
+		int testCase2;
+		boolean caseCorrecte;
+		
+		// Initialiser les cases
+		for (int i = 0; i < this.cases.length; i++) {
+			for (int j = 0; j < this.cases[i].length; j++) {
+				this.cases[i][j] = Etat.VIDE;
+				this.GrilleAdversaire[i][j] = 0;
+			}
+		}
+			
+		//Création du jeu adverse
+		for (int k = 1; k<4 ; k++) {
+			caseCorrecte = false;
+			while (!caseCorrecte){
+				random1 = (int) Math.floor(Math.random()*(ModeleBataille.TAILLE-1));
+				random2 = (int) Math.floor(Math.random()*(ModeleBataille.TAILLE-1));
+					if (estVide(GrilleAdversaire,random1,random2)){
+						GrilleAdversaire[random1][random2]=k;
+						caseCorrecte = true;
+					}
+				}
+			caseCorrecte = false;
+			while (!caseCorrecte) {
+				random3 = (int) Math.floor(Math.random());
+				testCase1 = random3 + random1;
+				testCase2 = random2 + Math.abs(random3-1);
+				if ((testCase1 < ModeleBataille.TAILLE) && (testCase2 < ModeleBataille.TAILLE)) {
+					if (estVide(GrilleAdversaire,testCase1,testCase2)) {
+						caseCorrecte = true;
+						GrilleAdversaire[testCase1][testCase2]=k;
+					}
+				}
+				
+				testCase1 = random3 - random1;
+				testCase2 = random2 - Math.abs(random3-1);
+				if (!caseCorrecte && (testCase1 >=0) && (testCase2 >=0)) {
+					if (estVide(GrilleAdversaire,testCase1,testCase2)) {
+						caseCorrecte = true;
+						GrilleAdversaire[testCase1][testCase2]=k;
+					}
+				}	
+			}
+				
+			}
+
+		// Initialiser le nb de coups
+		this.nbCoups = 0;
+
+		// Initialiser gagnée
+		gagnee = false;
+
+	}
+
+	/** Jouer en (i,j) pour le joueur */
+	//@ requires estVide(i,j);
+	//@ ensures getValeur(i,j) == joueur;
+	private void jouer(int i, int j) {
+		if (GrilleAdversaire[i][j] != 0) {
+			this.cases[i][j]=Etat.ROND;
+			this.nbcasestrouves +=1;
+		}
+		else {
+			this.cases[i][j]=Etat.CROIX;
+		}
+			
+		this.nbCoups++;
+
+		// Mettre à jour gagnee
+		gagnee = this.estGagnee();
+	}
+
+
+
+	public ModeleGrillePerso getModeleGrillePerso() {
+		return this.grilleJoueur;
+	}
+	
+	public int getNbCoups() {
+		return this.nbCoups;
+	}
+
+	public void quitter() {
+	}
+
+	public void recommencer() {
+		this.initialiser();
+	}
+	
+	public boolean monTour(int nbCoups) {
+		//return nbCoups+ModeleBataille.TAILLE-1<grilleJoueur.getNbCoups();
+		return true;
+	}
+	
+	public void FaireJouerOrdi(ModeleGrillePerso grilleJoueur) {
+		boolean caseCorrecte;
+		int random1;
+		int random2;
+		caseCorrecte = false;
+		while (!caseCorrecte){
+			random1 = (int) Math.floor(Math.random()*(ModeleBataille.TAILLE));
+			random2 = (int) Math.floor(Math.random()*(ModeleBataille.TAILLE));
+				if (grilleJoueur.estVide(random1,random2)){
+					try {							
+						grilleJoueur.cocherRandom(random1, random2);
+						System.out.println(random1+","+random2);
+						} catch (CaseOccupeeException e) {
+					}
+					caseCorrecte = true;
+				}	
+		}
+}
+	boolean impossible = false;
+	public void cocher(int x, int y) throws CaseOccupeeException {
+		if (!this.estTerminee() && !this.gagnee && monTour(nbCoups)) {	// La partie est en cours
+			if (this.estVide(x, y)) {
+				// Jouer la case
+				this.jouer(x, y);
+				//Faire jouer l'ordi
+				FaireJouerOrdi(this.getModeleGrillePerso());
+			} else {
+				throw new CaseOccupeeException("Impossible, la case est occupée !");
+			}
+		}
+	}
+
+}

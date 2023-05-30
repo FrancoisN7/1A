@@ -1,0 +1,51 @@
+package Barre_Outils;
+
+import javax.swing.JFrame;
+
+public interface ModeleInventaire {
+
+    // Modéliser le contenu d'une case de l'inventaire
+    enum Contenu { VIDE, TORCHE, COQUILLAGE, POULPI };
+
+
+
+    // Nombre de ligne
+    int LIGNES = 3;
+
+    // Nombre de colonnes
+    int COLONNES = 6;
+    
+    /** Est-ce que la case de l'inventaire est vide.
+     * @param x colonne de la case
+	 * @param y ligne de la case
+     * @return
+     */
+    boolean estVide(int x, int y);
+
+    /** Ajouter un objet dans l'inventaire. */
+    void ajouter(Contenu objet) throws InventairePleinException;
+
+    /** Prendre un dans l'inventaire.
+     * @param x colonne de la case
+	 * @param y ligne de la case
+     * @return l'objet de la case
+     */
+    Contenu prendre(int x, int y) throws CaseVideException;
+
+
+    /** Obtenir le contenu d'une case de l'inventaire.
+     * @param x colonne de la case
+	 * @param y ligne de la case
+     * @return la valeur de la case
+     */
+    Contenu getValeur(int x, int y);
+    
+    
+    /** Obtenir le nom du fichier de l'image d'une case de l'inventaire.
+     * @param x colonne de la case
+	 * @param y ligne de la case
+     * @return le nom du fichier
+     */
+    String getNom(int x, int y);
+
+}

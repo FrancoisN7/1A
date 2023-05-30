@@ -1,0 +1,55 @@
+package deplacement;
+
+import java.awt.event.*;
+
+@SuppressWarnings("serial")
+public class Carte extends EcranAffiche{
+	
+	public Carte() {
+		super();
+	}
+	
+	@Override 
+    public void mouseClicked(MouseEvent e) {  
+		System.out.println("click Carte");
+		
+		int x = e.getX();
+		int y = e.getY();
+		System.out.println(x);
+		System.out.println(y);
+		
+        if ( Math.sqrt( Math.pow(x-406, 2) + Math.pow(y-221, 2) ) < 50) {
+        	ecran.dispose();
+        	ecran = new Village();
+        	ecran.Afficher("village.jpg");
+        }
+        
+        else if ( Math.sqrt( Math.pow(x-451, 2) + Math.pow(y-725, 2) ) < 50) {
+        	ecran.dispose();
+        	ecran = new Grotte();
+        	ecran.Afficher("grotte.jpg");
+        }
+        
+        else if ( Math.sqrt( Math.pow(x-511, 2) + Math.pow(y-513, 2) ) < 50) {
+        	ecran.dispose();
+        	ecran = new Ruines();
+        	ecran.Afficher("ruines.jpg");
+        }
+        
+        else if ( Math.sqrt( Math.pow(x-682, 2) + Math.pow(y-691, 2) ) < 70) {
+        	ecran.dispose();
+        	ecran = new Dragon();
+        	ecran.Afficher("dragon.jpg");
+        }
+        
+        else if (y < (-0.8 * x + 500)){
+        	ecran.dispose();
+        	ecran = new Plage();
+        	ecran.Afficher("plage.jpg");
+        }
+
+    }  
+
+	
+}
+

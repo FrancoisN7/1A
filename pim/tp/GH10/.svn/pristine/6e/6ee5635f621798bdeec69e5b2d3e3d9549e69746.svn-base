@@ -1,0 +1,44 @@
+test_lca.adb:16:31: error: expected private type "Ada.Strings.Unbounded.Unbounded_String"
+test_lca.adb:16:31: error: found type "T_octet" defined at lca.ads:8
+test_lca.adb:46:42: error: no visible subprogram matches the specification for "Traiter"
+test_lca.adb:73:10: error: "Enregistrer" is undefined (more references follow)
+test_lca.adb:76:13: error: no candidate interpretations match the actuals:
+test_lca.adb:76:13: error: missing argument for parameter "Item" in call to "Put_Line" declared at a-textio.ads:496
+test_lca.adb:76:54: error: expected type "Standard.String"
+test_lca.adb:76:54: error: found private type "Ada.Strings.Unbounded.Unbounded_String"
+test_lca.adb:76:54: error:   ==> in call to "Put_Line" at a-textio.ads:506
+test_lca.adb:86:28: error: too many arguments in call to "La_Donnee"
+test_lca.adb:90:32: error: "Cle_Presente" is undefined (more references follow)
+test_lca.adb:115:10: error: "Supprimer" is undefined (more references follow)
+test_lca.adb:117:10: error: no candidate interpretations match the actuals:
+test_lca.adb:117:10: error: missing argument for parameter "Item" in call to "Put_Line" declared at a-textio.ads:496
+test_lca.adb:117:56: error: expected type "Standard.String"
+test_lca.adb:117:56: error: found private type "Ada.Strings.Unbounded.Unbounded_String"
+test_lca.adb:117:56: error:   ==> in call to "Put_Line" at a-textio.ads:506
+test_lca.adb:122:28: error: too many arguments in call to "La_Donnee"
+test_lca.adb:142:10: error: no candidate interpretations match the actuals:
+test_lca.adb:142:10: error: missing argument for parameter "Item" in call to "Put_Line" declared at a-textio.ads:496
+test_lca.adb:142:49: error: expected type "Standard.String"
+test_lca.adb:142:49: error: found private type "Ada.Strings.Unbounded.Unbounded_String"
+test_lca.adb:142:49: error:   ==> in call to "Put_Line" at a-textio.ads:506
+test_lca.adb:154:28: error: too many arguments in call to "La_Donnee"
+test_lca.adb:170:10: error: no candidate interpretations match the actuals:
+test_lca.adb:170:10: error: missing argument for parameter "Item" in call to "Put_Line" declared at a-textio.ads:496
+test_lca.adb:170:54: error: expected type "Standard.String"
+test_lca.adb:170:54: error: found private type "Ada.Strings.Unbounded.Unbounded_String"
+test_lca.adb:170:54: error:   ==> in call to "Put_Line" at a-textio.ads:506
+test_lca.adb:203:10: error: no candidate interpretations match the actuals:
+test_lca.adb:203:10: error: missing argument for parameter "Item" in call to "Put_Line" declared at a-textio.ads:496
+test_lca.adb:204:55: error: expected type "Standard.String"
+test_lca.adb:204:55: error: found private type "Ada.Strings.Unbounded.Unbounded_String"
+test_lca.adb:204:55: error:   ==> in call to "Put_Line" at a-textio.ads:506
+test_lca.adb:212:31: error: too many arguments in call to "La_Donnee"
+test_lca.adb:214:31: error: too many arguments in call to "La_Donnee"
+test_lca.adb:258:21: error: too many arguments in call to "La_Donnee"
+test_lca.adb:285:26: error: no visible subprogram matches the specification for "Traiter"
+test_lca.adb:317:26: error: no visible subprogram matches the specification for "Traiter"
+test_lca.adb:351:26: error: no visible subprogram matches the specification for "Traiter"
+test_lca.adb:369:09: error: too many arguments in call to "ajouter"
+test_lca.adb:370:09: error: too many arguments in call to "ajouter"
+test_lca.adb:383:09: error: too many arguments in call to "ajouter"
+test_lca.adb:385:09: error: too many arguments in call to "ajouter"

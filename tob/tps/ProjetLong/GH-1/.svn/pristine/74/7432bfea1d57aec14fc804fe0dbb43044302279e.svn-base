@@ -1,0 +1,13 @@
+package Dialogue;
+
+public class ArbresDialogues {
+
+
+	static ArbreDialogue genererArbreDialogueLuffy(){
+		ArbreDialogue arbreDialogue = new ArbreDialogue("Luffy: Veux-tu rejoindre mon équipage?", "1.Non!", "2.Oui!", "3.Seulement si on mange un morceau avant.");
+		arbreDialogue.ajouterEnfant("Luffy: Pourquoi?", "1.Parce que t'es sec.", "2.Je suis déjà dans l'équipage de WhiteBeard.");
+		arbreDialogue.ajouterEnfant("Luffy: Je vais devenir le roi des pirates!", "1.Rejoindre Luffy");
+		arbreDialogue.ajouterEnfant("Luffy: MANGER?! Miam...", "1.Partir manger de la viande", "2.Abandonner Luffy");
+		return arbreDialogue;
+	}
+}

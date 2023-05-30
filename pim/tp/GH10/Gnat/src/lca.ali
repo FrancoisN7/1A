@@ -1,0 +1,188 @@
+V "GNAT Lib v2021"
+A -gnatwa
+A -gnata
+A -g
+P ZX
+
+RN
+RV NO_ALLOCATORS
+RV NO_DIRECT_BOOLEAN_OPERATORS
+RV NO_IO
+RV NO_IMPLICIT_CONDITIONALS
+RV NO_LOCAL_ALLOCATORS
+RV NO_RECURSION
+RV NO_STANDARD_STORAGE_POOLS
+RV NO_UNCHECKED_DEALLOCATION
+RV NO_DEFAULT_INITIALIZATION
+RV NO_IMPLEMENTATION_ASPECT_SPECIFICATIONS
+
+U lca%b			lca.adb			69d9ed63 NE OO PK IU
+W ada%s			ada.ads			ada.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W ada.unchecked_deallocation%s
+Z system.assertions%s	s-assert.adb		s-assert.ali
+
+U lca%s			lca.ads			a6d05c09 EE NE OO PK IU
+W ada%s			ada.ads			ada.ali
+Z ada.io_exceptions%s	a-ioexce.ads		a-ioexce.ali
+W ada.sequential_io%s
+Z ada.strings.text_buffers%s  a-sttebu.adb	a-sttebu.ali
+Z ada.unchecked_conversion%s
+W interfaces%s		interfac.ads		interfac.ali
+Z interfaces.c_streams%s  i-cstrea.adb		i-cstrea.ali
+W system%s		system.ads		system.ali
+Z system.byte_swapping%s  s-bytswa.ads		s-bytswa.ali
+Z system.crtl%s		s-crtl.ads		s-crtl.ali
+Z system.file_control_block%s  s-ficobl.ads	s-ficobl.ali
+Z system.file_io%s	s-fileio.adb		s-fileio.ali
+Z system.sequential_io%s  s-sequio.adb		s-sequio.ali
+Z system.storage_elements%s  s-stoele.adb	s-stoele.ali
+
+D ada.ads		20210520051130 76789da1 ada%s
+D a-assert.ads		20210520051127 a718b65c ada.assertions%s
+D a-except.ads		20210520051127 946f3014 ada.exceptions%s
+D a-inteio.ads		20210520051127 f64b89a4 ada.integer_text_io%s
+D a-ioexce.ads		20210520051127 e4a01f64 ada.io_exceptions%s
+D a-sequio.ads		20210520051128 3573d8ce ada.sequential_io%s
+D a-sequio.adb		20210520051128 3a82bda9 ada.sequential_io%b
+D a-stream.ads		20210520051128 119b8fb3 ada.streams%s
+D a-string.ads		20210520051128 90ac6797 ada.strings%s
+D a-sttebu.ads		20210520051128 18209c64 ada.strings.text_buffers%s
+D a-stuten.ads		20210520051128 808c40ad ada.strings.utf_encoding%s
+D a-tags.ads		20210520051129 9eaa38c6 ada.tags%s
+D a-textio.ads		20210520051129 aef4d56d ada.text_io%s
+D a-tiinio.ads		20210520051129 390edddb ada.text_io.integer_io%s
+D a-unccon.ads		20210520051129 0e9b276f ada.unchecked_conversion%s
+D a-uncdea.ads		20210520051129 c3a8ac65 ada.unchecked_deallocation%s
+D interfac.ads		20210520051131 edec285f interfaces%s
+D i-cstrea.ads		20210520051131 e53d8b8e interfaces.c_streams%s
+D lca.ads		20220113142431 93a384c7 lca%s
+D lca.adb		20220113142430 616d9908 lca%b
+D system.ads		20210520051134 a2da961d system%s
+D s-assert.ads		20210520051131 6a49a4e4 system.assertions%s
+D s-bytswa.ads		20210520051131 1d5476e8 system.byte_swapping%s
+D s-crtl.ads		20210520051131 0ebbdb71 system.crtl%s
+D s-exctab.ads		20210520051131 54135002 system.exception_table%s
+D s-ficobl.ads		20210520051131 078245e4 system.file_control_block%s
+D s-fileio.ads		20210520051131 45ce2f0f system.file_io%s
+D s-parame.ads		20210520051133 4752c4cb system.parameters%s
+D s-putima.ads		20210520051133 4e095881 system.put_images%s
+D s-secsta.ads		20210520051133 9b3ab94b system.secondary_stack%s
+D s-sequio.ads		20210520051133 fc7560a7 system.sequential_io%s
+D s-soflin.ads		20210520051133 a7318a92 system.soft_links%s
+D s-stache.ads		20210520051133 a37c21ec system.stack_checking%s
+D s-stalib.ads		20210520051133 472fbca8 system.standard_library%s
+D s-stoele.ads		20210520051133 2dc34a04 system.storage_elements%s
+D s-stoele.adb		20210520051133 ed88f8fb system.storage_elements%b
+D s-traent.ads		20210520051133 26a8d361 system.traceback_entries%s
+D s-unstyp.ads		20210520051133 2b077493 system.unsigned_types%s
+D s-wchcon.ads		20210520051134 1b7d22d2 system.wch_con%s
+D unchconv.ads		20210520051134 ca2f9e18 unchecked_conversion%s
+G a e
+G c Z s s [create lca__byte_file 70 14 10_5]
+G c Z s s [open lca__byte_file 76 14 10_5]
+G c Z s s [close lca__byte_file 82 14 10_5]
+G c Z s s [delete lca__byte_file 83 14 10_5]
+G c Z s s [reset lca__byte_file 84 14 10_5]
+G c Z s s [reset lca__byte_file 85 14 10_5]
+G c Z s s [mode lca__byte_file 87 13 10_5]
+G c Z s s [name lca__byte_file 88 13 10_5]
+G c Z s s [form lca__byte_file 89 13 10_5]
+G c Z s s [is_open lca__byte_file 91 13 10_5]
+G c Z s s [flush lca__byte_file 93 14 10_5]
+G c Z s s [read lca__byte_file 99 14 10_5]
+G c Z s s [write lca__byte_file 100 14 10_5]
+G c Z s s [end_of_file lca__byte_file 102 13 10_5]
+G c Z s s [to_fcb lca__byte_file 60 13 10_5]
+G c Z s s [to_sio lca__byte_file 61 13 10_5]
+G c Z s s [byte_swap lca__byte_file 66 14 10_5]
+G c Z s b [initialiser lca 14 19 none]
+G c Z s b [est_vide lca 19 18 none]
+G c Z s b [taille lca 23 18 none]
+G c Z s b [la_donnee lca 28 14 none]
+G c Z s b [suivant lca 33 14 none]
+G c Z s b [supprimer_1er lca 37 15 none]
+G c Z s b [ajouter lca 41 15 none]
+G c Z s b [copier lca 46 15 none]
+G c Z s b [sont_egales lca 50 14 none]
+G c Z s b [afficher lca 54 15 none]
+G c Z s b [int2byte lca 59 14 none]
+G c Z s b [encoder_sda lca 63 15 none]
+G c Z s b [vider lca 67 19 none]
+G c Z s s [t_celluleIP lca 74 9 none]
+G c Z b b [free lca 8 19 none]
+X 1 ada.ads
+16K9*Ada 20e8 19|1r6 10r30 20|1r6 1r34 2r6 2r33 3r6 9r21
+X 4 a-inteio.ads
+18K13*Integer_Text_IO[14|46] 20|2w10 2r37
+X 6 a-sequio.ads
+43k13*Sequential_IO 160e22 19|1w10 10r34
+53P9*File_Type<31|63P9> 19|63r122[10] 20|138r122[19|10]
+100U14*Write 20|143s13[19|10]
+X 13 a-textio.ads
+58K13*Text_IO 725e16 20|1w10 1r38
+X 14 a-tiinio.ads
+80U14*Put 20|107s17[4|18] 109s17[4|18]
+X 16 a-uncdea.ads
+17+9 Object 20|9r49
+18P9 Name(17+9) 20|9r70
+20u15*Unchecked_Deallocation 20|3w10 9r25
+X 19 lca.ads
+4K9*LCA 72E9 80l5 80e8 20|6b14 154l5 154t8
+6P10*T_LCA 14r40 19r34 23r35 28r33 33r31 33r45 37r42 41r37 46r31 46r50 50r37
+. 50r55 54r33 63r36 67r39 73c9 77r20 20|9r78 12r40 18r37 24r35 34r33 40r31
+. 40r45 46r42 47r22 57r37 69r35 78r31 78r50 87r37 87r55 103r33 138r36
+8M10*T_octet 10r48 28r47 41r56 59r48 63r85 76r19 20|34r47 57r56 116r48 117r17
+. 138r85 139r15
+10K13*Byte_file[6|43] 11r13 63r112 20|138r112
+14U19*Initialiser 14<31 20|12b19 15l9 15t20
+14p31 Sda{6P10} 15r35 20|12b31 14m9
+19V18*Est_Vide{boolean} 15s25 19>28 25s51 29s24 34s24 68s25 20|18b18 21t12
+. 26s12
+19p28 Sda{6P10} 20|18b28 20r24
+23V18*Taille{integer} 23>26 24r25 25r30 42s21 42s36 20|24b18 29s20 31l13
+. 31t19
+23p26 Sda{6P10} 25r61 20|24b26 26r21 29r27
+28V14*la_donnee{8M10} 28>24 20|34b14 37l9 37t18
+28p24 sda{6P10} 29r33 20|34b24 36r16
+33V14*suivant{6P10} 33>22 20|40b14 43l9 43t16
+33p22 sda{6P10} 34r33 20|40b22 42r16
+37U15*supprimer_1er 37=29 20|46b15 54l9 54t22
+37p29 sda{6P10} 20|46b29 49r12 50r27 51m13 51r20
+41U15*ajouter 41=24 41>44 20|57b15 64s13 66l9 66t16 81s13
+41p24 sda{6P10} 42r29 42r44 20|57b24 59r12 60m13 61r13 62r13 64r22
+41m44 donnee{8M10} 20|57b44 61r31 64r39
+46U15*copier 46>22 46<38 20|78b15 82s13 84l9 84t15
+46p22 sda{6P10} 20|78b22 80r12 81r28 82r20
+46p38 copie{6P10} 20|78b38 81m21 82m37
+50V14*sont_egales{boolean} 50>26 50>44 20|87b14 99s20 101l9 101t20
+50p26 sda_1{6P10} 20|87b26 89r29 92r16 94r19 96r19 99r32
+50p44 sda_2{6P10} 20|87b44 89r12 92r33 94r37 96r39 99r51
+54U15*afficher 54>24 20|103b15 111s13 113l9 113t17
+54p24 sda{6P10} 20|103b24 105r12 106r16 111r22
+59V14*int2byte{8M10} 59>23 20|116b14 136l9 136t17
+59i23 val{integer} 20|116b23 122r20 123r12
+63U15*encoder_sda 63>27 63=43 63=70 63=94 20|138b15 150s13 152l9 152t20
+63p27 sda{6P10} 20|138b27 146r12 147r20 150r25
+63i43 compteur{integer} 20|138b43 141r12 142m13 149m13 149r25 150m42
+63m70 octet{8M10} 20|138b70 143r29 144m13 148m13 148r23 150m52
+63p94 file_hff{6|53P9[10]} 20|138b94 143r19 150m59
+67U19*Vider 67=26 20|69b15 72s13 75l9 75t14
+67p26 Sda{6P10} 68r35 20|69b22 71r12 72r19 73m18
+72R9 T_Cellule 73r25 74c9 78e17 20|9r59 60r24
+76m10*donnee{8M10} 20|36r24 61m21 81r36 96r29 96r49 106r24 147r28
+77p10*suivant{6P10} 20|29r35 42r24 51r28 62m21 64m30 72m27 82r28 99r42 99r61
+. 111r30 150r33
+X 20 lca.adb
+8U19 Free[16|20] 52s13 73s13
+47p9 a_detruire{19|6P10} 50m13 52m18 52r18
+117m9 octet{19|8M10} 121m9 129m17 129r27 131m17 131r27 135r16
+118i9 bit{integer} 127m13 128r16
+119i9 courant{integer} 122m9 127r20 133m13 133r24
+126i13 i{integer}
+139m9 bit{19|8M10} 147m13 148r37
+X 31 s-sequio.ads
+63P9*File_Type(43R9)
+

@@ -1,0 +1,142 @@
+with Ada.Text_IO;           use Ada.Text_IO;
+with Ada.Integer_Text_IO;   use Ada.Integer_Text_IO;
+with Ada.Command_line; use Ada.Command_line;
+with Ada.Sequential_IO ;	-- pour l'accès typé aux fichiers
+with LCA; use LCA;
+with arbre; use arbre;
+with Tableau;
+
+
+procedure decompresser is
+
+
+    package tab_octet is new tableau (T_Donnee => T_octet, capacite => 257);
+    use tab_octet;
+
+
+    procedure recuperer_tab_infixe(file_hff : in out Ada.Text_IO.file_type; tab_infixe : out tab_octet.T_Tableau; taille : out integer) is
+        octet : T_octet;
+        indice : integer;
+    begin
+        taille := 0;
+        loop
+            taille := taille + 1;
+            read(file_hff, octet);
+            Enregistrer(tab_infixe, taille, octet);
+            exit when octet = la_donnee(tab_infixe, taille + 1);
+        end loop;
+        read(file_hff, octet);
+        indice := la_donnee(tab_infixe, 1);
+        octet := la_donnee(tab_infixe, indice);
+        Enregistrer(tab_infixe, 1, octet);
+        Enregistrer(tab_infixe, indice, -1);
+    end recuperer_tab_infixe;
+
+    --transferer le premier bit du fichier binaire
+    procedure transferer_bit(file_hff : in out Ada.Text_IO.file_type; octet : in out T_octet; compteur : in out integer; bit : out T_octet) is
+    begin
+        if compteur = 8 then
+            compteur := 1;
+            read(file_hff, octet);
+            bit := octet/128;
+        else
+            compteur := compteur + 1;
+            bit := octet/128;
+        end if;
+    end transferer_bit;
+
+    --recuperer la structure de l'arbre de huffman
+    procedure recuperer_structure_arbre(file_hff : in out Ada.Text_IO.file_type; structure_arbre : out T_LCA; Taille : in Integer) is
+        nb_de_1 : Integer;
+        compteur : Integer;
+        octet : T_octet;
+        bit : T_octet;
+    begin
+        Initialiser(structure_arbre);
+        nb_de_1 := 0;
+        compteur := 8;
+        octet := 0;
+        while nb_de_1 < taille loop
+            transferer_bit(file_hff, octet, compteur, bit);
+            ajouter(structure_arbre, bit);
+            if bit = 1 then
+                nb_de_1 := nb_de_1 + 1;
+            end if;
+        end loop;
+    end recuperer_structure_arbre;
+
+    procedure reconstituer_arbre(arbre : in out T_Arbre; structure_arbre : in T_LCA; tab_infixe : in tab_octet.T_Tableau; indice : in out Integer) is
+        donnee : T_octet;
+        courant : T_LCA;
+        fils_g : T_Arbre;
+        fils_d : T_Arbre;
+    begin
+        if Est_Vide(structure_arbre) then
+            null;
+        elsif la_donnee(structure_arbre) = 1 then
+            indice := indice + 1;
+            donnee := la_donnee(tab_infixe, indice);
+            creer(arbre, 0, donnee);
+        else
+            creer(arbre,0,0);
+            courant := suivant(structure_arbre);
+            fils_g := fils_gauche(arbre);
+            fils_d := fils_droit(arbre);
+            reconstituer_arbre(fils_g, courant, tab_infixe, indice);
+            reconstituer_arbre(fils_d, courant, tab_infixe, indice);
+        end if;
+    end reconstituer_arbre;
+
+
+
+    procedure decoder_fichier(file_hff : in out Ada.Text_IO.file_type; octet : in out T_octet; compteur : in out integer; tab_huffman : in out tab_lca.T_Tableau) is
+        function appartient is new tab_lca.est_presente(sont_egales);
+        courant : T_LCA;
+        bit : T_octet;
+    begin
+        Initialiser(courant);
+        loop
+            transferer_bit(file_hff, octet, compteur, bit);
+            ajouter(courant, bit);
+            if appartient(courant, tab_huffman) then
+                encoder_sda(courant, compteur, octet, file_hff);
+            end if;
+            vider(courant);
+            exit when octet = -1;
+        end loop;
+
+    end decoder_fichier;
+
+
+    file_hff : Ada.Text_IO.file_type;
+    tab_infixe : tab_octet.T_Tableau;
+    taille : integer;
+    octet : T_octet;
+    structure_arbre : T_LCA;
+    arbre : T_Arbre;
+    indice : Integer;
+    compteur : integer;
+    sda_binaire : T_LCA;
+    tab_huffman : tab_lca.T_Tableau;
+
+    begin
+    open(file_hff, In_File, Argument(1));
+
+    recuperer_tab_infixe(file_hff, tab_infixe, taille);
+
+    recuperer_structure_arbre(file_hff, structure_arbre, taille);
+
+    Initialiser(arbre);
+    indice := 0;
+    reconstituer_arbre(arbre, structure_arbre, tab_infixe, indice);
+
+    Initialiser(sda_binaire);
+    creer_tab_huffman(arbre, tab_huffman, sda_binaire);
+    vider(sda_binaire);
+
+    compteur := 0;
+    decoder_fichier(file_hff, octet, compteur, tab_huffman);
+
+    close(file_hff);
+
+end decompresser;
